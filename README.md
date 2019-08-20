@@ -1,0 +1,2 @@
+# redead
+gmod gamemode
