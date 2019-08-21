@@ -102,10 +102,61 @@ LANGUAGE.drop_all                        = "Drop All"
 LANGUAGE.cost_na                         = "Cost: N/A"
 LANGUAGE.cost_x                          = "Cost: %x Bones"
 LANGUAGE.airdrop_items                   = "Airdrop  Items"
- 
- 
- 
- 
- 
- 
- 
+
+--Screen Notice
+LANGUAGE.evac_in                         = " minutes until evac arrives"
+LANGUAGE.evac_in_route                   = "The evac chopper is en route"
+LANGUAGE.evac_has_arrived                = "The evac chopper has arrived"
+LANGUAGE.evac_has_arrived2               = "You have 45 seconds to reach the evac zone"
+LANGUAGE.evac_has_arrived3               = "The location has been marked"
+LANGUAGE.evac_success                    = "You were successfully evacuated"
+LANGUAGE.evac_has_arrived3               = "The location has been marked"
+LANGUAGE.press_to_help                   = "Press F1 to view the help menu"
+LANGUAGE.press_to_buy                    = "Press F2 to buy items and weapons"
+LANGUAGE.press_to_panic                  = "Press F3 to activate the panic button"
+LANGUAGE.onslaught_begun                 = "The undead onslaught has begun"
+LANGUAGE.press_to_zombielord             = "Press F4 if you want to be the zombie lord"
+LANGUAGE.antidot_location                = "The antidote resupply location has changed"
+LANGUAGE.new_mutation                    = "New undead mutations have been spotted"
+LANGUAGE.your_health_bellow30            = "Your health has dropped below 30%"
+LANGUAGE.your_health_bellow30_tip        = "Health doesn't regenerate when below 30%"
+LANGUAGE.earn_5_bone_headshot            = "Headshot combos earn you more Bones"
+LANGUAGE.prepare_to_respawn_human        = "Prepare to respawn as a human"
+LANGUAGE.the_undead_overhelmet           = "The undead have overwhelmed %n"
+LANGUAGE.successfully_evac               = "%n has successfully evacuated"
+LANGUAGE.next_map                        = "Next map: %n"
+LANGUAGE.evac_left_without_you           = "The evac chopper left without you"
+LANGUAGE.cannot_use_radio                = "You cannot use your radio indoors"
+LANGUAGE.radio_offline                   = "Radio communications are offline"
+LANGUAGE.panic_button_detected           = "Panic button detected that you were %v"
+LANGUAGE.panic_button_didnot             = "Panic button did not detect any usable items"
+LANGUAGE.1_minute                        = "1 minute"
+LANGUAGE.2_minutes                       = "2 minutes"
+LANGUAGE.3_minutes                       = "3 minutes"
+LANGUAGE.30_seconds                      = "30 seconds"
+LANGUAGE.90_seconds                      = "90 seconds"
+LANGUAGE.antidot_supply_low_for          = "Antidote supplies will be low for %t"
+LANGUAGE.antidot_shortage_end            = "The antidote shortage has ended"
+LANGUAGE.nukelear_fallout                = "Nuclear fallout contamination is imminent"
+LANGUAGE.enter_building                  = "Enter a building to avoid radiation poisoning"
+LANGUAGE.subvise_for_x                   = "The atmospheric fallout will subside in %t"
+LANGUAGE.radioactivity_end               = "Atmospheric radioactivity levels are now safe"
+LANGUAGE.radio_down_for_x                = "Radio communications will be down for %t"
+LANGUAGE.radio_back_online               = "Radio communications are back online"
+LANGUAGE.surviving_scientist_found       = "A surviving field researcher has been sighted"
+LANGUAGE.keep_eye_on_supply              = "Keep an eye out for a civilian weapon cache"
+LANGUAGE.weather_worseing                = "The weather conditions are worsening"
+
+
+
+
+
+
+
+
+
+
+
+
+
+

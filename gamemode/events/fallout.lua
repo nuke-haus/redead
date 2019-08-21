@@ -3,7 +3,7 @@ local EVENT = {}
 
 EVENT.Chance = 0.50
 EVENT.Type = EVENT_BAD
-EVENT.TimeText = { "30 seconds", "1 minute" }  
+EVENT.TimeText = { translate.Get("30_seconds"), translate.Get("1_minute") }  
 EVENT.Times = { 30, 60 }  
 
 function EVENT:Start()
@@ -16,10 +16,10 @@ function EVENT:Start()
 	
 	for k,v in pairs( team.GetPlayers( TEAM_ARMY ) ) do
 		
-		v:Notice( "Nuclear fallout contamination is imminent", GAMEMODE.Colors.White, 7 )
-		v:Notice( "Enter a building to avoid radiation poisoning", GAMEMODE.Colors.White, 7, 2 )
-		v:Notice( "The atmospheric fallout will subside in " .. EVENT.TimeText[ num ], GAMEMODE.Colors.White, 7, 15 )
-		v:Notice( "Atmospheric radioactivity levels are now safe", GAMEMODE.Colors.White, 7, EVENT.Times[ num ] + 15 )
+		v:Notice( translate.Get("nukelear_fallout"), GAMEMODE.Colors.White, 7 )
+		v:Notice( translate.Get("enter_building"), GAMEMODE.Colors.White, 7, 2 )
+		v:Notice( translate.Format("subvise_for_x", EVENT.TimeText[ num ]), GAMEMODE.Colors.White, 7, 15 )
+		v:Notice( translate.Get("radioactivity_end"), GAMEMODE.Colors.White, 7, EVENT.Times[ num ] + 15 )
 		
 	end
 	

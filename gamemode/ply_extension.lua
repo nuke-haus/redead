@@ -1047,7 +1047,7 @@ function meta:AddMultipleToInventory( items )
 	
 			end
 			
-			self:Notice( "Picked up " .. tbl.Name, GAMEMODE.Colors.Green )
+			self:Notice( translate.Get("picked_up").." " .. tbl.Name, GAMEMODE.Colors.Green )
 		
 		end
 	
@@ -1099,7 +1099,7 @@ function meta:AddIDToInventory( id )
 
 	table.insert( self.Inventory, id )
 	self:AddWeight( tbl.Weight )
-	self:Notice( "Picked up " .. tbl.Name, GAMEMODE.Colors.Green )
+	self:Notice( translate.Get("picked_up").." " .. tbl.Name, GAMEMODE.Colors.Green )
 	
 	self:SynchInventory()
 	self:EmitSound( Sound( "items/itempickup.wav" ) )
@@ -1131,7 +1131,7 @@ function meta:AddToInventory( prop )
 
 	table.insert( self.Inventory, tbl.ID )
 	self:AddWeight( tbl.Weight )
-	self:Notice( "Picked up " .. tbl.Name, GAMEMODE.Colors.Green )
+	self:Notice( translate.Get("picked_up").." " .. tbl.Name, GAMEMODE.Colors.Green )
 	
 	if IsValid( prop ) then
 	
@@ -1291,7 +1291,7 @@ end
 
 function meta:Evac()
 
-	self:Notice( "You were successfully evacuated", GAMEMODE.Colors.Green, 5 )
+	self:Notice( translate.Get("evac_success"), GAMEMODE.Colors.Green, 5 )
 	
 	self:SetEvacuated( true )
 	self:Freeze( true )

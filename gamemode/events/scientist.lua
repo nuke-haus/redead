@@ -15,7 +15,7 @@ function EVENT:Start()
 	
 	for k,v in pairs( team.GetPlayers( TEAM_ARMY ) ) do
 		
-		v:Notice( "A surviving field researcher has been sighted", GAMEMODE.Colors.White, 5 )
+		v:Notice( translate.Get("surviving_scientist_found"), GAMEMODE.Colors.White, 5 )
 		
 	end
 	

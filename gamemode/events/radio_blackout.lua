@@ -3,7 +3,7 @@ local EVENT = {}
 
 EVENT.Chance = 0.75
 EVENT.Type = EVENT_BAD
-EVENT.TimeText = { "30 seconds", "1 minute", "90 seconds" }  
+EVENT.TimeText = { translate.Get("30_seconds"), translate.Get("1_minute"), translate.Get("90_seconds") }  
 EVENT.Times = { 30, 60, 90 }  
 
 function EVENT:Start()
@@ -14,8 +14,8 @@ function EVENT:Start()
 	
 	for k,v in pairs( team.GetPlayers( TEAM_ARMY ) ) do
 		
-		v:Notice( "Radio communications will be down for " .. EVENT.TimeText[ num ], GAMEMODE.Colors.Red, 5 )
-		v:Notice( "Radio communications are back online", GAMEMODE.Colors.White, 5, EVENT.Times[ num ] )
+		v:Notice( translate.Format("radio_down_for_x", EVENT.TimeText[ num ]), GAMEMODE.Colors.Red, 5 )
+		v:Notice( translate.Get("radio_back_online"), GAMEMODE.Colors.White, 5, EVENT.Times[ num ] )
 		
 	end
 	

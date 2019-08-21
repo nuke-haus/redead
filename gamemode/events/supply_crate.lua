@@ -17,7 +17,7 @@ function EVENT:Start()
 	
 	for k,v in pairs( team.GetPlayers( TEAM_ARMY ) ) do
 		
-		v:Notice( "Keep an eye out for a civilian weapon cache", GAMEMODE.Colors.White, 5 )
+		v:Notice( translate.Get("keep_eye_on_supply"), GAMEMODE.Colors.White, 5 )
 		
 	end
 	
