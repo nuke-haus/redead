@@ -1,4 +1,5 @@
 
+include( 'translate.lua' )
 include( 'player_class/player_base.lua' )
 include( 'player_class/player_zombie.lua' )
 include( 'map_defaults.lua' )
@@ -12,6 +13,7 @@ include( 'ply_extension.lua' )
 include( 'tables.lua' )
 include( 'weather.lua' )
 
+AddCSLuaFile( 'translate.lua' )
 AddCSLuaFile( 'player_class/player_base.lua' )
 AddCSLuaFile( 'player_class/player_zombie.lua' )
 AddCSLuaFile( 'animations.lua' )
