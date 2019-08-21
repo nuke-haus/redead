@@ -225,7 +225,7 @@ function PANEL:RefreshItems( tbl )
 		
 		else
 		
-			self.CashButton:SetText( "Drop" )
+			self.CashButton:SetText( translate.Get("drop") )
 			self.CashButton.OnMousePressed = function()
 				
 				RunConsoleCommand( "cash_drop", math.min( tonumber( self.CashBox:GetValue() ) or 0, self:GetCash() ) )
@@ -404,7 +404,7 @@ function PANEL:Paint()
 	
 	if self.StashStyle == "Buy" then return end
 	
-	draw.SimpleText( "Cash: $" .. self:GetCash(), "ItemDisplayFont", self:GetPadding() * 2, self:GetTall() - ( self:GetPadding() * 2 ) - 35, Color( 255, 255, 255 ), TEXT_ALIGN_LEFT, TEXT_ALIGN_LEFT )
+	draw.SimpleText( translate.Format("cash_i", self:GetCash()), "ItemDisplayFont", self:GetPadding() * 2, self:GetTall() - ( self:GetPadding() * 2 ) - 35, Color( 255, 255, 255 ), TEXT_ALIGN_LEFT, TEXT_ALIGN_LEFT )
 	
 	//draw.TexturedQuad( { texture = surface.GetTextureID( "radbox/menu_trade" ), x = self:GetPadding() * 2, y = self:GetTall() - ( self:GetPadding() * 2 ) - 40, w = 40, h = 40, color = Color( 200, 200, 200 ) } )
 

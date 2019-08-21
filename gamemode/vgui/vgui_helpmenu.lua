@@ -3,7 +3,7 @@ local PANEL = {}
 PANEL.Text = { "<html><body style=\"background-color:DimGray;\">",
 "<p style=\"font-family:tahoma;color:red;font-size:25;text-align:center\"><b>"..translate.Get("read_this").."</b></p>",
 "<p style=\"font-family:verdana;color:black;font-size:10px;text-align:left\"><b>"..translate.Get("the_inventory_system").."</b> ",
-""translate.Get("the_inventory_system_text").."<br><br>",
+""..translate.Get("the_inventory_system_text").."<br><br>",
 "<b>"..translate.Get("purchasing_items").."</b> "..translate.Get("purchasing_items_text").."<br><br>",
 "<b>"..translate.Get("the_panic_button").."</b> "..translate.Get("the_panic_button_text").."<br><br>",
 "<b>"..translate.Get("the_hud").."</b> "..translate.Get("the_hud_text").."",

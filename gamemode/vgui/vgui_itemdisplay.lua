@@ -8,7 +8,7 @@ function PANEL:Init()
 	self:SetKeyboardInputEnabled( false )
 	//self:SetDraggable( false ) 
 	
-	self.Text = "Click an item to see its description." 
+	self.Text = translate.Get("click_item_to_get") 
 	self.Title = "N/A"
 	self.Style = "Stash"
 	self.PriceScale = 1
@@ -140,11 +140,11 @@ function PANEL:Paint()
 	
 		if not self.Price or self.Price == 0 then
 			
-			draw.SimpleText( "Cost: N/A", "ItemDisplayFont", self:GetWide() * 0.5, 25, Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+			draw.SimpleText( translate.Get("cost_na"), "ItemDisplayFont", self:GetWide() * 0.5, 25, Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
 			
 		else
 		
-			draw.SimpleText( "Cost: "..self.Price.." "..GAMEMODE.CurrencyName.."s", "ItemDisplayFont", self:GetWide() * 0.5, 25, Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+			draw.SimpleText( translate.Format("cost_x", self.Price), "ItemDisplayFont", self:GetWide() * 0.5, 25, Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
 			
 		end
 		

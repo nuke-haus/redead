@@ -5,10 +5,10 @@ GM.CartItems = {}
 GM.OptionPanels = {}
 
 GM.Categories = { 
-{ Name = "Weapons", Icon = "icon16/gun.png", Categories = { ITEM_WPN_COMMON, ITEM_WPN_SPECIAL } },
-{ Name = "Ammunition", Icon = "icon16/package.png", Categories = { ITEM_AMMO } },
-{ Name = "Supplies", Icon = "icon16/pill.png", Categories = { ITEM_SUPPLY, ITEM_SPECIAL } },
-{ Name = "Miscellaneous", Icon = "icon16/bin.png", Categories = { ITEM_MISC, ITEM_BUYABLE } } 
+{ Name = ""..translate.Get("category_weapons"), Icon = "icon16/gun.png", Categories = { ITEM_WPN_COMMON, ITEM_WPN_SPECIAL } },
+{ Name = ""..translate.Get("category_ammunition"), Icon = "icon16/package.png", Categories = { ITEM_AMMO } },
+{ Name = ""..translate.Get("category_supplies"), Icon = "icon16/pill.png", Categories = { ITEM_SUPPLY, ITEM_SPECIAL } },
+{ Name = ""..translate.Get("category_misc"), Icon = "icon16/bin.png", Categories = { ITEM_MISC, ITEM_BUYABLE } } 
 }
 
 function GM:CreateElement( name )
@@ -88,7 +88,7 @@ function GM:CheckCartButton()
 	btn:SetPos( 765, 5 + 35 * ( table.Count( GAMEMODE.Cart ) ) )
 	btn:SetSize( 250, 30 )
 	btn:SetImage( "icon16/cart.png" )
-	btn:SetText( "Airdrop  Items" )
+	btn:SetText( translate.Get("airdrop_items") )
 	btn:SetFunction( function() RunConsoleCommand( "ordershipment" ) GAMEMODE:ClearCart() btn:Remove() end )
 	
 	GAMEMODE.CartButton = btn

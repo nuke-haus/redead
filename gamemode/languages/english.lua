@@ -83,7 +83,29 @@ LANGUAGE.sss                             = "s"
 LANGUAGE.ping                            = "Ping"
 LANGUAGE.unit_9                          = "Unit 9"
 LANGUAGE.the_undead                      = "The Undead"
+
+--Inventory Category
+LANGUAGE.category_weapons                = "Weapons"
+LANGUAGE.category_ammunition             = "Ammunition"
+LANGUAGE.category_supplies               = "Supplies"
+LANGUAGE.category_misc                   = "Miscellaneous"
+
+--Inventory Stuff
+LANGUAGE.drop                            = "Drop"
+LANGUAGE.cash_i                          = "Cash: $%s"
+
+--Shop Stuff
+LANGUAGE.cancel                          = "Cancel"
+LANGUAGE.buy_multiple                    = "Buy Multiple"         
+LANGUAGE.drop_multiple                   = "Drop Multiple"
+LANGUAGE.drop_all                        = "Drop All"
+LANGUAGE.cost_na                         = "Cost: N/A"
+LANGUAGE.cost_x                          = "Cost: %x Bones"
+LANGUAGE.airdrop_items                   = "Airdrop  Items"
  
-
-
-
+ 
+ 
+ 
+ 
+ 
+ 

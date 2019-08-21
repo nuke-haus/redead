@@ -72,7 +72,7 @@ end
 function PANEL:MouseMenu()
 
 	local menu = vgui.Create( "DMenu", self )
-	menu:AddOption( "Cancel" )
+	menu:AddOption( translate.Get("cancel") )
 	
 	if self.Stashable then
 	
@@ -115,11 +115,11 @@ function PANEL:MouseMenu()
 				
 			end end )
 			
-			local submenu = menu:AddSubMenu( "Buy Multiple" )
+			local submenu = menu:AddSubMenu( translate.Get("buy_multiple") )
 				
 			for k,v in pairs{ 3, 5, 10, 20 } do
 				
-				submenu:AddOption( "Buy "..v, function() if LocalPlayer():GetNWInt( "Cash", 0 ) >= self.ItemTable.Price * v then
+				submenu:AddOption( translate.Get("buy").." "..v, function() if LocalPlayer():GetNWInt( "Cash", 0 ) >= self.ItemTable.Price * v then
 			
 					RunConsoleCommand( "inv_buy", self.ID, v )
 					GAMEMODE:AddToCart( self.ItemTable, v )
@@ -194,7 +194,7 @@ function PANEL:MouseMenu()
 	
 	if not self.IsWeapon then
 	
-		menu:AddOption( "Drop", function() RunConsoleCommand( "inv_drop", self.ID, 1 ) end )
+		menu:AddOption( translate.Get("drop"), function() RunConsoleCommand( "inv_drop", self.ID, 1 ) end )
 		
 	end
 	
@@ -202,13 +202,13 @@ function PANEL:MouseMenu()
 	
 		if self:GetCount() > 3 then
 	
-			local submenu = menu:AddSubMenu( "Drop Multiple" )
+			local submenu = menu:AddSubMenu( translate.Get("drop_multiple") )
 				
 			for k,v in pairs{ 3, 5, 10, 20 } do
 				
 				if self:GetCount() > v then
 					
-					submenu:AddOption( "Drop "..v, function() RunConsoleCommand( "inv_drop", self.ID, v ) end )
+					submenu:AddOption( translate.Get("drop").." "..v, function() RunConsoleCommand( "inv_drop", self.ID, v ) end )
 					
 				end
 				
@@ -216,7 +216,7 @@ function PANEL:MouseMenu()
 		
 		end
 	
-		menu:AddOption( "Drop All", function() RunConsoleCommand( "inv_drop", self.ID, self:GetCount() ) end )
+		menu:AddOption( translate.Get("drop_all"), function() RunConsoleCommand( "inv_drop", self.ID, self:GetCount() ) end )
 		
 	end
 	
