@@ -15,7 +15,25 @@ RULES FOR TRANSLATORS!!
 
 translate.AddLanguage("en", "English")
 
--- Various gamemode stuff
+-- Zombie Class Names
+LANGUAGE.zclass_runner                   = "Runner"
+LANGUAGE.zclass_banshee                  = "Banshee"
+LANGUAGE.zclass_contagion                = "Contagion"
+LANGUAGE.zclass_leaper                   = "Leaper"
+
+-- Zombie Class Description
+LANGUAGE.zclass_runner_desk              = "The Runner: A resilient and agile zombie. Capable of infecting humans with its claws."
+LANGUAGE.zclass_banshee_desk             = "The Banshee: A highly radioactive zombie. Capable of disorienting humans with its scream."
+LANGUAGE.zclass_contagion_desk           = "The Contagion: A bloated, festering zombie. When killed it will burst into a shower of acid."
+LANGUAGE.zclass_leaper_desk              = "The Leaper: A bony, mutated zombie. Capable of jumping great distances and making humans bleed with its claws."
+
+-- Human Class Description
+LANGUAGE.hclass_scout_desk               = "The Scout: Wears lightweight kevlar armor, allowing for improved mobility. Starts off with extra %ss."
+LANGUAGE.hclass_commando_desk            = "The Commando: Wears prototype kevlar armor, allowing for improved damage resistance."
+LANGUAGE.hclass_specialist_desk          = "The Specialist: Has access to restricted utilities and weaponry."
+LANGUAGE.hclass_engineer_desk            = "The Technician: Starts off with the tools needed for barricade construction."
+
+
 
 
 

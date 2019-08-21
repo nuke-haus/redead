@@ -91,10 +91,10 @@ GM.ZombieSpeed[CLASS_LEAPER] = 275
 // Class names, descriptions, logos
 
 GM.ClassDescriptions = {}
-GM.ClassDescriptions[CLASS_SCOUT] = "The Scout: Wears lightweight kevlar armor, allowing for improved mobility. Starts off with extra " .. GM.CurrencyName .. "s."
-GM.ClassDescriptions[CLASS_COMMANDO] = "The Commando: Wears prototype kevlar armor, allowing for improved damage resistance."
-GM.ClassDescriptions[CLASS_SPECIALIST] = "The Specialist: Has access to restricted utilities and weaponry."
-GM.ClassDescriptions[CLASS_ENGINEER] = "The Technician: Starts off with the tools needed for barricade construction."
+GM.ClassDescriptions[CLASS_SCOUT] = ""..translate.Format("hclass_scout_desk", GM.CurrencyName)
+GM.ClassDescriptions[CLASS_COMMANDO] = ""..translate.Get("hclass_commando_desk")
+GM.ClassDescriptions[CLASS_SPECIALIST] = ""..translate.Get("hclass_specialist_desk")
+GM.ClassDescriptions[CLASS_ENGINEER] = ""..translate.Get("hclass_engineer_desk")
 
 GM.ClassLogos = {}
 GM.ClassLogos[CLASS_SCOUT] = "nuke/redead/scout"
@@ -103,16 +103,16 @@ GM.ClassLogos[CLASS_SPECIALIST] = "nuke/redead/specialist"
 GM.ClassLogos[CLASS_ENGINEER] = "nuke/redead/engineer"
 
 GM.ZombieNames = {}
-GM.ZombieNames[CLASS_RUNNER] = "Runner"
-GM.ZombieNames[CLASS_BANSHEE] = "Banshee"
-GM.ZombieNames[CLASS_CONTAGION] = "Contagion"
-GM.ZombieNames[CLASS_LEAPER] = "Leaper"
+GM.ZombieNames[CLASS_RUNNER] = ""..translate.Get("zclass_runner")
+GM.ZombieNames[CLASS_BANSHEE] = ""..translate.Get("zclass_banshee")
+GM.ZombieNames[CLASS_CONTAGION] = ""..translate.Get("zclass_contagion")
+GM.ZombieNames[CLASS_LEAPER] = ""..translate.Get("zclass_leaper")
 
 GM.ZombieDescriptions = {}
-GM.ZombieDescriptions[CLASS_RUNNER] = "The Runner: A resilient and agile zombie. Capable of infecting humans with its claws."
-GM.ZombieDescriptions[CLASS_BANSHEE] = "The Banshee: A highly radioactive zombie. Capable of disorienting humans with its scream."
-GM.ZombieDescriptions[CLASS_CONTAGION] = "The Contagion: A bloated, festering zombie. When killed it will burst into a shower of acid."
-GM.ZombieDescriptions[CLASS_LEAPER] = "The Leaper: A bony, mutated zombie. Capable of jumping great distances and making humans bleed with its claws."
+GM.ZombieDescriptions[CLASS_RUNNER] = ""..translate.Get("zclass_runner_desk")
+GM.ZombieDescriptions[CLASS_BANSHEE] = ""..translate.Get("zclass_banshee_desk")
+GM.ZombieDescriptions[CLASS_CONTAGION] = ""..translate.Get("zclass_contagion_desk")
+GM.ZombieDescriptions[CLASS_LEAPER] = ""..translate.Get("zclass_leaper_desk")
 
 GM.ZombieLogos = {}
 GM.ZombieLogos[CLASS_RUNNER] = "nuke/redead/zomb_corpse"

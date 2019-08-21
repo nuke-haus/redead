@@ -19,6 +19,8 @@ CreateConVar( "sv_redead_minimum_players", "6", { FCVAR_ARCHIVE, FCVAR_NOTIFY, F
 TEAM_ARMY = 1
 TEAM_ZOMBIES = 2
 
+include( 'translate.lua' )
+
 function GM:CreateTeams()
 	
 	team.SetUp( TEAM_ARMY, GAMEMODE.ArmyTeamName, Color( 80, 80, 255 ), true )

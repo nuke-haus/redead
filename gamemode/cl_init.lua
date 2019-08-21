@@ -1,4 +1,5 @@
 
+include( 'translate.lua' )
 include( 'player_class/player_base.lua' )
 include( 'player_class/player_zombie.lua' )
 include( 'animations.lua' )
@@ -31,6 +32,8 @@ include( 'vgui/vgui_goodmodelpanel.lua' )
 include( 'vgui/vgui_categorybutton.lua' )
 include( 'vgui/vgui_sidebutton.lua' )
 include( 'vgui/vgui_scroller.lua' )
+
+local translate = translate
 
 CV_RagdollVision = CreateClientConVar( "cl_redead_ragdoll_vision", "1", true, false )
 CV_RagdollRemove = CreateClientConVar( "cl_redead_ragdoll_remove_time", "15", true, false )
