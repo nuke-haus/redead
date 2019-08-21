@@ -15,8 +15,8 @@ GM.ShopDesc = "A HAPPY CUSTOMER IS A DEAD ONE!"
 
 // Team names 
 
-GM.ArmyTeamName = "Unit 9"
-GM.ZombieTeamName = "The Undead"
+GM.ArmyTeamName = translate.Get("unit_9")
+GM.ZombieTeamName = translate.Get("the_undead")
 
 // Death Screen text shit
 

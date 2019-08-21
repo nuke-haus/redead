@@ -59,7 +59,7 @@ function GM:GetPlayerStats( ply )
 
 	if not ply then 
 	
-		return { "Kills", GAMEMODE.CurrencyName .. "s" } 
+		return { translate.Get("kills"), GAMEMODE.CurrencyName .. ""..translate.Get("s") } 
 		
 	else
 	
@@ -241,11 +241,11 @@ function TFRAME:Paint( )
 	surface.SetDrawColor( GAMEMODE.ScoreBackground.r, GAMEMODE.ScoreBackground.g, GAMEMODE.ScoreBackground.b, GAMEMODE.ScoreBackground.a )
 	surface.DrawRect( 0, 25, self:GetWide(), self:GetTall() - 25 )
 	
-	local text = " Member )"
+	local text = translate.Get("member")
 	
 	if team.NumPlayers( self.TeamID ) > 1 or team.NumPlayers( self.TeamID ) == 0 then
 	
-		text = " Members )"
+		text = translate.Get("members")
 		
 	end
 	
@@ -258,8 +258,8 @@ function TFRAME:Paint( )
 	local tbl = GAMEMODE:GetPlayerStats()
 	local pos = 10
 	
-	draw.SimpleText( "Ping", "ScoreboardLabel", self:GetWide() - pos, 3, Color( teamshad.r, teamshad.g, teamshad.b, teamshad.a ), TEXT_ALIGN_RIGHT, TEXT_ALIGN_LEFT )
-	draw.SimpleText( "Ping", "ScoreboardLabel", self:GetWide() - pos - 1, 3, Color( teamcol.r, teamcol.g, teamcol.b, teamcol.a ), TEXT_ALIGN_RIGHT, TEXT_ALIGN_LEFT )
+	draw.SimpleText( translate.Get("ping"), "ScoreboardLabel", self:GetWide() - pos, 3, Color( teamshad.r, teamshad.g, teamshad.b, teamshad.a ), TEXT_ALIGN_RIGHT, TEXT_ALIGN_LEFT )
+	draw.SimpleText( translate.Get("ping"), "ScoreboardLabel", self:GetWide() - pos - 1, 3, Color( teamcol.r, teamcol.g, teamcol.b, teamcol.a ), TEXT_ALIGN_RIGHT, TEXT_ALIGN_LEFT )
 	
 	for k,v in pairs( tbl ) do
 	
