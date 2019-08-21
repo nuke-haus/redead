@@ -3,7 +3,7 @@ local EVENT = {}
 
 EVENT.Chance = 0.75
 EVENT.Type = EVENT_BAD
-EVENT.TimeText = { translate.Get("1_minute"), translate.Get("2_minutes"), translate.Get("3_minutes") }  
+EVENT.TimeText = { translate.Get("one_minute"), translate.Get("two_minutes"), translate.Get("three_minutes") }  
 EVENT.Times = { 60, 120, 180 }  
 
 function EVENT:Start()

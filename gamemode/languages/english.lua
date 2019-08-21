@@ -130,11 +130,11 @@ LANGUAGE.cannot_use_radio                = "You cannot use your radio indoors"
 LANGUAGE.radio_offline                   = "Radio communications are offline"
 LANGUAGE.panic_button_detected           = "Panic button detected that you were %v"
 LANGUAGE.panic_button_didnot             = "Panic button did not detect any usable items"
-LANGUAGE.1_minute                        = "1 minute"
-LANGUAGE.2_minutes                       = "2 minutes"
-LANGUAGE.3_minutes                       = "3 minutes"
-LANGUAGE.30_seconds                      = "30 seconds"
-LANGUAGE.90_seconds                      = "90 seconds"
+LANGUAGE.one_minute                      = "1 minute"
+LANGUAGE.two_minutes                     = "2 minutes"
+LANGUAGE.three_minutes                   = "3 minutes"
+LANGUAGE.thirty_seconds                  = "30 seconds"
+LANGUAGE.ninety_seconds                  = "90 seconds"
 LANGUAGE.antidot_supply_low_for          = "Antidote supplies will be low for %t"
 LANGUAGE.antidot_shortage_end            = "The antidote shortage has ended"
 LANGUAGE.nukelear_fallout                = "Nuclear fallout contamination is imminent"
@@ -147,9 +147,12 @@ LANGUAGE.surviving_scientist_found       = "A surviving field researcher has bee
 LANGUAGE.keep_eye_on_supply              = "Keep an eye out for a civilian weapon cache"
 LANGUAGE.weather_worseing                = "The weather conditions are worsening"
 
-
-
-
+--HUD stuff
+LANGUAGE.total_hud                       = "TOTAL"
+LANGUAGE.ammo_hud                        = "AMMO"
+LANGUAGE.bones_hud                       = "%c Bones"
+LANGUAGE.bone                            = "Bone"
+ 
 
 
 

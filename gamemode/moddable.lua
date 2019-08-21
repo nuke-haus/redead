@@ -2,7 +2,7 @@
 
 // Currency name
 
-GM.CurrencyName = "Bone"
+GM.CurrencyName = translate.Get("bone")
 
 // BLOOD BLOOD BLOOD BLOOD
 

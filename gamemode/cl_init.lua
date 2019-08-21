@@ -778,14 +778,14 @@ function GM:HUDPaint()
 	
 		local xlen = 50
 	
-		DrawAmmo( ScrW() - 5 - xlen, ScrH() - ylen - 5, xlen, ylen, total, "TOTAL" )
-		DrawAmmo( ScrW() - 10 - xlen * 2, ScrH() - ylen - 5, xlen, ylen, ammo, "AMMO" )
+		DrawAmmo( ScrW() - 5 - xlen, ScrH() - ylen - 5, xlen, ylen, total, translate.Get("total_hud") )
+		DrawAmmo( ScrW() - 10 - xlen * 2, ScrH() - ylen - 5, xlen, ylen, ammo, translate.Get("ammo_hud") )
 		
 		ypos = ypos + ylen + 5
 	
 	end
 	
-	DrawCash( ScrW() - 110, ScrH() - ypos, 105, 30, string.upper( LocalPlayer():GetNWInt( "Cash", 0 ) .. "  " .. GAMEMODE.CurrencyName .. "s" ) )
+	DrawCash( ScrW() - 110, ScrH() - ypos, 105, 30, translate.Format("bones_hud", string.upper( LocalPlayer():GetNWInt( "Cash", 0 )) ) )
 
 	GAMEMODE:PaintWeather()
 	--[[local radius = 200 
