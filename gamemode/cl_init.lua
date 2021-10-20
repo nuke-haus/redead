@@ -5,6 +5,7 @@ include( 'animations.lua' )
 include( 'items.lua' )
 include( 'shared.lua' )
 include( 'enums.lua' )
+include( 'translate.lua' )
 include( 'moddable.lua' )
 include( 'tables.lua' )
 include( 'weather.lua' )
@@ -36,6 +37,8 @@ CV_RagdollVision = CreateClientConVar( "cl_redead_ragdoll_vision", "1", true, fa
 CV_RagdollRemove = CreateClientConVar( "cl_redead_ragdoll_remove_time", "15", true, false )
 CV_Density = CreateClientConVar( "cl_redead_rain_density", "1.0", true, false )
 CV_NoobHelp = CreateClientConVar( "cl_redead_noob_help", "1", true, false )
+
+local translate = translate
 
 function GM:Initialize()
 	
