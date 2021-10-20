@@ -242,11 +242,11 @@ function meta:AddCash( num )
 	
 		if num > 1 then
 	
-			self:Notice( "+" .. num .. " " .. GAMEMODE.CurrencyName .. "s", GAMEMODE.Colors.Yellow )
+			self:Notice( "+" .. num .. " " .. "Bones", GAMEMODE.Colors.Yellow )
 			
 		elseif num != 0 then
 		
-			self:Notice( "+" .. num .. " " .. GAMEMODE.CurrencyName, GAMEMODE.Colors.Yellow )
+			self:Notice( "+" .. num .. " " .. "Bone", GAMEMODE.Colors.Yellow )
 		
 		end
 
@@ -479,7 +479,7 @@ function meta:AddZedDamage( num )
 		
 		else 
 		
-			self:Notice( "+" .. num .. " " .. GAMEMODE.BloodName, GAMEMODE.Colors.Green, 5 )
+			self:Notice( "+" .. num .. " " .. "BLOOD", GAMEMODE.Colors.Green, 5 )
 		
 		end
 		

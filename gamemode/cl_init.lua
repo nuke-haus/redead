@@ -606,6 +606,24 @@ function GM:DrawMarkers()
 
 end
 
+GM.DeathScreenText = {}
+
+GM.DeathScreenText[ TEAM_ARMY ] = { "RUN FASTER NEXT TIME",
+"DEATH IS THE FINAL UNKNOWN",
+"LIFE'S A BITCH AND THEN YOU DIE",
+"EVERYTHING HAS AN EXPIRATION DATE",
+"THE UNDEAD ARMY GROWS STRONGER",
+"YOU'VE GOT RED ON YOU",
+"YOU'RE ZOMBIE BAIT" }
+
+GM.DeathScreenText[ TEAM_ZOMBIES ] = { "DEATH IS ONLY THE BEGINNING",
+"GET UP AND TRY AGAIN",
+"YOU'RE RAVEN FOOD",
+"REST IN PEACE",
+"DEATH IS A BITCH, AIN'T IT",
+"LIFE IS OVERRATED",
+"REST IS FOR THE LIVING" }
+
 function GM:HUDPaint()
 
 	if GetGlobalBool( "GameOver", false ) then return end
@@ -782,7 +800,7 @@ function GM:HUDPaint()
 	
 	end
 	
-	DrawCash( ScrW() - 110, ScrH() - ypos, 105, 30, string.upper( LocalPlayer():GetNWInt( "Cash", 0 ) .. "  " .. GAMEMODE.CurrencyName .. "s" ) )
+	DrawCash( ScrW() - 110, ScrH() - ypos, 105, 30, string.upper( LocalPlayer():GetNWInt( "Cash", 0 ) .. "  " .. "Bones" ) )
 
 	GAMEMODE:PaintWeather()
 	--[[local radius = 200 

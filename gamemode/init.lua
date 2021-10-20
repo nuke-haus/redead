@@ -1305,7 +1305,7 @@ function GM:ScaleNPCDamage( npc, hitgroup, dmginfo ) // obsolete!
 		util.Effect( "headshot", effectdata, true, true )
 	
 		dmginfo:ScaleDamage( math.Rand( 2.50, 3.00 ) ) 
-		dmginfo:GetAttacker():NoticeOnce( "Headshot combos earn you more " .. GAMEMODE.CurrencyName .. "s", GAMEMODE.Colors.Blue, 5 )
+		dmginfo:GetAttacker():NoticeOnce( "Headshot combos earn you more " .. "Bones", GAMEMODE.Colors.Blue, 5 )
 		dmginfo:GetAttacker():AddHeadshot()
 		
     elseif hitgroup == HITGROUP_CHEST then

@@ -1,5 +1,11 @@
 local PANEL = {}
 
+GM.ClassDescriptions = {}
+GM.ClassDescriptions[CLASS_SCOUT] = "The Scout: Wears lightweight kevlar armor, allowing for improved mobility. Starts off with extra " .. "Bones."
+GM.ClassDescriptions[CLASS_COMMANDO] = "The Commando: Wears prototype kevlar armor, allowing for improved damage resistance."
+GM.ClassDescriptions[CLASS_SPECIALIST] = "The Specialist: Has access to restricted utilities and weaponry."
+GM.ClassDescriptions[CLASS_ENGINEER] = "The Technician: Starts off with the tools needed for barricade construction."
+
 function PANEL:Init()
 
 	//self:SetTitle( "" )
@@ -9,6 +15,7 @@ function PANEL:Init()
 	self.Items = {}
 	
 	for k,v in pairs( { CLASS_SCOUT, CLASS_COMMANDO, CLASS_SPECIALIST, CLASS_ENGINEER } ) do
+
 
 		local desc = GAMEMODE.ClassDescriptions[k] or "TEH"
 		local logo = GAMEMODE.ClassLogos[k] or "brick/brick_model"

@@ -1,5 +1,17 @@
 local PANEL = {}
 
+GM.ZombieNames = {}
+GM.ZombieNames[CLASS_RUNNER] = "Runner"
+GM.ZombieNames[CLASS_BANSHEE] = "Banshee"
+GM.ZombieNames[CLASS_CONTAGION] = "Contagion"
+GM.ZombieNames[CLASS_LEAPER] = "Leaper"
+
+GM.ZombieDescriptions = {}
+GM.ZombieDescriptions[CLASS_RUNNER] = "The Runner: A resilient and agile zombie. Capable of infecting humans with its claws."
+GM.ZombieDescriptions[CLASS_BANSHEE] = "The Banshee: A highly radioactive zombie. Capable of disorienting humans with its scream."
+GM.ZombieDescriptions[CLASS_CONTAGION] = "The Contagion: A bloated, festering zombie. When killed it will burst into a shower of acid."
+GM.ZombieDescriptions[CLASS_LEAPER] = "The Leaper: A bony, mutated zombie. Capable of jumping great distances and making humans bleed with its claws."
+
 function PANEL:Init()
 
 	//self:SetTitle( "" )

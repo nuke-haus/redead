@@ -228,7 +228,7 @@ end
 
 function FUNC_OPENSUITCASE( ply, id )
 	
-	ply:Notice( "You found some " .. GAMEMODE.CurrencyName .. "s", GAMEMODE.Colors.Green )
+	ply:Notice( "You found some " .. "Bones", GAMEMODE.Colors.Green )
 	ply:EmitSound( Sound( "Chain.ImpactSoft" ) )
 	
 	if math.random(1,10) == 1 then

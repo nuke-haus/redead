@@ -144,7 +144,7 @@ function PANEL:Paint()
 			
 		else
 		
-			draw.SimpleText( "Cost: "..self.Price.." "..GAMEMODE.CurrencyName.."s", "ItemDisplayFont", self:GetWide() * 0.5, 25, Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+			draw.SimpleText( "Cost: "..self.Price.." ".."Bones", "ItemDisplayFont", self:GetWide() * 0.5, 25, Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
 			
 		end
 		

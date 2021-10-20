@@ -53,7 +53,7 @@ function GM:GetEntityID( ent )
 		
 	elseif ent:GetClass() == "sent_cash" then
 	
-		TargetedName = ent:GetNWInt( "Cash", 10 ) .. " " .. GAMEMODE.CurrencyName .. "s"
+		TargetedName = ent:GetNWInt( "Cash", 10 ) .. " " .. "Bones"
 		TargetedEntity = ent
 		TargetedDist = Vector( 0, 0, 5 )
 	

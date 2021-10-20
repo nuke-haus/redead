@@ -1,43 +1,5 @@
 
 
-// Currency name
-
-GM.CurrencyName = "Bone"
-
-// BLOOD BLOOD BLOOD BLOOD
-
-GM.BloodName = "BLOOD"
-
-// Shop name and description - obsolete?
-
-GM.ShopName = "UNCLE VIKTOR'S RUSSKI WEAPON SHOPPE"
-GM.ShopDesc = "A HAPPY CUSTOMER IS A DEAD ONE!"
-
-// Team names 
-
-GM.ArmyTeamName = "Unit 9"
-GM.ZombieTeamName = "The Undead"
-
-// Death Screen text shit
-
-GM.DeathScreenText = {}
-
-GM.DeathScreenText[ TEAM_ARMY ] = { "RUN FASTER NEXT TIME",
-"DEATH IS THE FINAL UNKNOWN",
-"LIFE'S A BITCH AND THEN YOU DIE",
-"EVERYTHING HAS AN EXPIRATION DATE",
-"THE UNDEAD ARMY GROWS STRONGER",
-"YOU'VE GOT RED ON YOU",
-"YOU'RE ZOMBIE BAIT" }
-
-GM.DeathScreenText[ TEAM_ZOMBIES ] = { "DEATH IS ONLY THE BEGINNING",
-"GET UP AND TRY AGAIN",
-"YOU'RE RAVEN FOOD",
-"REST IN PEACE",
-"DEATH IS A BITCH, AIN'T IT",
-"LIFE IS OVERRATED",
-"REST IS FOR THE LIVING" }
-
 GM.RedemptionCash = 250    // Amount of cash earned for redeeming yourself
 GM.RedemptionDamage = 350  // Amount of damage that the zombie lord needs to deal before he is redeemed
 GM.RadiationAmount = 0.6   // How much of the radiation on the map should be disabled on map startup? ( 0.6 means 60% will be disabled ) - OBSOLETE?
@@ -88,31 +50,13 @@ GM.ZombieSpeed[CLASS_BANSHEE] = 225
 GM.ZombieSpeed[CLASS_CONTAGION] = 200
 GM.ZombieSpeed[CLASS_LEAPER] = 275
 
-// Class names, descriptions, logos
-
-GM.ClassDescriptions = {}
-GM.ClassDescriptions[CLASS_SCOUT] = "The Scout: Wears lightweight kevlar armor, allowing for improved mobility. Starts off with extra " .. GM.CurrencyName .. "s."
-GM.ClassDescriptions[CLASS_COMMANDO] = "The Commando: Wears prototype kevlar armor, allowing for improved damage resistance."
-GM.ClassDescriptions[CLASS_SPECIALIST] = "The Specialist: Has access to restricted utilities and weaponry."
-GM.ClassDescriptions[CLASS_ENGINEER] = "The Technician: Starts off with the tools needed for barricade construction."
+// Class logos
 
 GM.ClassLogos = {}
 GM.ClassLogos[CLASS_SCOUT] = "nuke/redead/scout"
 GM.ClassLogos[CLASS_COMMANDO] = "nuke/redead/commando"
 GM.ClassLogos[CLASS_SPECIALIST] = "nuke/redead/specialist"
 GM.ClassLogos[CLASS_ENGINEER] = "nuke/redead/engineer"
-
-GM.ZombieNames = {}
-GM.ZombieNames[CLASS_RUNNER] = "Runner"
-GM.ZombieNames[CLASS_BANSHEE] = "Banshee"
-GM.ZombieNames[CLASS_CONTAGION] = "Contagion"
-GM.ZombieNames[CLASS_LEAPER] = "Leaper"
-
-GM.ZombieDescriptions = {}
-GM.ZombieDescriptions[CLASS_RUNNER] = "The Runner: A resilient and agile zombie. Capable of infecting humans with its claws."
-GM.ZombieDescriptions[CLASS_BANSHEE] = "The Banshee: A highly radioactive zombie. Capable of disorienting humans with its scream."
-GM.ZombieDescriptions[CLASS_CONTAGION] = "The Contagion: A bloated, festering zombie. When killed it will burst into a shower of acid."
-GM.ZombieDescriptions[CLASS_LEAPER] = "The Leaper: A bony, mutated zombie. Capable of jumping great distances and making humans bleed with its claws."
 
 GM.ZombieLogos = {}
 GM.ZombieLogos[CLASS_RUNNER] = "nuke/redead/zomb_corpse"

@@ -59,7 +59,7 @@ function GM:GetPlayerStats( ply )
 
 	if not ply then 
 	
-		return { "Kills", GAMEMODE.CurrencyName .. "s" } 
+		return { "Kills", "Bones" } 
 		
 	else
 	
