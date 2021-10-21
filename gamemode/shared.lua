@@ -21,11 +21,15 @@ TEAM_ZOMBIES = 2
 
 function GM:CreateTeams()
 	
-	team.SetUp( TEAM_ARMY, "Unit 9", Color( 80, 80, 255 ), true )
+	team.SetUp( TEAM_ARMY, "rd_teamname_humans", Color( 80, 80, 255 ), true )
 	team.SetSpawnPoint( TEAM_ARMY, "info_player_army" ) 
 	
-	team.SetUp( TEAM_ZOMBIES, "The Undead", Color( 255, 80, 80 ), true )
+	team.SetUp( TEAM_ZOMBIES, "rd_teamname_zombies", Color( 255, 80, 80 ), true )
 	team.SetSpawnPoint( TEAM_ZOMBIES, "info_player_zombie" ) 
+	
+	team.SetUp( TEAM_UNASSIGNED, "rd_teamname_unassigned", Color( 255, 255, 100, 255 ), true )
+
+	team.SetUp( TEAM_SPECTATOR, "rd_teamname_spectators", Color( 255, 255, 100, 255 ), true )
 
 end
 

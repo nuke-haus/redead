@@ -49,7 +49,7 @@ SWEP.JumpTime = 0
 
 function SWEP:NoobHelp()
 
-	self.Owner:NoticeOnce( "Your attacks cause bleeding", GAMEMODE.Colors.Blue, 5, 10 )
+	self.Owner:NoticeOnce( translate.Get( "rd_notices_your_attacks_cause_bleeding" ), GAMEMODE.Colors.Blue, 5, 10 )
 
 end
 
@@ -85,7 +85,7 @@ function SWEP:OnHitHuman( ent, dmg )
 
 		ent:SetBleeding( true )
 		
-		self.Owner:Notice( "You made a human bleed", GAMEMODE.Colors.Green )
+		self.Owner:Notice( translate.Get( "rd_notices_you_made_a_human_bleed" ), GAMEMODE.Colors.Green )
 		self.Owner:AddZedDamage( 10 )
 		
 	end

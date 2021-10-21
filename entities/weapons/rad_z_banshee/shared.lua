@@ -41,8 +41,8 @@ SWEP.Primary.Automatic		= true
 
 function SWEP:NoobHelp()
 
-	self.Owner:NoticeOnce( "Right click to use your scream ability", GAMEMODE.Colors.Blue, 5, 10 )
-	self.Owner:NoticeOnce( "Your scream will disorient nearby people", GAMEMODE.Colors.Blue, 5, 12 )
+	self.Owner:NoticeOnce( translate.Get( "rd_notices_rmb_to_use_your_screaming_ability" ), GAMEMODE.Colors.Blue, 5, 10 )
+	self.Owner:NoticeOnce( translate.Get( "rd_notices_your_scream_will_disorent_nearby_people" ), GAMEMODE.Colors.Blue, 5, 12 )
 
 end
 
@@ -97,7 +97,7 @@ function SWEP:SecondaryAttack()
 		
 		if hit then
 		
-			self.Owner:Notice( "You disoriented a human", GAMEMODE.Colors.Green )
+			self.Owner:Notice( translate.Get( "rd_notices_you_disorented_a_human" ), GAMEMODE.Colors.Green )
 		
 		end
 	
@@ -126,6 +126,6 @@ function SWEP:OnHitHuman( ent, dmg )
 	
 	self.Owner:AddZedDamage( dmg )
 	self.Owner:DrawBlood( 4 )
-	self.Owner:Notice( "You irradiated a human", GAMEMODE.Colors.Green )
+	self.Owner:Notice( translate.Get( "rd_notices_you_irradiated_a_human" ), GAMEMODE.Colors.Green )
 
 end

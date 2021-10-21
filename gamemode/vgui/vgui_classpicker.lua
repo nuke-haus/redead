@@ -1,10 +1,10 @@
 local PANEL = {}
 
 GM.ClassDescriptions = {}
-GM.ClassDescriptions[CLASS_SCOUT] = "The Scout: Wears lightweight kevlar armor, allowing for improved mobility. Starts off with extra " .. "Bones."
-GM.ClassDescriptions[CLASS_COMMANDO] = "The Commando: Wears prototype kevlar armor, allowing for improved damage resistance."
-GM.ClassDescriptions[CLASS_SPECIALIST] = "The Specialist: Has access to restricted utilities and weaponry."
-GM.ClassDescriptions[CLASS_ENGINEER] = "The Technician: Starts off with the tools needed for barricade construction."
+GM.ClassDescriptions[CLASS_SCOUT] = "rd_human_class_scout"
+GM.ClassDescriptions[CLASS_COMMANDO] = "rd_human_class_commando"
+GM.ClassDescriptions[CLASS_SPECIALIST] = "rd_human_class_specialist"
+GM.ClassDescriptions[CLASS_ENGINEER] = "rd_human_class_engineer"
 
 function PANEL:Init()
 
@@ -28,7 +28,7 @@ function PANEL:Init()
 
 		local label = vgui.Create( "DLabel", self )
 		label:SetWrap( true )
-		label:SetText( desc )
+		label:SetText( translate.Get(desc) )
 		label:SetFont( "ItemDisplayFont" )
 		label:SetSize( 300, 100 )
 			

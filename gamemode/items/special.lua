@@ -5,12 +5,12 @@ ITEM_SPECIAL = 3
 function FUNC_ANTIRAD( ply, id, client, icon )
 
 	if icon then return "icon16/pill.png" end
-	if client then return "Inject" end
+	if client then return translate.Get( "rd_ui_shop_inject" ) end
 	
 	ply:RemoveFromInventory( id )
 	ply:EmitSound( "Weapon_SMG1.Special1" )
 	ply:SetRadiation( 0 )
-	ply:Notice( "-5 Radiation", GAMEMODE.Colors.Green )
+	ply:Notice( translate.ClientGet( ply, "rd_notices_minus5_radiation" ), GAMEMODE.Colors.Green )
 
 end
 
@@ -28,8 +28,8 @@ end
 end]]
 
 item.Register( { 
-	Name = "Anti-Rad", 
-	Description = "Releives all radiation poisoning.",
+	Name = "rd_items_anti_rad_name", 
+	Description = "rd_items_anti_rad_desc",
 	Stackable = true, 
 	Type = ITEM_SPECIAL,
 	Weight = 0.15, 
@@ -42,8 +42,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Respirator", 
-	Description = "Filters out chemicals and radiation.",
+	Name = "rd_items_respirator_name", 
+	Description = "rd_items_respirator_desc",
 	Stackable = true, 
 	Type = ITEM_SPECIAL,
 	Weight = 1.75, 

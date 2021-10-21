@@ -5,10 +5,10 @@ GM.CartItems = {}
 GM.OptionPanels = {}
 
 GM.Categories = { 
-{ Name = "Weapons", Icon = "icon16/gun.png", Categories = { ITEM_WPN_COMMON, ITEM_WPN_SPECIAL } },
-{ Name = "Ammunition", Icon = "icon16/package.png", Categories = { ITEM_AMMO } },
-{ Name = "Supplies", Icon = "icon16/pill.png", Categories = { ITEM_SUPPLY, ITEM_SPECIAL } },
-{ Name = "Miscellaneous", Icon = "icon16/bin.png", Categories = { ITEM_MISC, ITEM_BUYABLE } } 
+{ Name = "rd_ui_shop_category_weapons", Icon = "icon16/gun.png", Categories = { ITEM_WPN_COMMON, ITEM_WPN_SPECIAL } },
+{ Name = "rd_ui_shop_category_ammo", Icon = "icon16/package.png", Categories = { ITEM_AMMO } },
+{ Name = "rd_ui_shop_category_supplies", Icon = "icon16/pill.png", Categories = { ITEM_SUPPLY, ITEM_SPECIAL } },
+{ Name = "rd_ui_shop_category_misc", Icon = "icon16/bin.png", Categories = { ITEM_MISC, ITEM_BUYABLE } } 
 }
 
 function GM:CreateElement( name )
@@ -43,7 +43,7 @@ function GM:AddToCart( tbl, amt )
 		btn:SetPos( 765, 5 + 35 * ( table.Count( GAMEMODE.Cart ) - 1 ) )
 		btn:SetSize( 250, 30 )
 		btn:SetImage( "icon16/cross.png" )
-		btn:SetText( tbl.Name )
+		btn:SetText( translate.Get( tbl.Name ) )
 		btn:SetFunction( function() RunConsoleCommand( "inv_refund", tbl.ID ) btn:Remove() GAMEMODE:ClearCartItem( tbl.ID ) end )
 		
 		table.insert( GAMEMODE.CartItems, btn )
@@ -88,7 +88,7 @@ function GM:CheckCartButton()
 	btn:SetPos( 765, 5 + 35 * ( table.Count( GAMEMODE.Cart ) ) )
 	btn:SetSize( 250, 30 )
 	btn:SetImage( "icon16/cart.png" )
-	btn:SetText( "Airdrop  Items" )
+	btn:SetText( translate.Get( "rd_ui_shop_airdrop_items" ) )
 	btn:SetFunction( function() RunConsoleCommand( "ordershipment" ) GAMEMODE:ClearCart() btn:Remove() end )
 	
 	GAMEMODE.CartButton = btn
@@ -183,9 +183,9 @@ function GM:RebuildOptions( tbl, style, count )
 				btn:SetImage( "icon16/money.png" )
 				
 				if v == 1 then
-					btn:SetText( "Buy" )
+					btn:SetText( translate.Get( "rd_ui_shop_buy" ) )
 				else
-					btn:SetText( "Buy  " .. v )
+					btn:SetText( translate.Format( "rd_ui_shop_buy_x", v ) )
 				end
 				
 				btn:SetFunction( function() if LocalPlayer():GetNWInt( "Cash", 0 ) >= tbl.Price * v then RunConsoleCommand( "inv_buy", tbl.ID, v ) GAMEMODE:AddToCart( tbl, v ) end end )
@@ -210,9 +210,9 @@ function GM:RebuildOptions( tbl, style, count )
 				btn:SetImage( "icon16/arrow_down.png" )
 					
 				if v == 1 then
-					btn:SetText( "Drop" )
+					btn:SetText( translate.Get( "rd_ui_shop_drop" ) )
 				else
-					btn:SetText( "Drop  " .. v )
+					btn:SetText( translate.Get( "rd_ui_shop_drop2_x", v ) )
 				end
 					
 				btn:SetFunction( function() RunConsoleCommand( "inv_drop", tbl.ID, v ) end )
@@ -231,7 +231,7 @@ function GM:RebuildOptions( tbl, style, count )
 			btn:SetPos( 510, ypos )
 			btn:SetSize( 250, 30 )
 			btn:SetImage( "icon16/box.png" )
-			btn:SetText( "Drop  All"	)
+			btn:SetText( translate.Get( "rd_ui_shop_drop2_all" )	)
 			btn:SetFunction( function() RunConsoleCommand( "inv_drop", tbl.ID, count ) end )
 			
 			table.insert( GAMEMODE.OptionPanels, btn )
@@ -279,7 +279,7 @@ function GM:OnSpawnMenuClose()
 			
 			local toggle = GAMEMODE:CreateElement( "CategoryButton" )
 			toggle:SetPos( 510, ypos )
-			toggle:SetText( v.Name )
+			toggle:SetText( translate.Get( v.Name ) )
 			toggle:SetImage( v.Icon )
 			toggle:SetSize( 250, 30 )
 			toggle:SetSelectedState( true, true )
@@ -373,7 +373,7 @@ function StoreMenu( msg )
 			
 			local toggle = GAMEMODE:CreateElement( "CategoryButton" )
 			toggle:SetPos( 510, ypos )
-			toggle:SetText( v.Name )
+			toggle:SetText( translate.Get( v.Name ) )
 			toggle:SetImage( v.Icon )
 			toggle:SetSize( 250, 30 )
 			toggle:SetSelectedState( true, true )
@@ -505,7 +505,7 @@ function GM:InitVGUI() //obsolete
 	
 		local toggle = vgui.Create( "CategoryButton" )
 		toggle:SetPos( 5, ypos )
-		toggle:SetText( v.Name )
+		toggle:SetText( translate.Get( v.Name ) )
 		toggle:SetImage( v.Icon )
 		toggle:SetSize( 500, 30 )
 		

@@ -5,7 +5,7 @@ function PANEL:Init()
 	//self:ShowCloseButton( false )
 	
 	self.Avatar = vgui.Create( "AvatarImage", self )
-	self.PlayerName = "N/A"
+	self.PlayerName = translate.Get( "rd_ui_shop_not_available" )
 	self.Desc = ""
 	
 	self:PerformLayout()

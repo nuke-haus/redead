@@ -73,7 +73,7 @@ function ENT:Think()
 			
 				v.NextRadSound = CurTime() + 1 - scale 
 				v:EmitSound( table.Random( GAMEMODE.Geiger ), 100, math.random( 80, 90 ) + scale * 20 )
-				v:NoticeOnce( "A radioactive deposit is nearby", GAMEMODE.Colors.Blue )
+				v:NoticeOnce( translate.Get( "rd_notices_a_radioactive_deposit_is_nearby" ), GAMEMODE.Colors.Blue )
 				
 			end
 		

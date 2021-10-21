@@ -23,8 +23,8 @@ ITEM_WPN_SPECIAL = 10
 end]]
 
 item.Register( { 
-	Name = "M1014", 
-	Description = "Turn everything into ground beef.",
+	Name = "rd_items_m1014_name", 
+	Description = "rd_items_m1014_desc",
 	Stackable = false, 
 	Type = ITEM_WPN_SPECIAL,
 	TypeOverride = "sent_droppedgun",
@@ -41,8 +41,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "M249", 
-	Description = "A belt-fed support machine gun.",
+	Name = "rd_items_m249_name", 
+	Description = "rd_items_m249_desc",
 	Stackable = false, 
 	Type = ITEM_WPN_SPECIAL,
 	TypeOverride = "sent_droppedgun",
@@ -59,8 +59,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "AWP", 
-	Description = "The very definition of overkill.",
+	Name = "rd_items_awp_name", 
+	Description = "rd_items_awp_desc",
 	Stackable = false, 
 	Type = ITEM_WPN_SPECIAL,
 	TypeOverride = "sent_droppedgun",
@@ -77,8 +77,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "HE Grenade", 
-	Description = "The fuse lasts 3 seconds.",
+	Name = "rd_items_he_grenade_name", 
+	Description = "rd_items_he_grenade_desc",
 	Stackable = true, 
 	Type = ITEM_WPN_SPECIAL,
 	TypeOverride = "sent_droppedgun",
@@ -95,8 +95,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Incendiary Grenade", 
-	Description = "Comes with free marshmallows.",
+	Name = "rd_items_incendiary_grenade_name", 
+	Description = "rd_items_incendiary_grenade_desc",
 	Stackable = true, 
 	Type = ITEM_WPN_SPECIAL,
 	TypeOverride = "sent_droppedgun",

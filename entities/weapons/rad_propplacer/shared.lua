@@ -320,7 +320,7 @@ end
 
 function SWEP:DrawHUD()
 
-	draw.SimpleText( "PRIMARY FIRE: Create Prop          SECONDARY FIRE: Choose Prop Model          +USE: Delete Nearest Prop          RELOAD: Remove All Placed Props", "AmmoFontSmall", ScrW() * 0.5, ScrH() - 100, Color(255,255,255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+	draw.SimpleText( translate.Get( "rd_weapon_prop_placement_tool_help" ), "AmmoFontSmall", ScrW() * 0.5, ScrH() - 100, Color(255,255,255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
 	
 end
 

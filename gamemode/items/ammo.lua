@@ -35,8 +35,8 @@ function FUNC_DROPAMMO( ply, id, drop )
 end
 
 item.Register( { 
-	Name = "Pistol Rounds", 
-	Description = "40 pistol rounds per box.",
+	Name = "rd_items_pistol_rounds_name", 
+	Description = "rd_items_pistol_rounds_desc",
 	Stackable = true, 
 	Type = ITEM_AMMO,
 	Weight = 0.75, 
@@ -52,8 +52,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Buckshot", 
-	Description = "20 shotgun rounds per box.",
+	Name = "rd_items_buckshot_name", 
+	Description = "rd_items_buckshot_desc",
 	Stackable = true, 
 	Type = ITEM_AMMO,
 	Weight = 0.75, 
@@ -69,8 +69,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "SMG Rounds", 
-	Description = "60 SMG rounds per box.",
+	Name = "rd_items_smg_rounds_name", 
+	Description = "rd_items_smg_rounds_desc",
 	Stackable = true, 
 	Type = ITEM_AMMO,
 	Weight = 0.75, 
@@ -86,8 +86,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Rifle Rounds", 
-	Description = "60 automatic rifle rounds per box.",
+	Name = "rd_items_rifle_rounds_name", 
+	Description = "rd_items_rifle_rounds_desc",
 	Stackable = true, 
 	Type = ITEM_AMMO,
 	Weight = 0.75, 
@@ -103,8 +103,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Sniper Rounds", 
-	Description = "30 sniper rounds per box.",
+	Name = "rd_items_sniper_rounds_name", 
+	Description = "rd_items_sniper_rounds_desc",
 	Stackable = true, 
 	Type = ITEM_AMMO,
 	Weight = 0.75, 
@@ -120,8 +120,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Prototype Energy Cell", 
-	Description = "15 energy charges per cell.",
+	Name = "rd_items_prototype_energy_cell_name", 
+	Description = "rd_items_prototype_energy_cell_desc",
 	Stackable = true, 
 	Type = ITEM_AMMO,
 	Weight = 1.25, 

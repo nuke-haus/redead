@@ -70,13 +70,13 @@ function GM:Initialize()
 		local remain = length - i * GetConVar( "sv_redead_wave_length" ):GetInt() * 60
 		local num = i * GetConVar( "sv_redead_wave_length" ):GetInt()
 		
-		timer.Simple( remain, function() for k,v in pairs( team.GetPlayers( TEAM_ARMY ) ) do v:Notice( num .. " minutes until evac arrives", GAMEMODE.Colors.White, 5 )  end end )
+		timer.Simple( remain, function() for k,v in pairs( team.GetPlayers( TEAM_ARMY ) ) do v:Notice( translate.Format( "rd_notices_x_minutes_unit_evacuation", num ), GAMEMODE.Colors.White, 5 )  end end )
 	 
 	end
 	
-	timer.Simple( GetConVar( "sv_redead_setup_time" ):GetInt(), function() for k,v in pairs( player.GetAll() ) do v:Notice( "The undead onslaught has begun", GAMEMODE.Colors.White, 5 ) end end )
+	timer.Simple( GetConVar( "sv_redead_setup_time" ):GetInt(), function() for k,v in pairs( player.GetAll() ) do v:Notice( translate.Get( "rd_notices_undead_onslaught_has_begun" ), GAMEMODE.Colors.White, 5 ) end end )
 	
-	timer.Simple( GetConVar( "sv_redead_setup_time" ):GetInt() - 5, function() for k,v in pairs( team.GetPlayers( TEAM_ARMY ) ) do v:Notice( "Press F4 if you want to be the zombie lord", GAMEMODE.Colors.White, 5 ) end end )
+	timer.Simple( GetConVar( "sv_redead_setup_time" ):GetInt() - 5, function() for k,v in pairs( team.GetPlayers( TEAM_ARMY ) ) do v:Notice( translate.Get( "rd_notices_f4_if_you_want_to_be_zombie_lord" ), GAMEMODE.Colors.White, 5 ) end end )
 	
 	timer.Simple( GetConVar( "sv_redead_setup_time" ):GetInt() + 5, function() GAMEMODE:PickLord() GAMEMODE.EarlyPick = true end )
 	
@@ -89,7 +89,7 @@ function GM:Initialize()
 		for k,v in pairs( player.GetAll() ) do 
 			
 			v:ClientSound( GAMEMODE.LastMinute ) 
-			v:Notice( "The evac chopper is en route", GAMEMODE.Colors.White, 5 ) 
+			v:Notice( translate.Get( "rd_notices_the_evacuation_helicopter_is_en_route" ), GAMEMODE.Colors.White, 5 ) 
 			
 		end
 		
@@ -101,9 +101,9 @@ function GM:Initialize()
 	
 		for k,v in pairs( team.GetPlayers( TEAM_ARMY ) ) do 
 		
-			v:Notice( "The evac chopper has arrived", GAMEMODE.Colors.White, 5 ) 
-			v:Notice( "You have 45 seconds to reach the evac zone", GAMEMODE.Colors.White, 5, 2 )
-			v:Notice( "The location has been marked", GAMEMODE.Colors.White, 5, 4 )
+			v:Notice( translate.Get( "rd_notices_the_evacuation_helicopter_has_arrived" ), GAMEMODE.Colors.White, 5 ) 
+			v:Notice( translate.Get( "rd_notices_you_have_45_seconds_to_reach_evacuation_zone" ), GAMEMODE.Colors.White, 5, 2 )
+			v:Notice( translate.Get( "rd_notices_the_location_of_evacuation_zone_has_been_marked" ), GAMEMODE.Colors.White, 5, 4 )
 			
 		end 
 		
@@ -391,7 +391,7 @@ function GM:AddToZombieList( ply )
 	if team.NumPlayers( TEAM_ZOMBIES ) > 0 then 
 	
 		ply:ClientSound( "HL1/fvox/buzz.wav", 100 )
-		ply:Notice( "You cannot be the zombie lord now", GAMEMODE.Colors.Red, 5 )
+		ply:Notice( translate.Get( "rd_notices_you_cannot_be_the_zombie_lord_now" ), GAMEMODE.Colors.Red, 5 )
 	
 		return
 	
@@ -403,7 +403,7 @@ function GM:AddToZombieList( ply )
 		
 		local snd = table.Random( GAMEMODE.AmbientScream )
 		ply:ClientSound( snd, 100 )
-		ply:Notice( "You have volunteered to be the zombie lord", GAMEMODE.Colors.White, 5 )
+		ply:Notice( translate.Get( "rd_notices_you_have_volunteered_to_be_the_zombie_lord" ), GAMEMODE.Colors.White, 5 )
 		
 	end
 
@@ -415,7 +415,7 @@ function GM:PickLord( force )
 	
 		for k,v in pairs( player.GetAll() ) do
 		
-			v:Notice( "A zombie lord cannot be chosen at this time", GAMEMODE.Colors.White, 5 )
+			v:Notice( translate.Get( "rd_notices_a_zombie_lord_cannot_be_chosen_at_this_time" ), GAMEMODE.Colors.White, 5 )
 				
 		end
 	
@@ -448,13 +448,13 @@ function GM:PickLord( force )
 		
 	if ply:Team() == TEAM_ZOMBIES then
 		
-		ply:Notice( "You have become the zombie lord", GAMEMODE.Colors.White, 5 )
+		ply:Notice( translate.Get( "rd_notices_you_have_become_the_zombie_lord" ), GAMEMODE.Colors.White, 5 )
 		
 		timer.Simple( 3, function() ply:Gib() ply:SetLord( true ) end )
 		
 	else
 		
-		ply:Notice( "You will become the zombie lord", GAMEMODE.Colors.White, 5 )
+		ply:Notice( translate.Get( "rd_notices_you_will_become_the_zombie_lord" ), GAMEMODE.Colors.White, 5 )
 			
 		timer.Simple( 3, function() ply:SetTeam( TEAM_ZOMBIES ) ply:SetPlayerClass( CLASS_RUNNER ) ply:SetCash( 0 ) ply:Gib() ply:SetLord( true ) end )
 		
@@ -464,7 +464,7 @@ function GM:PickLord( force )
 		
 		if v != ply and not force then
 		
-			v:Notice( "A zombie lord has been chosen", GAMEMODE.Colors.White, 5 )
+			v:Notice( translate.Get( "rd_notices_a_zombie_lord_has_been_chosen" ), GAMEMODE.Colors.White, 5 )
 				
 		end
 		
@@ -510,7 +510,7 @@ function GM:RespawnAntidote()
 	
 	for k,v in pairs( team.GetPlayers( TEAM_ARMY ) ) do
 	
-		v:Notice( "The antidote resupply location has changed", GAMEMODE.Colors.White, 5 )
+		v:Notice( translate.Get( "rd_notices_the_antidote_resupply_location_has_changed" ), GAMEMODE.Colors.White, 5 )
 	
 	end
 
@@ -757,7 +757,7 @@ function GM:WaveThink()
 		
 		for k,v in pairs( player.GetAll() ) do
 		
-			v:Notice( "New undead mutations have been spotted", GAMEMODE.Colors.White, 5 )
+			v:Notice( translate.Get( "rd_notices_new_undead_mutations_have_been_spotted" ), GAMEMODE.Colors.White, 5 )
 			v:ClientSound( table.Random( GAMEMODE.AmbientScream ) )
 		
 		end
@@ -964,9 +964,9 @@ function GM:PlayerSpawn( pl )
 		
 	end
 	
-	pl:NoticeOnce( "Press F1 to view the help menu", GAMEMODE.Colors.Blue, 7, 15 )
-	pl:NoticeOnce( "Press F2 to buy items and weapons", GAMEMODE.Colors.Blue, 7, 17 )
-	pl:NoticeOnce( "Press F3 to activate the panic button", GAMEMODE.Colors.Blue, 7, 19 )
+	pl:NoticeOnce( translate.ClientGet( pl, "rd_notices_press_f1_to_view_the_help_menu" ), GAMEMODE.Colors.Blue, 7, 15 )
+	pl:NoticeOnce( translate.ClientGet( pl, "rd_notices_press_f2_to_buy_items_and_weapons" ), GAMEMODE.Colors.Blue, 7, 17 )
+	pl:NoticeOnce( translate.ClientGet( pl, "rd_notices_press_f3_to_activate_the_panic_button" ), GAMEMODE.Colors.Blue, 7, 19 )
 	pl:InitializeInventory()
 	pl:OnSpawn()
 	pl:OnLoadout()
@@ -1242,8 +1242,8 @@ function GM:EntityTakeDamage( ent, dmginfo )
 	
 		if ent:Health() <= 50 then
 	
-			ent:NoticeOnce( "Your health has dropped below 30%", GAMEMODE.Colors.Red, 5 )
-			ent:NoticeOnce( "Health doesn't regenerate when below 30%", GAMEMODE.Colors.Blue, 5, 2 )
+			ent:NoticeOnce( translate.Get( "rd_notices_your_health_has_dropped_below_30" ), GAMEMODE.Colors.Red, 5 )
+			ent:NoticeOnce( translate.Get( "rd_notices_health_doesnt_regenerate_when_below_30" ), GAMEMODE.Colors.Blue, 5, 2 )
 			
 		end
 	
@@ -1307,7 +1307,7 @@ function GM:ScaleNPCDamage( npc, hitgroup, dmginfo ) // obsolete!
 		util.Effect( "headshot", effectdata, true, true )
 	
 		dmginfo:ScaleDamage( math.Rand( 2.50, 3.00 ) ) 
-		dmginfo:GetAttacker():NoticeOnce( "Headshot combos earn you more " .. "Bones", GAMEMODE.Colors.Blue, 5 )
+		dmginfo:GetAttacker():NoticeOnce( translate.Get( "rd_notices_headshots_combos_earn_you_more_bones" ), GAMEMODE.Colors.Blue, 5 )
 		dmginfo:GetAttacker():AddHeadshot()
 		
     elseif hitgroup == HITGROUP_CHEST then
@@ -1459,7 +1459,7 @@ function GM:DoPlayerDeath( ply, attacker, dmginfo )
 		if ply:IsLord() and ply:GetZedDamage() >= GAMEMODE.RedemptionDamage then
 		
 			ply:SetTeam( TEAM_ARMY )
-			ply:Notice( "Prepare to respawn as a human", GAMEMODE.Colors.Blue, 5, 2 )
+			ply:Notice( translate.ClientGet( ply, "rd_notices_prepare_to_respawn_as_a_human" ), GAMEMODE.Colors.Blue, 5, 2 )
 		
 		end
 	
@@ -1506,11 +1506,11 @@ function GM:EndGame( winner )
 	
 		if winner == TEAM_ZOMBIES then
 		
-			v:NoticeOnce( "The undead have overwhelmed " .. team.GetName( TEAM_ARMY ) , GAMEMODE.Colors.White, 7, 2 )
+			v:NoticeOnce( translate.Format( "rd_notices_the_undead_have_overwhelmed_x", translate.Get(team.GetName( TEAM_ARMY )) ), GAMEMODE.Colors.White, 7, 2 )
 		
 		elseif team.NumPlayers( TEAM_ARMY ) > 0 then
 		
-			v:NoticeOnce( team.GetName( TEAM_ARMY ) .. " has successfully evacuated", GAMEMODE.Colors.White, 7, 2 )
+			v:NoticeOnce( translate.Format( "rd_notices_x_has_successfully_evacuated", translate.Get(team.GetName( TEAM_ARMY )) ), GAMEMODE.Colors.White, 7, 2 )
 		
 		end
 	
@@ -1529,7 +1529,7 @@ function GM:EndGame( winner )
 			
 		end
 		
-		v:NoticeOnce( "Next map: " .. game.GetMapNext() , GAMEMODE.Colors.White, 7, 4 )
+		v:NoticeOnce( translate.Format( "rd_notices_next_map_x", game.GetMapNext() ), GAMEMODE.Colors.White, 7, 4 )
 	
 	end
 	
@@ -1551,7 +1551,7 @@ function GM:CheckGameOver( canend )
 		
 			if not v:IsEvacuated() then
 			
-				v:Notice( "The evac chopper left without you", GAMEMODE.Colors.Red, 5 )
+				v:Notice( translate.Get( "rd_notices_helicopter_left_without_you" ), GAMEMODE.Colors.Red, 5 )
 				v:SetTeam( TEAM_ZOMBIES )
 			 
 			end
@@ -1584,7 +1584,7 @@ function GM:ShowTeam( ply )
 	
 	if ply:IsIndoors() then
 	
-		ply:Notice( "You cannot use your radio indoors", GAMEMODE.Colors.Red )
+		ply:Notice( translate.ClientGet( ply, "rd_notices_you_cannot_use_your_radio_indoors" ), GAMEMODE.Colors.Red )
 	
 	else
 	
@@ -1598,7 +1598,7 @@ function GM:ShowTeam( ply )
 		
 				if GAMEMODE.RadioBlock and GAMEMODE.RadioBlock > CurTime() then
 		
-					ply:Notice( "Radio communications are offline", GAMEMODE.Colors.Red )
+					ply:Notice( translate.ClientGet( ply, "rd_notices_radio_communications_are_offline" ), GAMEMODE.Colors.Red )
 					return
 		
 				end
@@ -1617,7 +1617,7 @@ function GM:ShowTeam( ply )
 			
 				if GAMEMODE.RadioBlock and GAMEMODE.RadioBlock > CurTime() then
 		
-					ply:Notice( "Radio communications are offline", GAMEMODE.Colors.Red )
+					ply:Notice( translate.ClientGet( ply, "rd_notices_radio_communications_are_offline" ), GAMEMODE.Colors.Red )
 					return
 				
 				end
@@ -1650,12 +1650,12 @@ function GM:PanicButton( ply )
 	
 	ply.Panic = CurTime() + 0.5
 
-	local panic = { { ply:IsBleeding(), { "Bandage" }, "bleeding" },
-	{ ply:GetRadiation() > 0, { "Vodka", "Moonshine Vodka", "Anti-Rad" }, "irradiated" },
-	{ ply:Health() < 50, { "Advanced Medikit", "Basic Medikit", "Canned Food" }, "severely wounded" },
-	{ ply:Health() < 100, { "Basic Medikit", "Canned Food" }, "wounded" },
-	{ ply:GetStamina() < 100, { "Energy Drink" }, "fatigued" },
-	{ ply:GetStamina() < 100, { "Water" }, "fatigued" } }
+	local panic = { { ply:IsBleeding(), { "rd_items_bandage_name" }, "rd_notices_panic_block_status1" },
+	{ ply:GetRadiation() > 0, { "rd_items_vodka_name", "rd_items_moonshine_vodka_name", "rd_items_anti_rad_name" }, "rd_notices_panic_block_status2" },
+	{ ply:Health() < 50, { "rd_items_advanced_medkit_name", "rd_items_basic_medkit_name", "rd_items_canned_food_name" }, "rd_notices_panic_block_status3" },
+	{ ply:Health() < 100, { "rd_items_basic_medkit_name", "rd_items_canned_food_name" }, "rd_notices_panic_block_status4" },
+	{ ply:GetStamina() < 100, { "rd_items_energy_drink_name" }, "rd_notices_panic_block_status5" },
+	{ ply:GetStamina() < 100, { "rd_items_water_name" }, "rd_notices_panic_block_status6" } }
 
 	for k,v in pairs( panic ) do
 	
@@ -1669,7 +1669,7 @@ function GM:PanicButton( ply )
                 
 					tbl.Functions[ 1 ]( ply, tbl.ID )
 					
-					ply:Notice( "Panic button detected that you were " .. v[3], GAMEMODE.Colors.Blue )
+					ply:Notice( translate.ClientFormat( ply, "rd_notices_panic_button_detected_that_you_were_x", translate.ClientGet( ply, v[3] ) ), GAMEMODE.Colors.Blue )
 					
 					return
 
@@ -1681,7 +1681,7 @@ function GM:PanicButton( ply )
 	
 	end
 	
-	ply:Notice( "Panic button did not detect any usable items", GAMEMODE.Colors.Red )
+	ply:Notice( translate.ClientGet( ply, "rd_notices_panic_button_did_not_detect_items" ), GAMEMODE.Colors.Red )
 	ply:ClientSound( "items/suitchargeno1.wav" )
 
 end

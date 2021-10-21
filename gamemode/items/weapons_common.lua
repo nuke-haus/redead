@@ -5,7 +5,7 @@ ITEM_WPN_COMMON = 11
 function FUNC_DROPWEAPON( ply, id, client, icon )
 
 	if icon then return "icon16/arrow_down.png" end
-	if client then return "Drop" end
+	if client then return translate.Get( "rd_ui_shop_drop" ) end
 	
 	local tbl = item.GetByID( id )
 	
@@ -58,8 +58,8 @@ function FUNC_GRABWEAPON( ply, id )
 end
 
 item.Register( { 
-	Name = "Hammer", 
-	Description = "Builds barricades and bashes skulls.",
+	Name = "rd_items_hammer_name", 
+	Description = "rd_items_hammer_desc",
 	Stackable = false, 
 	Type = ITEM_WPN_COMMON,
 	TypeOverride = "sent_droppedgun",
@@ -76,8 +76,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Axe", 
-	Description = "The messiest melee weapon.",
+	Name = "rd_items_axe_name", 
+	Description = "rd_items_axe_desc",
 	Stackable = false, 
 	Type = ITEM_WPN_COMMON,
 	TypeOverride = "sent_droppedgun",
@@ -94,8 +94,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Crowbar", 
-	Description = "Gordon's weapon of choice.",
+	Name = "rd_items_crowbar_name", 
+	Description = "rd_items_crowbar_desc",
 	Stackable = false, 
 	Type = ITEM_WPN_COMMON,
 	TypeOverride = "sent_droppedgun",
@@ -113,8 +113,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "FN Five-Seven", 
-	Description = "A standard issue sidearm.",
+	Name = "rd_items_fn_fiveseven_name", 
+	Description = "rd_items_fn_fiveseven_desc",
 	Stackable = false, 
 	Type = ITEM_WPN_COMMON,
 	TypeOverride = "sent_droppedgun",
@@ -132,8 +132,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "USP Compact", 
-	Description = "A standard issue sidearm.",
+	Name = "rd_items_usp_compact_name", 
+	Description = "rd_items_usp_compact_desc",
 	Stackable = false, 
 	Type = ITEM_WPN_COMMON,
 	TypeOverride = "sent_droppedgun",
@@ -151,8 +151,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "P228 Compact", 
-	Description = "A standard issue sidearm.",
+	Name = "rd_items_p228_compact_name", 
+	Description = "rd_items_p228_compact_desc",
 	Stackable = false, 
 	Type = ITEM_WPN_COMMON,
 	TypeOverride = "sent_droppedgun",
@@ -170,8 +170,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Glock 19", 
-	Description = "A standard issue sidearm.",
+	Name = "rd_items_glock_19_name", 
+	Description = "rd_items_glock_19_desc",
 	Stackable = false, 
 	Type = ITEM_WPN_COMMON,
 	TypeOverride = "sent_droppedgun",
@@ -189,8 +189,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Dual Berettas", 
-	Description = "A gun for each hand.",
+	Name = "rd_items_dual_berettas_name", 
+	Description = "rd_items_dual_berettas_desc",
 	Stackable = false, 
 	Type = ITEM_WPN_COMMON,
 	TypeOverride = "sent_droppedgun",
@@ -208,8 +208,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Colt Python", 
-	Description = "A six shooter that packs a punch.",
+	Name = "rd_items_colt_python_name", 
+	Description = "rd_items_colt_python_desc",
 	Stackable = false, 
 	Type = ITEM_WPN_COMMON,
 	TypeOverride = "sent_droppedgun",
@@ -226,8 +226,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Desert Eagle", 
-	Description = "What are you compensating for?",
+	Name = "rd_items_desert_eagle_name", 
+	Description = "rd_items_desert_eagle_desc",
 	Stackable = false, 
 	Type = ITEM_WPN_COMMON,
 	TypeOverride = "sent_droppedgun",
@@ -244,8 +244,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "MAC-10", 
-	Description = "A compact SMG with moderate recoil.",
+	Name = "rd_items_mac_10_name", 
+	Description = "rd_items_mac_10_desc",
 	Stackable = false, 
 	Type = ITEM_WPN_COMMON,
 	TypeOverride = "sent_droppedgun",
@@ -262,8 +262,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "UMP45", 
-	Description = "A powerful SMG with a smaller magazine.",
+	Name = "rd_items_ump_45_name", 
+	Description = "rd_items_ump_45_desc",
 	Stackable = false, 
 	Type = ITEM_WPN_COMMON,
 	TypeOverride = "sent_droppedgun",
@@ -280,8 +280,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "CMP250", 
-	Description = "A prototype burst-fire SMG.",
+	Name = "rd_items_cmp_250_name", 
+	Description = "rd_items_cmp_250_desc",
 	Stackable = false, 
 	Type = ITEM_WPN_COMMON,
 	TypeOverride = "sent_droppedgun",
@@ -298,8 +298,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Winchester 1887", 
-	Description = "Zombies are in season.",
+	Name = "rd_items_winchester_1887_name", 
+	Description = "rd_items_winchester_1887_desc",
 	Stackable = false, 
 	Type = ITEM_WPN_COMMON,
 	TypeOverride = "sent_droppedgun",
@@ -316,8 +316,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "TMP", 
-	Description = "A silent but deadly SMG.",
+	Name = "rd_items_tmp_name", 
+	Description = "rd_items_tmp_desc",
 	Stackable = false, 
 	Type = ITEM_WPN_COMMON,
 	TypeOverride = "sent_droppedgun",
@@ -334,8 +334,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "MP5", 
-	Description = "A well-rounded, reliable SMG.",
+	Name = "rd_items_mp5_name", 
+	Description = "rd_items_mp5_desc",
 	Stackable = false, 
 	Type = ITEM_WPN_COMMON,
 	TypeOverride = "sent_droppedgun",
@@ -352,8 +352,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "FAMAS", 
-	Description = "The least expensive assault rifle.",
+	Name = "rd_items_famas_name", 
+	Description = "rd_items_famas_desc",
 	Stackable = false, 
 	Type = ITEM_WPN_COMMON,
 	TypeOverride = "sent_droppedgun",
@@ -370,8 +370,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "FN P90", 
-	Description = "A powerful SMG with a large magazine.",
+	Name = "rd_items_fn_p90_name", 
+	Description = "rd_items_fn_p90_desc",
 	Stackable = false, 
 	Type = ITEM_WPN_COMMON,
 	TypeOverride = "sent_droppedgun",
@@ -388,8 +388,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Steyr Scout", 
-	Description = "A bolt-action sniper rifle.",
+	Name = "rd_items_steyr_scout_name", 
+	Description = "rd_items_steyr_scout_desc",
 	Stackable = false, 
 	Type = ITEM_WPN_COMMON,
 	TypeOverride = "sent_droppedgun",
@@ -406,8 +406,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "IMI Galil", 
-	Description = "Lower accuracy, larger magazine.",
+	Name = "rd_items_imi_galil_name", 
+	Description = "rd_items_imi_galil_desc",
 	Stackable = false, 
 	Type = ITEM_WPN_COMMON,
 	TypeOverride = "sent_droppedgun",
@@ -424,8 +424,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "SPAS-12", 
-	Description = "Useful for crowd control.",
+	Name = "rd_items_spas_12_name", 
+	Description = "rd_items_spas_12_desc",
 	Stackable = false, 
 	Type = ITEM_WPN_COMMON,
 	TypeOverride = "sent_droppedgun",
@@ -442,8 +442,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "AK-47", 
-	Description = "A well-rounded assault rifle.",
+	Name = "rd_items_ak_47_name", 
+	Description = "rd_items_ak_47_desc",
 	Stackable = false, 
 	Type = ITEM_WPN_COMMON,
 	TypeOverride = "sent_droppedgun",
@@ -460,8 +460,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "SG 552", 
-	Description = "Comes with a free scope.",
+	Name = "rd_items_sg_552_name", 
+	Description = "rd_items_sg_552_desc",
 	Stackable = false, 
 	Type = ITEM_WPN_COMMON,
 	TypeOverride = "sent_droppedgun",
@@ -478,8 +478,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "G3 SG1", 
-	Description = "An automatic sniper rifle.",
+	Name = "rd_items_g3_sg1_name", 
+	Description = "rd_items_g3_sg1_desc",
 	Stackable = false, 
 	Type = ITEM_WPN_COMMON,
 	TypeOverride = "sent_droppedgun",
@@ -496,8 +496,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "HEAT Cannon", 
-	Description = "An experimental long range zombie cooker.",
+	Name = "rd_items_heat_cannon_name", 
+	Description = "rd_items_heat_cannon_desc",
 	Stackable = false, 
 	Type = ITEM_WPN_COMMON,
 	TypeOverride = "sent_droppedgun",
@@ -514,8 +514,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "PPW-952", 
-	Description = "An experimental particle projectile weapon.",
+	Name = "rd_items_ppw_952_name", 
+	Description = "rd_items_ppw_952_desc",
 	Stackable = false, 
 	Type = ITEM_WPN_COMMON,
 	TypeOverride = "sent_droppedgun",

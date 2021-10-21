@@ -1,16 +1,16 @@
 local PANEL = {}
 
 GM.ZombieNames = {}
-GM.ZombieNames[CLASS_RUNNER] = "Runner"
-GM.ZombieNames[CLASS_BANSHEE] = "Banshee"
-GM.ZombieNames[CLASS_CONTAGION] = "Contagion"
-GM.ZombieNames[CLASS_LEAPER] = "Leaper"
+GM.ZombieNames[CLASS_RUNNER] = "rd_zombie_class_runner"
+GM.ZombieNames[CLASS_BANSHEE] = "rd_zombie_class_banshee"
+GM.ZombieNames[CLASS_CONTAGION] = "rd_zombie_class_contagion"
+GM.ZombieNames[CLASS_LEAPER] = "rd_zombie_class_leaper"
 
 GM.ZombieDescriptions = {}
-GM.ZombieDescriptions[CLASS_RUNNER] = "The Runner: A resilient and agile zombie. Capable of infecting humans with its claws."
-GM.ZombieDescriptions[CLASS_BANSHEE] = "The Banshee: A highly radioactive zombie. Capable of disorienting humans with its scream."
-GM.ZombieDescriptions[CLASS_CONTAGION] = "The Contagion: A bloated, festering zombie. When killed it will burst into a shower of acid."
-GM.ZombieDescriptions[CLASS_LEAPER] = "The Leaper: A bony, mutated zombie. Capable of jumping great distances and making humans bleed with its claws."
+GM.ZombieDescriptions[CLASS_RUNNER] = "rd_zombie_class_runner_text"
+GM.ZombieDescriptions[CLASS_BANSHEE] = "rd_zombie_class_banshee_text"
+GM.ZombieDescriptions[CLASS_CONTAGION] = "rd_zombie_class_contagion_text"
+GM.ZombieDescriptions[CLASS_LEAPER] = "rd_zombie_class_leaper_text"
 
 function PANEL:Init()
 
@@ -22,7 +22,7 @@ function PANEL:Init()
 	
 	for k,v in pairs( GAMEMODE.ZombieNames ) do
 
-		local desc = GAMEMODE.ZombieDescriptions[k] or "TEH"
+		local desc = translate.Get( GAMEMODE.ZombieDescriptions[k] ) or "TEH"
 		local logo = GAMEMODE.ZombieLogos[k] or "brick/brick_model"
 		
 		local button = vgui.Create( "DImageButton", self )
@@ -81,7 +81,7 @@ function PANEL:Paint()
 	draw.RoundedBox( 4, 0, 0, self:GetWide(), self:GetTall(), Color( 0, 0, 0, 255 ) )
 	draw.RoundedBox( 4, 1, 1, self:GetWide() - 2, self:GetTall() - 2, Color( 150, 150, 150, 150 ) )
 	
-	draw.SimpleText( "Class Menu", "ItemDisplayFont", self:GetWide() * 0.5, 10, Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+	draw.SimpleText( translate.Get( "rd_ui_zombie_class_menu" ), "ItemDisplayFont", self:GetWide() * 0.5, 10, Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
 
 end
 

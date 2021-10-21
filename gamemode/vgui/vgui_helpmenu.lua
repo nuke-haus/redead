@@ -1,32 +1,32 @@
 local PANEL = {}
 
-PANEL.Text = { "<html><body style=\"background-color:DimGray;\">",
-"<p style=\"font-family:tahoma;color:red;font-size:25;text-align:center\"><b>READ THIS!</b></p>",
-"<p style=\"font-family:verdana;color:black;font-size:10px;text-align:left\"><b>The Inventory System:</b> ",
-"To toggle your inventory, press your spawn menu button (default Q). Click an item in your inventory to interact with it. To interact with dropped items, press your USE key (default E) on them.<br><br>",
-"<b>Purchasing Items:</b> Press F2 to purchase and order items to be airdropped to you. You can only order items outdoors.<br><br>",
-"<b>The Panic Button:</b> Press F3 to activate the panic button. It automatically detects your ailments and attempts to fix them using what you have in your inventory.<br><br>",
-"<b>The HUD:</b> The location of important locations and items are marked on your screen. Your teammates are highlighted through walls, as well as the antidote.",
-"If you have radiation poisoning, an icon indicating the severity of the poisoning will appear on the bottom left of your screen. An icon will also appear if you are bleeding or infected.<br><br>",
-"<b>Evacuation:</b> At the last minute of the round, a helicopter will come to rescue your squad. Run to the evac zone marked on your HUD to be rescued.<br><br>",
-"<b>The Infection:</b> The common undead will infect you when they hit you. To cure infection, go to the antidote and press your USE key to access it. The antidote location is always marked on your HUD.<br><br>",
-"<b>The Zombie Lord:</b> If there are more than 8 players then a zombie lord will be chosen. If the zombie lord manages to fill their blood meter, they will respawn as a human with a special reward.<br><br>",
-"<b>Radiation:</b> Radiation is visually unnoticeable. When near radiation, your handheld geiger counter will make sounds indicating how close you are to a radioactive deposit. Radiation poisoning is cured by vodka or Anti-Rad.<br><br>" }
+PANEL.Text = { "rd_ui_help_menu_html_code",
+"rd_ui_help_menu_text",
+"rd_ui_help_menu_text2",
+"rd_ui_help_menu_text3",
+"rd_ui_help_menu_text4",
+"rd_ui_help_menu_text5",
+"rd_ui_help_menu_text6",
+"rd_ui_help_menu_text7",
+"rd_ui_help_menu_text8",
+"rd_ui_help_menu_text9",
+"rd_ui_help_menu_text10",
+"rd_ui_help_menu_text11" }
 
-PANEL.ButtonText = { "Holy Shit I Don't Care",
-"I Didn't Read Any Of That",
-"That's A Lot Of Words",
-"I'd Rather Just Whine For Help",
-"Just Wanna Play Video Games",
-"Who Gives A Shit?",
-"Help Menus Are For Nerds",
-"I Thought This Was A Roleplay Server",
-"How I Shoot Zobies",
-"How Do I Buy Wepon",
-"HEY GUYS WHERES ANTIDOTE this game suck",
-"WHERE MY INVENTOREY",
-"TL;DR",
-"FUCK OFF" }
+PANEL.ButtonText = { "rd_ui_help_menu_button_text",
+"rd_ui_help_menu_button_text2",
+"rd_ui_help_menu_button_text3",
+"rd_ui_help_menu_button_text4",
+"rd_ui_help_menu_button_text5",
+"rd_ui_help_menu_button_text6",
+"rd_ui_help_menu_button_text7",
+"rd_ui_help_menu_button_text8",
+"rd_ui_help_menu_button_text9",
+"rd_ui_help_menu_button_text10",
+"rd_ui_help_menu_button_text11",
+"rd_ui_help_menu_button_text12",
+"rd_ui_help_menu_button_text13",
+"rd_ui_help_menu_button_text14" }
 
 function PANEL:Init()
 
@@ -38,7 +38,7 @@ function PANEL:Init()
 	
 	for k,v in pairs( self.Text ) do
 	
-		text = text .. v
+		text = text .. translate.Get(v)
 	
 	end
 	
@@ -46,7 +46,7 @@ function PANEL:Init()
 	self.Label:SetHTML( text )
 	
 	self.Button = vgui.Create( "DButton", self )
-	self.Button:SetText( table.Random( self.ButtonText ) )
+	self.Button:SetText( translate.Get(table.Random( self.ButtonText )) )
 	self.Button.OnMousePressed = function()
 
 		self:Remove() 
@@ -97,7 +97,7 @@ function PANEL:Paint()
 	draw.RoundedBox( 4, 0, 0, self:GetWide(), self:GetTall(), Color( 0, 0, 0, 255 ) )
 	draw.RoundedBox( 4, 1, 1, self:GetWide() - 2, self:GetTall() - 2, Color( 150, 150, 150, 150 ) )
 	
-	draw.SimpleText( "Help Menu", "ItemDisplayFont", self:GetWide() * 0.5, 10, Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+	draw.SimpleText( translate.Get( "rd_ui_help_menu" ), "ItemDisplayFont", self:GetWide() * 0.5, 10, Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
 
 end
 

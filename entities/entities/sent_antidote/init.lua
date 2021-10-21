@@ -61,7 +61,7 @@ function ENT:Use( ply, caller )
 		ply:SetInfected( false )
 		ply:AddStamina( 20 )
 		ply:EmitSound( self.Cure )
-		ply:Notice( "Your infection has been cured", GAMEMODE.Colors.Green )
+		ply:Notice( translate.ClientGet( ply, "rd_notices_your_infection_has_been_cured" ), GAMEMODE.Colors.Green )
 
 		if not self.Override then
 		
