@@ -1,7 +1,7 @@
 
 resource.AddFile( "materials/sprites/flareglow.vmt" )
 resource.AddFile( "resource/fonts/Graffiare.ttf" )
-resource.AddFile( "resource/fonts/typenoksidi.ttf" )
+resource.AddFile( "resource/fonts/typenoksidi_upd.ttf" )
 resource.AddFile( "models/Zed/male_shared.mdl" )
 resource.AddFile( "sound/nuke/redead/lastminute.mp3" )
 

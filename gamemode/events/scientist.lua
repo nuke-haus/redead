@@ -15,7 +15,7 @@ function EVENT:Start()
 	
 	for k,v in pairs( team.GetPlayers( TEAM_ARMY ) ) do
 		
-		v:Notice( translate.Get( "rd_notices_field_researcher_has_been_sighted" ), GAMEMODE.Colors.White, 5 )
+		v:Notice( translate.ClientGet( v, "rd_notices_field_researcher_has_been_sighted" ), GAMEMODE.Colors.White, 5 )
 		
 	end
 	

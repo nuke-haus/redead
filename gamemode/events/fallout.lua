@@ -16,10 +16,10 @@ function EVENT:Start()
 	
 	for k,v in pairs( team.GetPlayers( TEAM_ARMY ) ) do
 		
-		v:Notice( translate.Get( "rd_notices_nuclear_fallout_coming" ), GAMEMODE.Colors.White, 7 )
-		v:Notice( translate.Get( "rd_notices_nuclear_fallout_coming_help" ), GAMEMODE.Colors.White, 7, 2 )
-		v:Notice( translate.Format( "rd_notices_nuclear_fallout_coming_in_x", translate.Get( EVENT.TimeText[ num ] ) ), GAMEMODE.Colors.White, 7, 15 )
-		v:Notice( translate.Get( "rd_notices_nuclear_fallout_end" ), GAMEMODE.Colors.White, 7, EVENT.Times[ num ] + 15 )
+		v:Notice( translate.ClientGet( v, "rd_notices_nuclear_fallout_coming" ), GAMEMODE.Colors.White, 7 )
+		v:Notice( translate.ClientGet( v, "rd_notices_nuclear_fallout_coming_help" ), GAMEMODE.Colors.White, 7, 2 )
+		v:Notice( translate.ClientFormat( v, "rd_notices_nuclear_fallout_coming_in_x", translate.ClientGet( v, EVENT.TimeText[ num ] ) ), GAMEMODE.Colors.White, 7, 15 )
+		v:Notice( translate.ClientGet( v, "rd_notices_nuclear_fallout_end" ), GAMEMODE.Colors.White, 7, EVENT.Times[ num ] + 15 )
 		
 	end
 	

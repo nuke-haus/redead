@@ -14,8 +14,8 @@ function EVENT:Start()
 	
 	for k,v in pairs( team.GetPlayers( TEAM_ARMY ) ) do
 		
-		v:Notice( translate.Format( "rd_notices_radio_communications_are_offline_for_x", translate.Get( EVENT.TimeText[ num ] ) ), GAMEMODE.Colors.Red, 5 )
-		v:Notice( translate.Get( "rd_notices_radio_communications_are_online" ), GAMEMODE.Colors.White, 5, EVENT.Times[ num ] )
+		v:Notice( translate.ClientFormat( v, "rd_notices_radio_communications_are_offline_for_x", translate.ClientGet( v, EVENT.TimeText[ num ] ) ), GAMEMODE.Colors.Red, 5 )
+		v:Notice( translate.ClientGet( v, "rd_notices_radio_communications_are_online" ), GAMEMODE.Colors.White, 5, EVENT.Times[ num ] )
 		
 	end
 	

@@ -65,7 +65,7 @@ function ENT:Think()
 		
 		for k,v in pairs( team.GetPlayers( TEAM_ZOMBIES ) ) do
 		
-			v:Notice( translate.Get( "The chopper has left the evac zone" ), GAMEMODE.Colors.White, 5 )
+			v:Notice( translate.ClientGet( v, "rd_notices_heli_left_evac_zone" ), GAMEMODE.Colors.White, 5 )
 		
 		end
 		

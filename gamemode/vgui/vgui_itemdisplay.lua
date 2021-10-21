@@ -1,6 +1,6 @@
 local PANEL = {}
 
-surface.CreateFont ( "ItemDisplayFont", { size = 12, weight = 300, antialias = true, additive = true, font = "Verdana" } )
+surface.CreateFont ( "ItemDisplayFont", { size = 12, weight = 300, antialias = true, additive = true, extended = true, font = "Verdana" } )
 
 function PANEL:Init()
 

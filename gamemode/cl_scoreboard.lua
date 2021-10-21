@@ -3,12 +3,12 @@ function GM:CustomizeScoreboard()
 
 	// these fonts are used in the header on the top of the scoreboard
 	surface.CreateFont ( "MenuTitle", { size = 30, weight = 500, antialias = true, additive = false, font = "Graffiare" } )
-	surface.CreateFont ( "MenuDesc", { size = 16, weight = 800, antialias = true, additive = false, font = "Verdana" } )
+	surface.CreateFont ( "MenuDesc", { size = 16, weight = 800, antialias = true, additive = false, extended = true, font = "Verdana" } )
 	
 	// scoreboard fonts
-	surface.CreateFont ( "ScoreboardLabel", { size = 14, weight = 1000, antialias = true, additive = false, font = "Tahoma" } )
-	surface.CreateFont ( "ScoreboardTeamName", { size = 14, weight = 1000, antialias = true, additive = false, font = "Verdana" } )
-	surface.CreateFont ( "ScoreboardPlayerText", { size = 14, weight = 600, antialias = true, additive = false, font = "Arial" } )
+	surface.CreateFont ( "ScoreboardLabel", { size = 14, weight = 1000, antialias = true, additive = false, extended = true, font = "Tahoma" } )
+	surface.CreateFont ( "ScoreboardTeamName", { size = 14, weight = 1000, antialias = true, additive = false, extended = true, font = "Verdana" } )
+	surface.CreateFont ( "ScoreboardPlayerText", { size = 14, weight = 600, antialias = true, additive = false, extended = true, font = "Arial" } )
 	
 	// colors used on the scoreboard
 	GAMEMODE.TitleColor = Color( 255, 255, 255, 255 ) // title text color
