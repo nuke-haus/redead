@@ -38,7 +38,7 @@ function PANEL:Init()
 	
 	for k,v in pairs( self.Text ) do
 	
-		text = text .. translate.Get(v)
+		text = text .. translate.ClientGet( self, v )
 	
 	end
 	
@@ -46,7 +46,7 @@ function PANEL:Init()
 	self.Label:SetHTML( text )
 	
 	self.Button = vgui.Create( "DButton", self )
-	self.Button:SetText( translate.Get(table.Random( self.ButtonText )) )
+	self.Button:SetText( translate.ClientGet( self, table.Random( self.ButtonText ) ) )
 	self.Button.OnMousePressed = function()
 
 		self:Remove() 

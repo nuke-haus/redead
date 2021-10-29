@@ -225,7 +225,7 @@ function PANEL:RefreshItems( tbl )
 		
 		else
 		
-			self.CashButton:SetText( translate.Get( "rd_ui_shop_drop" ) )
+			self.CashButton:SetText( translate.Get( "rd_ui_shop_drop_money" ) )
 			self.CashButton.OnMousePressed = function()
 				
 				RunConsoleCommand( "cash_drop", math.min( tonumber( self.CashBox:GetValue() ) or 0, self:GetCash() ) )
@@ -388,7 +388,7 @@ function PANEL:Rebuild()
 	
 	if self.CashButton then
 	
-		self.CashButton:SetSize( 48, 20 )
+		self.CashButton:SetSize( 128, 20 )
 		self.CashButton:SetPos( ( self:GetPadding() * 2 ) + 5 + self.CashBox:GetWide(), self:GetTall() - ( self:GetPadding() * 2 ) - 20 )
 	
 	end
