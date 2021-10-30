@@ -388,7 +388,7 @@ function PANEL:Rebuild()
 	
 	if self.CashButton then
 	
-		self.CashButton:SetSize( 128, 20 )
+		self.CashButton:SetSize( 68, 20 )
 		self.CashButton:SetPos( ( self:GetPadding() * 2 ) + 5 + self.CashBox:GetWide(), self:GetTall() - ( self:GetPadding() * 2 ) - 20 )
 	
 	end

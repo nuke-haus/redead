@@ -2,7 +2,7 @@
 function GM:CustomizeScoreboard()
 
 	// these fonts are used in the header on the top of the scoreboard
-	surface.CreateFont ( "MenuTitle", { size = 30, weight = 500, antialias = true, additive = false, font = "Graffiare" } )
+	surface.CreateFont ( "MenuTitle", { size = 30, weight = 500, antialias = true, additive = false, extended = true, font = "Graffiare" } )
 	surface.CreateFont ( "MenuDesc", { size = 16, weight = 800, antialias = true, additive = false, extended = true, font = "Verdana" } )
 	
 	// scoreboard fonts

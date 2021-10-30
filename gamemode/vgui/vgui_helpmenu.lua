@@ -11,7 +11,8 @@ PANEL.Text = { "rd_ui_help_menu_html_code",
 "rd_ui_help_menu_text8",
 "rd_ui_help_menu_text9",
 "rd_ui_help_menu_text10",
-"rd_ui_help_menu_text11" }
+"rd_ui_help_menu_text11",
+"rd_ui_help_menu_tip" }
 
 PANEL.ButtonText = { "rd_ui_help_menu_button_text",
 "rd_ui_help_menu_button_text2",
@@ -38,7 +39,7 @@ function PANEL:Init()
 	
 	for k,v in pairs( self.Text ) do
 	
-		text = text .. translate.ClientGet( self, v )
+		text = text .. translate.ClientGet( ply, v )
 	
 	end
 	
@@ -46,7 +47,7 @@ function PANEL:Init()
 	self.Label:SetHTML( text )
 	
 	self.Button = vgui.Create( "DButton", self )
-	self.Button:SetText( translate.ClientGet( self, table.Random( self.ButtonText ) ) )
+	self.Button:SetText( translate.ClientGet( ply, table.Random( self.ButtonText ) ) )
 	self.Button.OnMousePressed = function()
 
 		self:Remove() 
@@ -97,7 +98,7 @@ function PANEL:Paint()
 	draw.RoundedBox( 4, 0, 0, self:GetWide(), self:GetTall(), Color( 0, 0, 0, 255 ) )
 	draw.RoundedBox( 4, 1, 1, self:GetWide() - 2, self:GetTall() - 2, Color( 150, 150, 150, 150 ) )
 	
-	draw.SimpleText( translate.Get( "rd_ui_help_menu" ), "ItemDisplayFont", self:GetWide() * 0.5, 10, Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+	draw.SimpleText( translate.ClientGet( ply, "rd_ui_help_menu" ), "ItemDisplayFont", self:GetWide() * 0.5, 10, Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
 
 end
 

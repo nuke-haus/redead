@@ -1,11 +1,11 @@
 
+include( 'translate.lua' )
 include( 'player_class/player_base.lua' )
 include( 'player_class/player_zombie.lua' )
 include( 'animations.lua' )
 include( 'items.lua' )
 include( 'shared.lua' )
 include( 'enums.lua' )
-include( 'translate.lua' )
 include( 'moddable.lua' )
 include( 'tables.lua' )
 include( 'weather.lua' )
@@ -56,11 +56,11 @@ function GM:Initialize()
 	HeartBeat = 0
 	JumpTimer = 0
 	
-	surface.CreateFont ( "DeathFont", { size = 34, weight = 200, antialias = true, additive = true, font = "Graffiare" } )
-	surface.CreateFont ( "AmmoFont", { size = 28, weight = 200, antialias = true, additive = true, font = "Graffiare" } )
-	surface.CreateFont ( "CashFont", { size = 22, weight = 200, antialias = true, additive = true, font = "Graffiare" } )
-	surface.CreateFont ( "InventoryFont", { size = 20, weight = 150, antialias = true, additive = true, font = "Graffiare" } )
-	surface.CreateFont ( "HudMarker", { size = 20, weight = 200,antialias = true, additive = true, font = "Graffiare" } )
+	surface.CreateFont ( "DeathFont", { size = 34, weight = 200, antialias = true, additive = true, extended = true, font = "Graffiare" } )
+	surface.CreateFont ( "AmmoFont", { size = 28, weight = 200, antialias = true, additive = true, extended = true, font = "Graffiare" } )
+	surface.CreateFont ( "CashFont", { size = 22, weight = 200, antialias = true, additive = true, extended = true, font = "Graffiare" } )
+	surface.CreateFont ( "InventoryFont", { size = 20, weight = 150, antialias = true, additive = true, extended = true, font = "Graffiare" } )
+	surface.CreateFont ( "HudMarker", { size = 20, weight = 200,antialias = true, additive = true, extended = true, font = "Graffiare" } )
 	surface.CreateFont ( "ZombieHud", { size = 24, weight = 500, antialias = true, additive = true, extended = true, font = "Typenoksidi_Updated" } )
 	surface.CreateFont ( "ShopBig", { size = 22, weight = 500,  antialias = true, additive = true, extended = true, font = "Typenoksidi_Updated" } )
 	surface.CreateFont ( "ShopSmall", { size = 16, weight = 400, antialias = true, additive = true, extended = true, font = "Typenoksidi_Updated" } )
@@ -85,7 +85,7 @@ function GM:GetHelpHTML()
 	
 	for k,v in pairs( GAMEMODE.HelpText ) do
 	
-		str = str .. v
+		str = translate.ClientGet( self, str ) .. translate.ClientGet( self, v )
 	
 	end
 
