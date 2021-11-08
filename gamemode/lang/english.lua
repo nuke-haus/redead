@@ -25,7 +25,6 @@ LANGUAGE.rd_ui_help_menu_text8 = "<b>Evacuation:</b> At the last minute of the r
 LANGUAGE.rd_ui_help_menu_text9 = "<b>The Infection:</b> The common undead will infect you when they hit you. To cure infection, go to the antidote and press your USE key to access it. The antidote location is always marked on your HUD.<br><br>"
 LANGUAGE.rd_ui_help_menu_text10 = "<b>The Zombie Lord:</b> If there are more than 8 players then a zombie lord will be chosen. If the zombie lord manages to fill their blood meter, they will respawn as a human with a special reward.<br><br>"
 LANGUAGE.rd_ui_help_menu_text11 = "<b>Radiation:</b> Radiation is visually unnoticeable. When near radiation, your handheld geiger counter will make sounds indicating how close you are to a radioactive deposit. Radiation poisoning is cured by vodka or Anti-Rad.<br><br>"
-LANGUAGE.rd_ui_help_menu_tip = "<p style=\"font-family:verdana;color:black;font-size:8px;text-align:left\">(re-open help menu to see it's translated version)"
 
 LANGUAGE.rd_ui_help_menu_button_text = "Holy Shit I Don't Care"
 LANGUAGE.rd_ui_help_menu_button_text2 = "I Didn't Read Any Of That"

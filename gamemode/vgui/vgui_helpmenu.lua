@@ -11,8 +11,7 @@ PANEL.Text = { "rd_ui_help_menu_html_code",
 "rd_ui_help_menu_text8",
 "rd_ui_help_menu_text9",
 "rd_ui_help_menu_text10",
-"rd_ui_help_menu_text11",
-"rd_ui_help_menu_tip" }
+"rd_ui_help_menu_text11" }
 
 PANEL.ButtonText = { "rd_ui_help_menu_button_text",
 "rd_ui_help_menu_button_text2",
