@@ -2,13 +2,13 @@
 function GM:CustomizeScoreboard()
 
 	// these fonts are used in the header on the top of the scoreboard
-	surface.CreateFont ( "MenuTitle", { size = 30, weight = 500, antialias = true, additive = false, font = "Graffiare" } )
-	surface.CreateFont ( "MenuDesc", { size = 16, weight = 800, antialias = true, additive = false, font = "Verdana" } )
+	surface.CreateFont ( "MenuTitle", { size = 30, weight = 500, antialias = true, additive = false, extended = true, font = "Graffiare" } )
+	surface.CreateFont ( "MenuDesc", { size = 16, weight = 800, antialias = true, additive = false, extended = true, font = "Verdana" } )
 	
 	// scoreboard fonts
-	surface.CreateFont ( "ScoreboardLabel", { size = 14, weight = 1000, antialias = true, additive = false, font = "Tahoma" } )
-	surface.CreateFont ( "ScoreboardTeamName", { size = 14, weight = 1000, antialias = true, additive = false, font = "Verdana" } )
-	surface.CreateFont ( "ScoreboardPlayerText", { size = 14, weight = 600, antialias = true, additive = false, font = "Arial" } )
+	surface.CreateFont ( "ScoreboardLabel", { size = 14, weight = 1000, antialias = true, additive = false, extended = true, font = "Tahoma" } )
+	surface.CreateFont ( "ScoreboardTeamName", { size = 14, weight = 1000, antialias = true, additive = false, extended = true, font = "Verdana" } )
+	surface.CreateFont ( "ScoreboardPlayerText", { size = 14, weight = 600, antialias = true, additive = false, extended = true, font = "Arial" } )
 	
 	// colors used on the scoreboard
 	GAMEMODE.TitleColor = Color( 255, 255, 255, 255 ) // title text color
@@ -59,7 +59,7 @@ function GM:GetPlayerStats( ply )
 
 	if not ply then 
 	
-		return { "Kills", GAMEMODE.CurrencyName .. "s" } 
+		return { translate.Get( "rd_ui_scoreboard_kills" ), translate.Get( "rd_ui_scoreboard_bones" ) } 
 		
 	else
 	
@@ -241,25 +241,25 @@ function TFRAME:Paint( )
 	surface.SetDrawColor( GAMEMODE.ScoreBackground.r, GAMEMODE.ScoreBackground.g, GAMEMODE.ScoreBackground.b, GAMEMODE.ScoreBackground.a )
 	surface.DrawRect( 0, 25, self:GetWide(), self:GetTall() - 25 )
 	
-	local text = " Member )"
+	local text = "rd_ui_scoreboard_one_member"
 	
 	if team.NumPlayers( self.TeamID ) > 1 or team.NumPlayers( self.TeamID ) == 0 then
 	
-		text = " Members )"
+		text = "rd_ui_scoreboard_many_members"
 		
 	end
 	
 	local teamcol = GAMEMODE.TeamTextColor
 	local teamshad = GAMEMODE.TeamShadowColor
 	
-	draw.SimpleText( team.GetName( self.TeamID ).." ( "..team.NumPlayers( self.TeamID )..text, "ScoreboardTeamName", 10, 3, Color( teamshad.r, teamshad.g, teamshad.b, teamshad.a ), TEXT_ALIGN_LEFT, TEXT_ALIGN_LEFT )
-	draw.SimpleText( team.GetName( self.TeamID ).." ( "..team.NumPlayers( self.TeamID )..text, "ScoreboardTeamName", 9, 3, Color( teamcol.r, teamcol.g, teamcol.b, teamcol.a ), TEXT_ALIGN_LEFT, TEXT_ALIGN_LEFT )
+	draw.SimpleText( translate.Format( "rd_ui_scoreboard_x_team_x_format", translate.Get( team.GetName( self.TeamID ) ), team.NumPlayers( self.TeamID ), translate.Get( text ) ), "ScoreboardTeamName", 10, 3, Color( teamshad.r, teamshad.g, teamshad.b, teamshad.a ), TEXT_ALIGN_LEFT, TEXT_ALIGN_LEFT )
+	draw.SimpleText( translate.Format( "rd_ui_scoreboard_x_team_x_format", translate.Get( team.GetName( self.TeamID ) ), team.NumPlayers( self.TeamID ), translate.Get( text ) ), "ScoreboardTeamName", 9, 3, Color( teamcol.r, teamcol.g, teamcol.b, teamcol.a ), TEXT_ALIGN_LEFT, TEXT_ALIGN_LEFT )
 	
 	local tbl = GAMEMODE:GetPlayerStats()
 	local pos = 10
 	
-	draw.SimpleText( "Ping", "ScoreboardLabel", self:GetWide() - pos, 3, Color( teamshad.r, teamshad.g, teamshad.b, teamshad.a ), TEXT_ALIGN_RIGHT, TEXT_ALIGN_LEFT )
-	draw.SimpleText( "Ping", "ScoreboardLabel", self:GetWide() - pos - 1, 3, Color( teamcol.r, teamcol.g, teamcol.b, teamcol.a ), TEXT_ALIGN_RIGHT, TEXT_ALIGN_LEFT )
+	draw.SimpleText( translate.Get( "rd_ui_scoreboard_ping" ), "ScoreboardLabel", self:GetWide() - pos, 3, Color( teamshad.r, teamshad.g, teamshad.b, teamshad.a ), TEXT_ALIGN_RIGHT, TEXT_ALIGN_LEFT )
+	draw.SimpleText( translate.Get( "rd_ui_scoreboard_ping" ), "ScoreboardLabel", self:GetWide() - pos - 1, 3, Color( teamcol.r, teamcol.g, teamcol.b, teamcol.a ), TEXT_ALIGN_RIGHT, TEXT_ALIGN_LEFT )
 	
 	for k,v in pairs( tbl ) do
 	

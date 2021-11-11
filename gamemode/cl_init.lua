@@ -1,4 +1,5 @@
 
+include( 'translate.lua' )
 include( 'player_class/player_base.lua' )
 include( 'player_class/player_zombie.lua' )
 include( 'animations.lua' )
@@ -37,6 +38,8 @@ CV_RagdollRemove = CreateClientConVar( "cl_redead_ragdoll_remove_time", "15", tr
 CV_Density = CreateClientConVar( "cl_redead_rain_density", "1.0", true, false )
 CV_NoobHelp = CreateClientConVar( "cl_redead_noob_help", "1", true, false )
 
+local translate = translate
+
 function GM:Initialize()
 	
 	WindVector = Vector( math.random(-10,10), math.random(-10,10), 0 )
@@ -53,18 +56,18 @@ function GM:Initialize()
 	HeartBeat = 0
 	JumpTimer = 0
 	
-	surface.CreateFont ( "DeathFont", { size = 34, weight = 200, antialias = true, additive = true, font = "Graffiare" } )
-	surface.CreateFont ( "AmmoFont", { size = 28, weight = 200, antialias = true, additive = true, font = "Graffiare" } )
-	surface.CreateFont ( "CashFont", { size = 22, weight = 200, antialias = true, additive = true, font = "Graffiare" } )
-	surface.CreateFont ( "InventoryFont", { size = 20, weight = 150, antialias = true, additive = true, font = "Graffiare" } )
-	surface.CreateFont ( "HudMarker", { size = 20, weight = 200,antialias = true, additive = true, font = "Graffiare" } )
-	surface.CreateFont ( "ZombieHud", { size = 24, weight = 500, antialias = true, additive = true, font = "Typenoksidi" } )
-	surface.CreateFont ( "ShopBig", { size = 22, weight = 500,  antialias = true, additive = true, font = "Typenoksidi" } )
-	surface.CreateFont ( "ShopSmall", { size = 16, weight = 400, antialias = true, additive = true, font = "Typenoksidi" } )
-	surface.CreateFont ( "EndGameBig", { size = 24, weight = 300,antialias = true, additive = true, font = "Typenoksidi" } )
-	surface.CreateFont ( "EndGame", { size = 14, weight = 400,  antialias = true, additive = true, font = "Tahoma" } )
-	surface.CreateFont ( "AmmoFontSmall", { size = 12, weight = 300, antialias = true, additive = true, font = "Verdana" } )
-	surface.CreateFont ( "TargetIDFont", { size = 12, weight = 200, antialias = true, additive = true, font = "Verdana" } )
+	surface.CreateFont ( "DeathFont", { size = 34, weight = 200, antialias = true, additive = true, extended = true, font = "Graffiare" } )
+	surface.CreateFont ( "AmmoFont", { size = 28, weight = 200, antialias = true, additive = true, extended = true, font = "Graffiare" } )
+	surface.CreateFont ( "CashFont", { size = 22, weight = 200, antialias = true, additive = true, extended = true, font = "Graffiare" } )
+	surface.CreateFont ( "InventoryFont", { size = 20, weight = 150, antialias = true, additive = true, extended = true, font = "Graffiare" } )
+	surface.CreateFont ( "HudMarker", { size = 20, weight = 200,antialias = true, additive = true, extended = true, font = "Graffiare" } )
+	surface.CreateFont ( "ZombieHud", { size = 24, weight = 500, antialias = true, additive = true, extended = true, font = "Typenoksidi_Updated" } )
+	surface.CreateFont ( "ShopBig", { size = 22, weight = 500,  antialias = true, additive = true, extended = true, font = "Typenoksidi_Updated" } )
+	surface.CreateFont ( "ShopSmall", { size = 16, weight = 400, antialias = true, additive = true, extended = true, font = "Typenoksidi_Updated" } )
+	surface.CreateFont ( "EndGameBig", { size = 24, weight = 300,antialias = true, additive = true, extended = true, font = "Typenoksidi_Updated" } )
+	surface.CreateFont ( "EndGame", { size = 14, weight = 400,  antialias = true, additive = true, extended = true, font = "Tahoma" } )
+	surface.CreateFont ( "AmmoFontSmall", { size = 12, weight = 300, antialias = true, additive = true, extended = true, font = "Verdana" } )
+	surface.CreateFont ( "TargetIDFont", { size = 12, weight = 200, antialias = true, additive = true, extended = true, font = "Verdana" } )
 	
 	matHealth = Material( "radbox/img_health" )
 	matStamina = Material( "radbox/img_stamina" )
@@ -82,7 +85,7 @@ function GM:GetHelpHTML()
 	
 	for k,v in pairs( GAMEMODE.HelpText ) do
 	
-		str = str .. v
+		str = translate.ClientGet( self, str ) .. translate.ClientGet( self, v )
 	
 	end
 
@@ -581,14 +584,14 @@ function GM:DrawMarkers()
 		
 		if sc.visible then
 		
-			local text = "antidote"
+			local text = "rd_hud_markers_antidote"
 			local offset = ( v:GetPos() + Vector(0,0,80) ):ToScreen()
 			local dist = v:GetPos():Distance( LocalPlayer():GetPos() )
 			local maxdist = 1600
 		
 			if v:GetClass() == "sent_heliflare" then
 			
-				text = "evac  zone"
+				text = "rd_hud_markers_evacuation_zone"
 				offset = ( v:GetPos() + Vector(0,0,40) ):ToScreen()
 				maxdist = 600
 			
@@ -598,13 +601,31 @@ function GM:DrawMarkers()
 			
 			sc.y = sc.y + ( offset.y - sc.y )
 		
-			draw.SimpleText( text, "HudMarker", sc.x, sc.y, Color( 255, 255, 255, alpha * 255 ), TEXT_ALIGN_CENTER )
+			draw.SimpleText( translate.Get( text ), "HudMarker", sc.x, sc.y, Color( 255, 255, 255, alpha * 255 ), TEXT_ALIGN_CENTER )
 			
 		end
 	
 	end
 
 end
+
+GM.DeathScreenText = {}
+
+GM.DeathScreenText[ TEAM_ARMY ] = { "rd_hud_human_death_message_text",
+"rd_hud_human_death_message2_text",
+"rd_hud_human_death_message3_text",
+"rd_hud_human_death_message4_text",
+"rd_hud_human_death_message5_text",
+"rd_hud_human_death_message6_text",
+"rd_hud_human_death_message7_text" }
+
+GM.DeathScreenText[ TEAM_ZOMBIES ] = { "rd_hud_zombie_death_message_text",
+"rd_hud_zombie_death_message2_text",
+"rd_hud_zombie_death_message3_text",
+"rd_hud_zombie_death_message4_text",
+"rd_hud_zombie_death_message5_text",
+"rd_hud_zombie_death_message6_text",
+"rd_hud_zombie_death_message7_text" }
 
 function GM:HUDPaint()
 
@@ -629,15 +650,15 @@ function GM:HUDPaint()
 				
 				if dtime > 0 then
 				
-					draw.SimpleText( "YOU WILL RESPAWN IN "..dtime.." SECONDS", "DeathFont", ScrW() * 0.5, ScrH() * 0.1, Color( 255, 0, 0 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+					draw.SimpleText( translate.Format( "rd_hud_you_will_respawn_in_x_seconds", dtime ), "DeathFont", ScrW() * 0.5, ScrH() * 0.1, Color( 255, 0, 0 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
 					
 				else
 				
-					draw.SimpleText( "PRESS ANY KEY TO RESPAWN", "DeathFont", ScrW() * 0.5, ScrH() * 0.1, Color( 255, 0, 0 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+					draw.SimpleText( translate.Get( "rd_hud_press_any_key_to_respawn" ), "DeathFont", ScrW() * 0.5, ScrH() * 0.1, Color( 255, 0, 0 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
 				
 				end
 				
-				draw.SimpleText( DeathScreenText or "POOP", "DeathFont", ScrW() * 0.5, ScrH() * 0.9, Color( 255, 0, 0 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+				draw.SimpleText( translate.Get( DeathScreenText ) or translate.Get( "rd_hud_neutral_death_message_text" ), "DeathFont", ScrW() * 0.5, ScrH() * 0.9, Color( 255, 0, 0 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
 			
 			end
 	
@@ -647,15 +668,15 @@ function GM:HUDPaint()
 			local x, y = 40, ScrH() - 60
 			
 			surface.SetFont( "ZombieHud" )
-			local w, h = surface.GetTextSize( "Health: " .. hp )
+			local w, h = surface.GetTextSize( translate.Format( "rd_hud_health_x", hp ) )
 		
 			draw.RoundedBox( 4, 30, ScrH() - 70, w + 20, h + 20, Color( 0, 0, 0, 180 ) )
 		
-			draw.SimpleText( "Health: " .. hp, "ZombieHud", x+1, y+1, Color(40,40,40), TEXT_ALIGN_LEFT )
-			draw.SimpleText( "Health: " .. hp, "ZombieHud", x+1, y-1, Color(40,40,40), TEXT_ALIGN_LEFT )
-			draw.SimpleText( "Health: " .. hp, "ZombieHud", x-1, y-1, Color(40,40,40), TEXT_ALIGN_LEFT )
-			draw.SimpleText( "Health: " .. hp, "ZombieHud", x-1, y+1, Color(40,40,40), TEXT_ALIGN_LEFT )
-			draw.SimpleText( "Health: " .. hp, "ZombieHud", x, y, GAMEMODE:GetHealthColor(), TEXT_ALIGN_LEFT )
+			draw.SimpleText( translate.Format( "rd_hud_health_x", hp ), "ZombieHud", x+1, y+1, Color(40,40,40), TEXT_ALIGN_LEFT )
+			draw.SimpleText( translate.Format( "rd_hud_health_x", hp ), "ZombieHud", x+1, y-1, Color(40,40,40), TEXT_ALIGN_LEFT )
+			draw.SimpleText( translate.Format( "rd_hud_health_x", hp ), "ZombieHud", x-1, y-1, Color(40,40,40), TEXT_ALIGN_LEFT )
+			draw.SimpleText( translate.Format( "rd_hud_health_x", hp ), "ZombieHud", x-1, y+1, Color(40,40,40), TEXT_ALIGN_LEFT )
+			draw.SimpleText( translate.Format( "rd_hud_health_x", hp ), "ZombieHud", x, y, GAMEMODE:GetHealthColor(), TEXT_ALIGN_LEFT )
 			
 			if not LocalPlayer():GetNWBool( "Lord", false ) then return end
 			
@@ -724,15 +745,15 @@ function GM:HUDPaint()
 			
 			if dtime > 0 then
 			
-				draw.SimpleText( "YOU WILL RESPAWN IN "..dtime.." SECONDS", "DeathFont", ScrW() * 0.5, ScrH() * 0.1, Color( 255, 0, 0 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+				draw.SimpleText( translate.Format( "rd_hud_you_will_respawn_in_x_seconds", dtime ), "DeathFont", ScrW() * 0.5, ScrH() * 0.1, Color( 255, 0, 0 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
 				
 			else
 			
-				draw.SimpleText( "PRESS ANY KEY TO RESPAWN", "DeathFont", ScrW() * 0.5, ScrH() * 0.1, Color( 255, 0, 0 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+				draw.SimpleText( translate.Get( "rd_hud_press_any_key_to_respawn" ), "DeathFont", ScrW() * 0.5, ScrH() * 0.1, Color( 255, 0, 0 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
 			
 			end
 			
-			draw.SimpleText( DeathScreenText or "POOP", "DeathFont", ScrW() * 0.5, ScrH() * 0.9, Color( 255, 0, 0 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+			draw.SimpleText( translate.Get( DeathScreenText ) or translate.Get( "rd_hud_neutral_death_message_text" ), "DeathFont", ScrW() * 0.5, ScrH() * 0.9, Color( 255, 0, 0 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
 		
 		end
 	
@@ -775,14 +796,14 @@ function GM:HUDPaint()
 	
 		local xlen = 50
 	
-		DrawAmmo( ScrW() - 5 - xlen, ScrH() - ylen - 5, xlen, ylen, total, "TOTAL" )
-		DrawAmmo( ScrW() - 10 - xlen * 2, ScrH() - ylen - 5, xlen, ylen, ammo, "AMMO" )
+		DrawAmmo( ScrW() - 5 - xlen, ScrH() - ylen - 5, xlen, ylen, total, translate.Get("rd_hud_current_ammo_total") )
+		DrawAmmo( ScrW() - 10 - xlen * 2, ScrH() - ylen - 5, xlen, ylen, ammo, translate.Get("rd_hud_current_ammo") )
 		
 		ypos = ypos + ylen + 5
 	
 	end
 	
-	DrawCash( ScrW() - 110, ScrH() - ypos, 105, 30, string.upper( LocalPlayer():GetNWInt( "Cash", 0 ) .. "  " .. GAMEMODE.CurrencyName .. "s" ) )
+	DrawCash( ScrW() - 110, ScrH() - ypos, 105, 30, string.upper( translate.Format( "rd_hud_bones_x", LocalPlayer():GetNWInt( "Cash", 0 ) ) ) )
 
 	GAMEMODE:PaintWeather()
 	--[[local radius = 200 

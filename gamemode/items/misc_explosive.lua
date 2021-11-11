@@ -4,7 +4,7 @@ ITEM_EXPLOSIVE = 345
 function FUNC_OXYGEN( ply, id, client, icon )
 
 	if icon then return "icon16/arrow_turn_right.png" end
-	if client then return "Throw" end
+	if client then return translate.Get( "rd_ui_shop_throw" ) end
 	
 	ply:RemoveFromInventory( id )
 	ply:EmitSound( Sound( "WeaponFrag.Throw" ) )
@@ -32,8 +32,8 @@ function FUNC_DROPOXYGEN( ply, id, drop )
 end
 
 item.Register( { 
-	Name = "Liquid Oxygen", 
-	Description = "Highly explosive liquid oxygen.",
+	Name = "rd_items_liquid_oxygen_name", 
+	Description = "rd_items_liquid_oxygen_desc",
 	TypeOverride = "sent_oxygen",
 	Stackable = true, 
 	Type = ITEM_EXPLOSIVE,
@@ -48,7 +48,7 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Gasoline", 
+	Name = "rd_items_gasoline_name", 
 	TypeOverride = "sent_fuel_gas",
 	AllowPickup = true,
 	CollisionOverride = true,
@@ -59,7 +59,7 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Diesel Fuel", 
+	Name = "rd_items_diesel_fuel_name", 
 	TypeOverride = "sent_fuel_diesel",
 	AllowPickup = true,
 	CollisionOverride = true,
@@ -70,7 +70,7 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Propane Canister", 
+	Name = "rd_items_propane_canister_name", 
 	TypeOverride = "sent_propane_canister",
 	AllowPickup = true,
 	CollisionOverride = true,
@@ -81,7 +81,7 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Propane Tank", 
+	Name = "rd_items_propane_tank_name", 
 	TypeOverride = "sent_propane_tank",
 	AllowPickup = true,
 	CollisionOverride = true,
@@ -92,7 +92,7 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Radioactive Waste", 
+	Name = "rd_items_radioactive_waste_name", 
 	TypeOverride = "sent_barrel_radioactive",
 	AllowPickup = true,
 	CollisionOverride = true,
@@ -103,7 +103,7 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Toxic Waste", 
+	Name = "rd_items_toxic_waste_name", 
 	TypeOverride = "sent_barrel_biohazard",
 	AllowPickup = true,
 	CollisionOverride = true,

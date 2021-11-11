@@ -49,7 +49,7 @@ end
 
 function SWEP:NoobHelp()
 
-	self.Owner:NoticeOnce( "Hit people to infect them", GAMEMODE.Colors.Blue, 5, 10 )
+	self.Owner:NoticeOnce( translate.Get( "rd_notices_hit_people_to_infect_them" ), GAMEMODE.Colors.Blue, 5, 10 )
 
 end
 
@@ -118,7 +118,7 @@ function SWEP:OnHitHuman( ent, dmg )
 			
 		ent:SetInfected( true )
 		
-		self.Owner:Notice( "You infected a human", GAMEMODE.Colors.Green )
+		self.Owner:Notice( translate.Get( "rd_notices_you_infected_a_human" ), GAMEMODE.Colors.Green )
 		self.Owner:AddZedDamage( 15 )
 				
 	end

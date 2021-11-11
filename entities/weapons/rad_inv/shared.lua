@@ -62,8 +62,8 @@ function SWEP:Deploy()
 	
 		self.Owner:SynchInventory()
 		
-		self.Owner:NoticeOnce( "Right click to scroll through your inventory", GAMEMODE.Colors.Blue, 5, 2 )  
-		self.Owner:NoticeOnce( "Left click to select an item and use it", GAMEMODE.Colors.Blue, 5, 4 )  
+		self.Owner:NoticeOnce( translate.Get( "rd_notices_rmb_to_scroll_through_your_inventory" ), GAMEMODE.Colors.Blue, 5, 2 )  
+		self.Owner:NoticeOnce( translate.Get( "rd_notices_lmb_to_select_an_item_and_use_it" ), GAMEMODE.Colors.Blue, 5, 4 )  
 	
 		return true 
 		

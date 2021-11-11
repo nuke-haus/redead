@@ -207,7 +207,7 @@ function PANEL:RefreshItems( tbl )
 		
 		if self.StashStyle == "Take" then
 		
-			self.CashButton:SetText( self.StashStyle )
+			self.CashButton:SetText( translate.Get( "rd_ui_shop_take" ) )
 			self.CashButton.OnMousePressed = function()
 				
 				RunConsoleCommand( "cash_take", math.min( tonumber( self.CashBox:GetValue() ) or 0, self:GetCash() ) )
@@ -216,7 +216,7 @@ function PANEL:RefreshItems( tbl )
 		
 		elseif self.StashStyle == "Stash" and self.Stashable then
 		
-			self.CashButton:SetText( self.StashStyle )
+			self.CashButton:SetText( translate.Get( "rd_ui_shop_stash" ) )
 			self.CashButton.OnMousePressed = function()
 				
 				RunConsoleCommand( "cash_stash", math.min( tonumber( self.CashBox:GetValue() ) or 0, self:GetCash() ) )
@@ -225,7 +225,7 @@ function PANEL:RefreshItems( tbl )
 		
 		else
 		
-			self.CashButton:SetText( "Drop" )
+			self.CashButton:SetText( translate.Get( "rd_ui_shop_drop_money" ) )
 			self.CashButton.OnMousePressed = function()
 				
 				RunConsoleCommand( "cash_drop", math.min( tonumber( self.CashBox:GetValue() ) or 0, self:GetCash() ) )
@@ -239,7 +239,7 @@ function PANEL:RefreshItems( tbl )
 	if ( self.StashStyle == "Stash" or self.StashStyle == "Take" ) and not self.IsLocalInv and #self:GetItems() > 0 then
 		
 		self.StashButton = vgui.Create( "DButton", self )
-		self.StashButton:SetText( "Take All" )
+		self.StashButton:SetText( translate.Get( "rd_ui_shop_take_all" ) )
 		self.StashButton.OnMousePressed = function()
 			
 			if #self:GetItems() < 1 then return end
@@ -388,7 +388,7 @@ function PANEL:Rebuild()
 	
 	if self.CashButton then
 	
-		self.CashButton:SetSize( 48, 20 )
+		self.CashButton:SetSize( 68, 20 )
 		self.CashButton:SetPos( ( self:GetPadding() * 2 ) + 5 + self.CashBox:GetWide(), self:GetTall() - ( self:GetPadding() * 2 ) - 20 )
 	
 	end
@@ -404,7 +404,7 @@ function PANEL:Paint()
 	
 	if self.StashStyle == "Buy" then return end
 	
-	draw.SimpleText( "Cash: $" .. self:GetCash(), "ItemDisplayFont", self:GetPadding() * 2, self:GetTall() - ( self:GetPadding() * 2 ) - 35, Color( 255, 255, 255 ), TEXT_ALIGN_LEFT, TEXT_ALIGN_LEFT )
+	draw.SimpleText( translate.Format( "rd_ui_shop_cash_x", self:GetCash() ), "ItemDisplayFont", self:GetPadding() * 2, self:GetTall() - ( self:GetPadding() * 2 ) - 35, Color( 255, 255, 255 ), TEXT_ALIGN_LEFT, TEXT_ALIGN_LEFT )
 	
 	//draw.TexturedQuad( { texture = surface.GetTextureID( "radbox/menu_trade" ), x = self:GetPadding() * 2, y = self:GetTall() - ( self:GetPadding() * 2 ) - 40, w = 40, h = 40, color = Color( 200, 200, 200 ) } )
 

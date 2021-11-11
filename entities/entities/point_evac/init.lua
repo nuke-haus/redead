@@ -65,7 +65,7 @@ function ENT:Think()
 		
 		for k,v in pairs( team.GetPlayers( TEAM_ZOMBIES ) ) do
 		
-			v:Notice( "The chopper has left the evac zone", GAMEMODE.Colors.White, 5 )
+			v:Notice( translate.ClientGet( v, "rd_notices_heli_left_evac_zone" ), GAMEMODE.Colors.White, 5 )
 		
 		end
 		
@@ -105,8 +105,8 @@ function ENT:Touch( ent )
 	
 	end
 	
-	ent:Notice( "You made it to the evac zone", GAMEMODE.Colors.Green, 5 )
-	ent:Notice( "The helicopter will take off shortly", GAMEMODE.Colors.Blue, 5, 2 )
+	ent:Notice( translate.Get( "rd_notices_you_made_it_to_heli" ), GAMEMODE.Colors.Green, 5 )
+	ent:Notice( translate.Get( "rd_notices_heli_will_take_off_shortly" ), GAMEMODE.Colors.Blue, 5, 2 )
 	
 end 
 

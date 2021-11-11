@@ -3,7 +3,7 @@ local EVENT = {}
 
 EVENT.Chance = 0.75
 EVENT.Type = EVENT_BAD
-EVENT.TimeText = { "1 minute", "2 minutes", "3 minutes" }  
+EVENT.TimeText = { "rd_notices_antidote_shortage_time", "rd_notices_antidote_shortage_time2", "rd_notices_antidote_shortage_time3" }  
 EVENT.Times = { 60, 120, 180 }  
 
 function EVENT:Start()
@@ -15,8 +15,8 @@ function EVENT:Start()
 	
 	for k,v in pairs( team.GetPlayers( TEAM_ARMY ) ) do
 		
-		v:Notice( "Antidote supplies will be low for " .. EVENT.TimeText[ num ], GAMEMODE.Colors.Red, 5 )
-		v:Notice( "The antidote shortage has ended", GAMEMODE.Colors.White, 5, EVENT.Times[ num ] )
+		v:Notice( translate.ClientFormat( v, "rd_notices_antidote_shortage_for_x", translate.ClientGet( v, EVENT.TimeText[ num ] ) ), GAMEMODE.Colors.Red, 5 )
+		v:Notice( translate.ClientGet( v, "rd_notices_antidote_shortage_end" ), GAMEMODE.Colors.White, 5, EVENT.Times[ num ] )
 		
 	end
 	

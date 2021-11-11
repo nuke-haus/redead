@@ -85,8 +85,8 @@ function ENT:OnThink()
 			
 				v.NextRadSound = CurTime() + 1 - scale 
 				v:EmitSound( table.Random( GAMEMODE.Geiger ), 100, math.random( 80, 90 ) + scale * 20 )
-				v:NoticeOnce( "A radioactive zombie is nearby", GAMEMODE.Colors.Blue )
-				v:NoticeOnce( "Radioactive zombies will poison nearby people", GAMEMODE.Colors.Blue, 3, 2 )
+				v:NoticeOnce( translate.ClientGet( v, "rd_notices_a_radioactive_zombie_is_nearby" ), GAMEMODE.Colors.Blue )
+				v:NoticeOnce( translate.ClientGet( v, "rd_notices_radioactive_zombies_will_poison_you"), GAMEMODE.Colors.Blue, 3, 2 )
 				
 			end
 		

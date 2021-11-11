@@ -9,7 +9,7 @@ if CLIENT then
 	SWEP.ViewModelFOV = 55
 	SWEP.ViewModelFlip = false
 	
-	SWEP.PrintName = "CMP-250"
+	SWEP.PrintName = "CMP250"
 	SWEP.IconLetter = "f"
 	SWEP.Slot = 3
 	SWEP.Slotpos = 1

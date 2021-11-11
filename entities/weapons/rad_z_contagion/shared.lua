@@ -52,7 +52,7 @@ SWEP.Primary.Automatic		= true
 
 function SWEP:NoobHelp()
 
-	self.Owner:NoticeOnce( "You will unleash a toxic shower when you die", GAMEMODE.Colors.Blue, 5, 10 )
+	self.Owner:NoticeOnce( translate.Get( "rd_notices_you_will_unleash_a_toxic_shower_when_you_die" ), GAMEMODE.Colors.Blue, 5, 10 )
 
 end
 

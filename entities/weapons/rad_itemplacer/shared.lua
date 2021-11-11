@@ -251,8 +251,8 @@ end
 
 function SWEP:DrawHUD()
 
-	draw.SimpleText( "PRIMARY FIRE: Place Item          SECONDARY FIRE: Change Item Type          +USE: Delete Nearest Item Of Current Type          RELOAD: Remove All Of Current Item Type", "AmmoFontSmall", ScrW() * 0.5, ScrH() - 120, Color(255,255,255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
-	draw.SimpleText( "CURRENT ITEM TYPE: "..self.ItemTypes[ self.Weapon:GetNWInt( "ItemType", 1 ) ], "AmmoFontSmall", ScrW() * 0.5, ScrH() - 100, Color(255,255,255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+	draw.SimpleText( translate.Get( "rd_weapon_item_placement_tool_help" ), "AmmoFontSmall", ScrW() * 0.5, ScrH() - 120, Color(255,255,255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+	draw.SimpleText( translate.Format( "rd_weapon_item_placement_tool_help2", self.ItemTypes[ self.Weapon:GetNWInt( "ItemType", 1 ) ] ), "AmmoFontSmall", ScrW() * 0.5, ScrH() - 100, Color(255,255,255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
 	
 	for k,v in pairs( self.SharedItems ) do
 

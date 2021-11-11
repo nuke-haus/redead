@@ -231,7 +231,7 @@ function ENT:OnLimbHit( hitgroup, dmginfo )
 		util.Effect( "headshot", effectdata, true, true )
 	
 		dmginfo:ScaleDamage( 2.75 ) 
-		dmginfo:GetAttacker():NoticeOnce( "Headshot combos earn you more " .. GAMEMODE.CurrencyName .. "s", GAMEMODE.Colors.Blue, 5 )
+		dmginfo:GetAttacker():NoticeOnce( translate.Get( "rd_notices_headshots_combos_earn_you_more_bones" ), GAMEMODE.Colors.Blue, 5 )
 		dmginfo:GetAttacker():AddHeadshot()
 		
     elseif hitgroup == HITGROUP_CHEST then

@@ -156,7 +156,7 @@ function SWEP:Deploy()
 	if SERVER then
 	
 		self.Owner:DrawViewModel( true )
-		self.Owner:NoticeOnce( "Toggle build mode with your reload key", GAMEMODE.Colors.Blue, 5, 2 )
+		self.Owner:NoticeOnce( translate.Get( "rd_notices_toggle_build_mode_reload_key" ), GAMEMODE.Colors.Blue, 5, 2 )
 		
 	else
 	
@@ -195,7 +195,7 @@ function SWEP:Reload()
 		self.Weapon:SetNWBool( "BuildMode", !self.Weapon:GetNWBool( "BuildMode", false ) )
 		
 		self.Owner:EmitSound( self.Click, 50, 120 )
-		self.Owner:NoticeOnce( "Rotate your barricade by right clicking", GAMEMODE.Colors.Blue, 5, 2 )
+		self.Owner:NoticeOnce( translate.Get( "rd_notices_rotate_barricade_by_rmb_key" ), GAMEMODE.Colors.Blue, 5, 2 )
 	
 	end
 
@@ -260,7 +260,7 @@ function SWEP:BarricadeTrace()
 	
 	if not has then
 	
-		self.Owner:Notice( "You don't have enough wood", GAMEMODE.Colors.Red )
+		self.Owner:Notice( translate.Get( "rd_notices_you_dont_have_enough_wood" ), GAMEMODE.Colors.Red )
 		self.Owner:EmitSound( self.Deny, 50, 100 )
 		
 		return
@@ -269,8 +269,8 @@ function SWEP:BarricadeTrace()
 	
 	if tr.HitWorld and trlength < 150 then
 	
-		self.Owner:Notice( "Built a barricade using 1 piece of wood", GAMEMODE.Colors.Green )
-		self.Owner:NoticeOnce( "You can also repair doors", GAMEMODE.Colors.Blue, 5, 2 )
+		self.Owner:Notice( translate.Get( "rd_notices_built_a_barricade_1_piece_of_wood" ), GAMEMODE.Colors.Green )
+		self.Owner:NoticeOnce( translate.Get( "rd_notices_you_can_also_repair_door" ), GAMEMODE.Colors.Blue, 5, 2 )
 		
 		local prop = ents.Create( "prop_physics" )
 		prop:SetModel( self.Barricade )
@@ -283,14 +283,14 @@ function SWEP:BarricadeTrace()
 		
 	elseif string.find( tr.Entity:GetClass(), "prop_door" ) and trlength < 150 then
 	
-		self.Owner:Notice( "Fortified a door using 1 piece of wood", GAMEMODE.Colors.Green )
+		self.Owner:Notice( translate.Get( "rd_notices_fortified_a_door_using_1_piece_of_wood" ), GAMEMODE.Colors.Green )
 		
 		tr.Entity.MaxHits = 30
 		tr.Entity.Hits = 0
 		
 	else
 	
-		self.Owner:Notice( "You can't build a barricade here", GAMEMODE.Colors.Red )
+		self.Owner:Notice( translate.Get( "rd_notices_you_cant_build_a_barricade_here" ), GAMEMODE.Colors.Red )
 		self.Owner:EmitSound( self.Deny, 50, 100 )
 		
 		return
@@ -299,7 +299,7 @@ function SWEP:BarricadeTrace()
 	
 	self.Owner:AddStamina( -15 )
 	self.Owner:RemoveFromInventory( id )
-	self.Owner:AddStat( "Wood" )
+	self.Owner:AddStat( "rd_items_wood_name" )
 	self.Owner:AddCash( 1 )
 	
 	self.Owner:EmitSound( table.Random( GAMEMODE.Drill ), 100, math.random(90,110) )

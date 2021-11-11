@@ -82,11 +82,11 @@ function PANEL:GetStats()
 	
 	if cash < 20 then
 	
-		table.insert( tbl, { GAMEMODE.CurrencyName .. "s: " .. cash, Color(255,150,50) } )
+		table.insert( tbl, { "Bones: " .. cash, Color(255,150,50) } )
 	
 	else
 	
-		table.insert( tbl, { GAMEMODE.CurrencyName .. "s: " .. cash, Color(255,255,255) } )
+		table.insert( tbl, { "Bones: " .. cash, Color(255,255,255) } )
 	
 	end
 	

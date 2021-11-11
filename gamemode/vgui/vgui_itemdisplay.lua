@@ -1,6 +1,6 @@
 local PANEL = {}
 
-surface.CreateFont ( "ItemDisplayFont", { size = 12, weight = 300, antialias = true, additive = true, font = "Verdana" } )
+surface.CreateFont ( "ItemDisplayFont", { size = 12, weight = 300, antialias = true, additive = true, extended = true, font = "Verdana" } )
 
 function PANEL:Init()
 
@@ -8,8 +8,8 @@ function PANEL:Init()
 	self:SetKeyboardInputEnabled( false )
 	//self:SetDraggable( false ) 
 	
-	self.Text = "Click an item to see its description." 
-	self.Title = "N/A"
+	self.Text = "rd_ui_shop_click_an_item" 
+	self.Title = "rd_ui_shop_unknown"
 	self.Style = "Stash"
 	self.PriceScale = 1
 	self.Price = 0
@@ -134,23 +134,23 @@ function PANEL:Paint()
 	surface.SetDrawColor( 200, 200, 200, 200 )
 	surface.DrawOutlinedRect( 35, 40, self:GetWide() - 70, self:GetTall() - 80 )
 	
-	draw.SimpleText( self.Title or "N/A", "ItemDisplayFont", self:GetWide() * 0.5, 10, Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+	draw.SimpleText( translate.Get( self.Title ) or "rd_ui_shop_unknown", "ItemDisplayFont", self:GetWide() * 0.5, 10, Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
 	
 	if self.Style != "Stash" then
 	
 		if not self.Price or self.Price == 0 then
 			
-			draw.SimpleText( "Cost: N/A", "ItemDisplayFont", self:GetWide() * 0.5, 25, Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+			draw.SimpleText( translate.Get( "rd_ui_shop_cost_unknown" ), "ItemDisplayFont", self:GetWide() * 0.5, 25, Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
 			
 		else
 		
-			draw.SimpleText( "Cost: "..self.Price.." "..GAMEMODE.CurrencyName.."s", "ItemDisplayFont", self:GetWide() * 0.5, 25, Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+			draw.SimpleText( translate.Format( "rd_ui_shop_cost_x", self.Price ), "ItemDisplayFont", self:GetWide() * 0.5, 25, Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
 			
 		end
 		
 	end
 	
-	draw.SimpleText( self.Text or "N/A", "ItemDisplayFont", self:GetWide() * 0.5, self:GetTall() - 10, Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+	draw.SimpleText( translate.Get( self.Text ) or "rd_ui_shop_not_available", "ItemDisplayFont", self:GetWide() * 0.5, self:GetTall() - 10, Color( 255, 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
 
 end
 

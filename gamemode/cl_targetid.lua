@@ -15,7 +15,7 @@ function GM:GetEntityID( ent )
 		
 		if tbl then
 	
-			TargetedName = tbl.Name
+			TargetedName = translate.Get( tbl.Name )
 			TargetedEntity = ent
 			TargetedDist = Vector( 0, 0, TargetedEntity:OBBCenter():Distance( TargetedEntity:OBBMaxs() ) )
 		
@@ -25,7 +25,7 @@ function GM:GetEntityID( ent )
 			
 			if tbl then
 			
-				TargetedName = tbl.Name
+				TargetedName = translate.Get( tbl.Name )
 				TargetedEntity = ent
 				TargetedDist = Vector( 0, 0, TargetedEntity:OBBCenter():Distance( TargetedEntity:OBBMaxs() ) )
 			
@@ -39,7 +39,7 @@ function GM:GetEntityID( ent )
 		
 		if tbl then
 	
-			TargetedName = tbl.Name
+			TargetedName = translate.Get( tbl.Name )
 			TargetedEntity = ent
 			TargetedDist = Vector( 0, 0, 10 )
 		
@@ -47,37 +47,37 @@ function GM:GetEntityID( ent )
 	
 	elseif ent:GetClass() == "sent_lootbag" then
 	
-		TargetedName = "Loot"
+		TargetedName = translate.Get( "rd_items_loot_name" )
 		TargetedEntity = ent
 		TargetedDist = Vector( 0, 0, 10 )
 		
 	elseif ent:GetClass() == "sent_cash" then
 	
-		TargetedName = ent:GetNWInt( "Cash", 10 ) .. " " .. GAMEMODE.CurrencyName .. "s"
+		TargetedName = translate.Format( "rd_items_money_x_bones", ent:GetNWInt( "Cash", 10 ) )
 		TargetedEntity = ent
 		TargetedDist = Vector( 0, 0, 5 )
 	
 	elseif ent:GetClass() == "sent_antidote" then
 	
-		TargetedName = "Antidote Crate"
+		TargetedName = translate.Get( "rd_items_antidote_crate_name" )
 		TargetedEntity = ent
 		TargetedDist = Vector( 0, 0, 15 )
 		
 	elseif ent:GetClass() == "sent_supplycrate" then
 	
-		TargetedName = "Supply Crate"
+		TargetedName = translate.Get( "rd_items_supply_crate_name" )
 		TargetedEntity = ent
 		TargetedDist = Vector( 0, 0, 15 )
 		
 	elseif ent:GetClass() == "sent_bonuscrate" then
 	
-		TargetedName = "Weapon Cache"
+		TargetedName = translate.Get( "rd_items_weapon_cache_name" )
 		TargetedEntity = ent
 		TargetedDist = Vector( 0, 0, 25 )
 		
 	elseif ent:GetClass() == "npc_scientist" then
 	
-		TargetedName = "Field Researcher"
+		TargetedName = translate.Get( "rd_items_field_researcher_name" )
 		TargetedEntity = ent
 		TargetedDist = Vector( 0, 0, 40 )
 	

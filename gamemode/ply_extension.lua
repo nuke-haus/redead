@@ -242,11 +242,11 @@ function meta:AddCash( num )
 	
 		if num > 1 then
 	
-			self:Notice( "+" .. num .. " " .. GAMEMODE.CurrencyName .. "s", GAMEMODE.Colors.Yellow )
+			self:Notice( translate.ClientFormat( self, "rd_notices_plus_x_bones", num ), GAMEMODE.Colors.Yellow )
 			
 		elseif num != 0 then
 		
-			self:Notice( "+" .. num .. " " .. GAMEMODE.CurrencyName, GAMEMODE.Colors.Yellow )
+			self:Notice( translate.ClientFormat( self, "rd_notices_plus_x_bone", num ), GAMEMODE.Colors.Yellow )
 		
 		end
 
@@ -300,7 +300,7 @@ function meta:AddHeadshot()
 	
 	if GAMEMODE.HeadshotCombos[ self.Headshots ] then
 	
-		self:Notice( self.Headshots .. " headshot combo", GAMEMODE.Colors.Blue )
+		self:Notice( translate.ClientFormat( self, "rd_notices_x_headshot_combo", self.Headshots ), GAMEMODE.Colors.Blue )
 		self:AddCash( GAMEMODE.HeadshotCombos[ self.Headshots ] ) 
 	
 	end
@@ -351,8 +351,8 @@ function meta:AddRadiation( num )
 		
 		self:EmitSound( table.Random{ "Geiger.BeepLow", "Geiger.BeepHigh" }, 100, math.random( 90, 110 ) )
 		
-		self:NoticeOnce( "You have been irradiated", GAMEMODE.Colors.Red, 7 )
-		self:NoticeOnce( "Radiation sickness will fade over time", GAMEMODE.Colors.Blue, 7, 2 )
+		self:NoticeOnce( translate.ClientGet( self, "rd_notices_you_have_been_irradiated" ), GAMEMODE.Colors.Red, 7 )
+		self:NoticeOnce( translate.ClientGet( self, "rd_notices_radiation_sickness_will_fade" ), GAMEMODE.Colors.Blue, 7, 2 )
 		
 		local ed = EffectData()
 		ed:SetEntity( self )
@@ -385,9 +385,9 @@ function meta:SetInfected( bool )
 
 	if bool then
 	
-		self:NoticeOnce( "You have been infected", GAMEMODE.Colors.Red, 7 )
-		self:NoticeOnce( "You can cure your infection with the antidote", GAMEMODE.Colors.Blue, 7, 2 )
-		self:NoticeOnce( "The antidote location is marked on your screen", GAMEMODE.Colors.Blue, 7, 4 )
+		self:NoticeOnce( translate.ClientGet( self, "rd_notices_you_have_been_infected" ), GAMEMODE.Colors.Red, 7 )
+		self:NoticeOnce( translate.ClientGet( self, "rd_notices_you_can_cure_your_infection_with_the_antidote" ), GAMEMODE.Colors.Blue, 7, 2 )
+		self:NoticeOnce( translate.ClientGet( self, "rd_notices_the_antidote_location_is_marked_on_your_screen" ), GAMEMODE.Colors.Blue, 7, 4 )
 		
 		self:AddStat( "Infections" )
 	
@@ -409,8 +409,8 @@ function meta:SetBleeding( bool )
 	
 	if bool then
 	
-		self:NoticeOnce( "You are bleeding to death", GAMEMODE.Colors.Red, 7 )
-		self:NoticeOnce( "You can cover wounds with bandages", GAMEMODE.Colors.Blue, 7, 2 )
+		self:NoticeOnce( translate.ClientGet( self, "rd_notices_you_are_bleeding_to_death" ), GAMEMODE.Colors.Red, 7 )
+		self:NoticeOnce( translate.ClientGet( self, "rd_notices_you_can_cover_wounds_with_bandages" ), GAMEMODE.Colors.Blue, 7, 2 )
 	
 	end
 
@@ -474,12 +474,12 @@ function meta:AddZedDamage( num )
 		
 		if self:GetZedDamage() >= GAMEMODE.RedemptionDamage then
 		
-			self:NoticeOnce( "You have redeemed yourself", GAMEMODE.Colors.Green, 5 )
-			self:NoticeOnce( "You will respawn as a human", GAMEMODE.Colors.Green, 5, 2 )
+			self:NoticeOnce( translate.ClientGet( self, "rd_notices_you_have_redeemed_yourself" ), GAMEMODE.Colors.Green, 5 )
+			self:NoticeOnce( translate.ClientGet( self, "rd_notices_you_will_respawn_as_a_human" ), GAMEMODE.Colors.Green, 5, 2 )
 		
 		else 
 		
-			self:Notice( "+" .. num .. " " .. GAMEMODE.BloodName, GAMEMODE.Colors.Green, 5 )
+			self:Notice( translate.ClientFormat( self, "rd_notices_plus_x_blood", num ), GAMEMODE.Colors.Green, 5 )
 		
 		end
 		
@@ -560,9 +560,9 @@ function meta:OnSpawn()
 	
 		if self:IsLord() then
 		
-			self:NoticeOnce( "Harm the humans to fill your blood meter", GAMEMODE.Colors.Blue, 7, 15 )
-			self:NoticeOnce( "Once your meter is full you will be redeemed", GAMEMODE.Colors.Blue, 7, 17 )
-			self:NoticeOnce( "Killing a human will fill your meter faster", GAMEMODE.Colors.Blue, 7, 19 )
+			self:NoticeOnce( translate.ClientGet( self, "rd_notices_harm_the_humans_to_fill_blood_meter" ), GAMEMODE.Colors.Blue, 7, 15 )
+			self:NoticeOnce( translate.ClientGet( self, "rd_notices_once_meter_filled_you_will_be_redeem" ), GAMEMODE.Colors.Blue, 7, 17 )
+			self:NoticeOnce( translate.ClientGet( self, "rd_notices_killing_a_human_will_fill_meter" ), GAMEMODE.Colors.Blue, 7, 19 )
 		
 		end
 	
@@ -574,7 +574,7 @@ function meta:OnSpawn()
 		
 		self:SetModel( GAMEMODE.ZombieModels[ self:GetPlayerClass() ] )
 		
-		self:NoticeOnce( "You can choose your class by pressing F2", GAMEMODE.Colors.Blue, 7, 2 )
+		self:NoticeOnce( translate.ClientGet( self, "rd_notices_you_can_choose_your_class" ), GAMEMODE.Colors.Blue, 7, 2 )
 	
 	end
 
@@ -866,12 +866,12 @@ function meta:Think()
 				
 				if self:IsInfected() then
 				
-					self:NoticeOnce( "The infection slows your stamina regeneration", GAMEMODE.Colors.Red, 5 )
+					self:NoticeOnce( translate.ClientGet( self, "rd_notices_the_infection_slows_your_stamina_regeneration" ), GAMEMODE.Colors.Red, 5 )
 				
 				else
 				
-					self:NoticeOnce( "Your stamina has dropped below 30%", GAMEMODE.Colors.Red, 5 )
-					self:NoticeOnce( "Stamina replenishes slower when below 30%", GAMEMODE.Colors.Blue, 5, 2 )
+					self:NoticeOnce( translate.ClientGet( self, "rd_notices_your_stamina_has_dropped_below_30percent" ), GAMEMODE.Colors.Red, 5 )
+					self:NoticeOnce( translate.ClientGet( self, "rd_notices_stamina_replenishes_slower_when_below_30percent" ), GAMEMODE.Colors.Blue, 5, 2 )
 					
 				end
 			
@@ -934,14 +934,14 @@ function meta:SendShipment()
 
 	if not self:GetShipment()[1] then
 	
-		self:Notice( "You haven't ordered any shipments", GAMEMODE.Colors.Red ) 
+		self:Notice( translate.ClientGet( self, "rd_notices_you_havent_ordered_any_shipments" ), GAMEMODE.Colors.Red ) 
 		return
 	
 	end
 	
 	if self:IsIndoors() then 
 	
-		self:Notice( "You can't order shipments while indoors", GAMEMODE.Colors.Red ) 
+		self:Notice( translate.ClientGet( self, "rd_notices_you_cant_order_shipments_while_indoors" ), GAMEMODE.Colors.Red ) 
 		self:RefundAll()
 		
 		return 
@@ -950,7 +950,7 @@ function meta:SendShipment()
 	
 	if GAMEMODE.RadioBlock and GAMEMODE.RadioBlock > CurTime() then
 		
-		self:Notice( "Radio communications are offline", GAMEMODE.Colors.Red )
+		self:Notice( translate.ClientGet( self, "rd_notices_radio_communications_are_offline" ), GAMEMODE.Colors.Red )
 		self:RefundAll()
 		
 		return
@@ -960,7 +960,7 @@ function meta:SendShipment()
 	local droptime = 9.5 + ( table.Count( self.Shipment ) * 0.5 )
 	local round = math.Round( droptime )
 	
-	self:Notice( "Your shipment is due in " .. round .. " seconds", GAMEMODE.Colors.Green )
+	self:Notice( translate.Format( "rd_notices_your_shipment_is_due_in_x_sec", round ), GAMEMODE.Colors.Green )
 	
 	local prop = ents.Create( "sent_dropflare" )
 	prop:SetPos( self:GetPos() + Vector(0,0,10) )
@@ -969,7 +969,7 @@ function meta:SendShipment()
 	
 	local function DropBox( ply, pos, tbl )
 	
-		ply:Notice( "Your shipment has been airdropped", GAMEMODE.Colors.Green, 5 )
+		ply:Notice( translate.ClientGet( self, "rd_notices_your_shipment_has_been_airdropped" ), GAMEMODE.Colors.Green, 5 )
 	
 		local box = ents.Create( "sent_supplycrate" )
 		box:SetPos( pos ) 
@@ -1047,7 +1047,7 @@ function meta:AddMultipleToInventory( items )
 	
 			end
 			
-			self:Notice( "Picked up " .. tbl.Name, GAMEMODE.Colors.Green )
+			self:Notice( translate.ClientFormat( self, "rd_notices_picked_up_x", translate.ClientGet( self, tbl.Name ) ), GAMEMODE.Colors.Green )
 		
 		end
 	
@@ -1099,7 +1099,7 @@ function meta:AddIDToInventory( id )
 
 	table.insert( self.Inventory, id )
 	self:AddWeight( tbl.Weight )
-	self:Notice( "Picked up " .. tbl.Name, GAMEMODE.Colors.Green )
+	self:Notice( translate.ClientFormat( self, "rd_notices_picked_up_x", translate.ClientGet( self, tbl.Name ) ), GAMEMODE.Colors.Green )
 	
 	self:SynchInventory()
 	self:EmitSound( Sound( "items/itempickup.wav" ) )
@@ -1131,7 +1131,7 @@ function meta:AddToInventory( prop )
 
 	table.insert( self.Inventory, tbl.ID )
 	self:AddWeight( tbl.Weight )
-	self:Notice( "Picked up " .. tbl.Name, GAMEMODE.Colors.Green )
+	self:Notice( translate.ClientFormat( self, "rd_notices_picked_up_x", translate.ClientGet( self, tbl.Name ) ), GAMEMODE.Colors.Green )
 	
 	if IsValid( prop ) then
 	
@@ -1199,9 +1199,9 @@ end
 
 function meta:GetWood()
 
-	local tbl = item.GetByName( "Wood" )
+	local tbl = item.GetByName( "rd_items_wood_name" )
 
-	return self:HasItem( "Wood" ), tbl.ID
+	return self:HasItem( "rd_items_wood_name" ), tbl.ID
 
 end
 
@@ -1291,7 +1291,7 @@ end
 
 function meta:Evac()
 
-	self:Notice( "You were successfully evacuated", GAMEMODE.Colors.Green, 5 )
+	self:Notice( translate.ClientGet( self, "rd_notices_you_were_successfully_evacuated" ), GAMEMODE.Colors.Green, 5 )
 	
 	self:SetEvacuated( true )
 	self:Freeze( true )
@@ -1372,7 +1372,7 @@ function meta:OnDeath()
 			
 			if got then
 			
-				self:Notice( "You infected a human", GAMEMODE.Colors.Green )
+				self:Notice( translate.ClientGet( self, "rd_notices_you_infected_a_human" ), GAMEMODE.Colors.Green )
 			
 			end
 	

@@ -12,31 +12,31 @@ function PANEL:Init()
 	self.Awards = {}
 	
 	self.Lists = {}
-	self.Lists[1] = { 5, ScrW() * 0.30, "Survivors", function() return self:GetSurvivors() end, "bot/whoo2.wav" } 
-	self.Lists[2] = { ScrW() * 0.50 - ScrW() * 0.15, ScrW() * 0.30, "Top  Killers", function() return self:GetTopKillers() end, "weapons/357_fire2.wav" } 
-	self.Lists[3] = { ScrW() - ( ScrW() * 0.30 ) - 5, ScrW() * 0.30, "Big  Spenders", function() return self:GetTopSpenders() end, "physics/metal/chain_impact_soft1.wav" } 
+	self.Lists[1] = { 5, ScrW() * 0.30, translate.Get( "rd_ui_endgame_survivors" ), function() return self:GetSurvivors() end, "bot/whoo2.wav" } 
+	self.Lists[2] = { ScrW() * 0.50 - ScrW() * 0.15, ScrW() * 0.30, translate.Get( "rd_ui_endgame_top_killers" ), function() return self:GetTopKillers() end, "weapons/357_fire2.wav" } 
+	self.Lists[3] = { ScrW() - ( ScrW() * 0.30 ) - 5, ScrW() * 0.30, translate.Get( "rd_ui_endgame_big_spenders" ), function() return self:GetTopSpenders() end, "physics/metal/chain_impact_soft1.wav" } 
 	
 	local x, w = ScrW() * 0.50 - ScrW() * 0.15, ScrW() * 0.65 - 5
 	
-	self:ListNewAward( { x, w, "Grey Matter:", "got the most headshots.", function() return self:GetStatMax( "Headshot" ) end, "zombie craniums", "player/headshot1.wav" } ) 
-	self:ListNewAward( { x, w, "Silent Partner:", "got the most kill assists.", function() return self:GetStatMax( "Assist" ) end, "assists", "weapons/357/357_spin1.wav" } )
-	self:ListNewAward( { x, w, "Longshot:", "got the longest distance kill.", function() return self:GetStatMax( "Longshot" ) end, "feet", "weapons/fx/nearmiss/bulletLtoR05.wav" } )
-	self:ListNewAward( { x, w, "Big Game Hunter:", "dismembered the most zombies with a shotgun.", function() return self:GetStatMax( "Meat" ) end, "zombies poached", "nuke/gore/blood01.wav", true } )
-	self:ListNewAward( { x, w, "Bullet Hose:", "used the most ammunition.", function() return self:GetStatMax( "Bullets" ) end, "rounds fired", "player/pl_shell1.wav" } )
-	self:ListNewAward( { x, w, "Meat Grinder:", "butchered the most zombies with a melee weapon.", function() return self:GetStatMax( "Knife" ) end, "melee kills", "weapons/knife/knife_hit2.wav", true } )
-	self:ListNewAward( { x, w, "Demolitionist:", "killed the most zombies with explosives.", function() return self:GetStatMax( "Explode" ) end, "unidentified bodies", "weapons/underwater_explode3.wav", true } )
-	self:ListNewAward( { x, w, "Firebug:", "ignited the most zombies.", function() return self:GetStatMax( "Igniter" ) end, "crispy corpses", "ambient/fire/mtov_flame2.wav", true } )
-	self:ListNewAward( { x, w, "Kleptomaniac:", "picked up the most items.", function() return self:GetStatMax( "Loot" ) end, "items taken", "items/itempickup.wav" } )
-	self:ListNewAward( { x, w, "Broke The Bank:", "bought the most expensive weapon.", function() return self:GetStatMax( "Pricey" ) end, GAMEMODE.CurrencyName .. "s spent", "ambient/office/coinslot1.wav" } )
-	self:ListNewAward( { x, w, "Meet The Engineer:", "built the most barricades.", function() return self:GetStatMax( "Wood" ) end, "barricades built", "npc/dog/dog_servo6.wav", true } )
-	self:ListNewAward( { x, w, "Brain Munch:", "dealt the most damage to humans.", function() return self:GetStatMax( "ZedDamage" ) end, "health points", "npc/zombie/zombie_voice_idle2.wav", true } )
-	self:ListNewAward( { x, w, "Get To Ze Choppa:", "was the first to reach the evacuation zone.", function() return self:GetStatMax( "Evac" ) end, nil, "ambient/machines/spinup.wav", true } )
-	self:ListNewAward( { x, w, "Martyr:", "was the first human to die.", function() return self:GetStatMax( "Martyr" ) end, nil, "npc/crow/alert1.wav", true } )
-	self:ListNewAward( { x, w, "Unhealthy Glow:", "was irradiated the most.", function() return self:GetStatMax( "Rad" ) end, "malignant tumors", "player/geiger3.wav", true } )
-	self:ListNewAward( { x, w, "Cum Dumpster:", "was infected by zombies the most.", function() return self:GetStatMax( "Infections" ) end, "infections", "ambient/voices/cough1.wav", true } )
-	self:ListNewAward( { x, w, "Accident Prone:", "took the most damage from zombies.", function() return self:GetStatMax( "Damage" ) end, "damage", "bot/pain2.wav" } )
-	self:ListNewAward( { x, w, "Roleplayer:", "did jack shit.", function() return self:GetWorstPlayer() end, "kills", "ambient/sheep.wav" } )
-	//self:ListNewAward( { x, w, "Piss Poor:", "spent the least " .. GAMEMODE.CurrencyName .. "s.", function() return self:GetStatMin( "Spent" ) end, GAMEMODE.CurrencyName .. "s spent", "bot/i_got_nothing.wav" } )
+	self:ListNewAward( { x, w, translate.Get( "rd_ui_endgame_award_grey_matter_name" ), translate.Get( "rd_ui_endgame_award_grey_matter_desc" ), function() return self:GetStatMax( "Headshot" ) end, translate.Get( "rd_ui_endgame_award_grey_matter_desc2" ), "player/headshot1.wav" } ) 
+	self:ListNewAward( { x, w, translate.Get( "rd_ui_endgame_award_silent_partner_name" ), translate.Get( "rd_ui_endgame_award_silent_partner_desc" ), function() return self:GetStatMax( "Assist" ) end, translate.Get( "rd_ui_endgame_award_silent_partner_desc2" ), "weapons/357/357_spin1.wav" } )
+	self:ListNewAward( { x, w, translate.Get( "rd_ui_endgame_award_longshot_name" ), translate.Get( "rd_ui_endgame_award_longshot_desc" ), function() return self:GetStatMax( "Longshot" ) end, translate.Get( "rd_ui_endgame_award_longshot_desc2" ), "weapons/fx/nearmiss/bulletLtoR05.wav" } )
+	self:ListNewAward( { x, w, translate.Get( "rd_ui_endgame_award_big_game_hunter_name" ), translate.Get( "rd_ui_endgame_award_big_game_hunter_desc" ), function() return self:GetStatMax( "Meat" ) end, translate.Get( "rd_ui_endgame_award_big_game_hunter_desc2" ), "nuke/gore/blood01.wav", true } )
+	self:ListNewAward( { x, w, translate.Get( "rd_ui_endgame_award_bullet_hose_name" ), translate.Get( "rd_ui_endgame_award_bullet_hose_desc" ), function() return self:GetStatMax( "Bullets" ) end, translate.Get( "rd_ui_endgame_award_bullet_hose_desc2" ), "player/pl_shell1.wav" } )
+	self:ListNewAward( { x, w, translate.Get( "rd_ui_endgame_award_meat_grinder_name" ), translate.Get( "rd_ui_endgame_award_meat_grinder_desc" ), function() return self:GetStatMax( "Knife" ) end, translate.Get( "rd_ui_endgame_award_meat_grinder_desc2" ), "weapons/knife/knife_hit2.wav", true } )
+	self:ListNewAward( { x, w, translate.Get( "rd_ui_endgame_award_demolitionist_name" ), translate.Get( "rd_ui_endgame_award_demolitionist_desc" ), function() return self:GetStatMax( "Explode" ) end, translate.Get( "rd_ui_endgame_award_demolitionist_desc2" ), "weapons/underwater_explode3.wav", true } )
+	self:ListNewAward( { x, w, translate.Get( "rd_ui_endgame_award_firebug_name" ), translate.Get( "rd_ui_endgame_award_firebug_desc" ), function() return self:GetStatMax( "Igniter" ) end, translate.Get( "rd_ui_endgame_award_firebug_desc2" ), "ambient/fire/mtov_flame2.wav", true } )
+	self:ListNewAward( { x, w, translate.Get( "rd_ui_endgame_award_kleptomaniac_name" ), translate.Get( "rd_ui_endgame_award_kleptomaniac_desc" ), function() return self:GetStatMax( "Loot" ) end, translate.Get( "rd_ui_endgame_award_kleptomaniac_desc2" ), "items/itempickup.wav" } )
+	self:ListNewAward( { x, w, translate.Get( "rd_ui_endgame_award_broke_the_bank_name" ), translate.Get( "rd_ui_endgame_award_broke_the_bank_desc" ), function() return self:GetStatMax( "Pricey" ) end, translate.Get( "rd_ui_endgame_award_broke_the_bank_desc2" ), "ambient/office/coinslot1.wav" } )
+	self:ListNewAward( { x, w, translate.Get( "rd_ui_endgame_award_meet_the_engineer_name" ), translate.Get( "rd_ui_endgame_award_meet_the_engineer_desc" ), function() return self:GetStatMax( translate.Get( "rd_items_wood_name" ) ) end, translate.Get( "rd_ui_endgame_award_meet_the_engineer_desc2" ), "npc/dog/dog_servo6.wav", true } )
+	self:ListNewAward( { x, w, translate.Get( "rd_ui_endgame_award_brain_munch_name" ), translate.Get( "rd_ui_endgame_award_brain_munch_desc" ), function() return self:GetStatMax( "ZedDamage" ) end, translate.Get( "rd_ui_endgame_award_brain_munch_desc2" ), "npc/zombie/zombie_voice_idle2.wav", true } )
+	self:ListNewAward( { x, w, translate.Get( "rd_ui_endgame_award_get_to_ze_choppa_name" ), translate.Get( "rd_ui_endgame_award_get_to_ze_choppa_desc" ), function() return self:GetStatMax( "Evac" ) end, nil, "ambient/machines/spinup.wav", true } )
+	self:ListNewAward( { x, w, translate.Get( "rd_ui_endgame_award_martyr_name" ), translate.Get( "rd_ui_endgame_award_martyr_desc" ), function() return self:GetStatMax( "Martyr" ) end, nil, "npc/crow/alert1.wav", true } )
+	self:ListNewAward( { x, w, translate.Get( "rd_ui_endgame_award_unhealthy_glow_name" ), translate.Get( "rd_ui_endgame_award_unhealthy_glow_desc" ), function() return self:GetStatMax( "Rad" ) end, translate.Get( "rd_ui_endgame_award_unhealthy_glow_desc2" ), "player/geiger3.wav", true } )
+	self:ListNewAward( { x, w, translate.Get( "rd_ui_endgame_award_cum_dumpster_name" ), translate.Get( "rd_ui_endgame_award_cum_dumpster_desc" ), function() return self:GetStatMax( "Infections" ) end, translate.Get( "rd_ui_endgame_award_cum_dumpster_desc2" ), "ambient/voices/cough1.wav", true } )
+	self:ListNewAward( { x, w, translate.Get( "rd_ui_endgame_award_accident_prone_name" ), translate.Get( "rd_ui_endgame_award_accident_prone_desc" ), function() return self:GetStatMax( "Damage" ) end, translate.Get( "rd_ui_endgame_award_accident_prone_desc2" ), "bot/pain2.wav" } )
+	self:ListNewAward( { x, w, translate.Get( "rd_ui_endgame_award_roleplayer_name" ), translate.Get( "rd_ui_endgame_award_roleplayer_desc" ), function() return self:GetWorstPlayer() end, translate.Get( "rd_ui_endgame_award_roleplayer_desc2" ), "ambient/sheep.wav" } )
+	//self:ListNewAward( { x, w, translate.Get( "rd_ui_endgame_award_piss_poor_name" ), translate.Get( "rd_ui_endgame_award_piss_poor_desc" ), function() return self:GetStatMin( "Spent" ) end, translate.Get( "rd_ui_endgame_award_piss_poor_desc2" ), "bot/i_got_nothing.wav" } )
 	
 end
 

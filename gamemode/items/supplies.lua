@@ -5,64 +5,64 @@ ITEM_SUPPLY = 2
 function FUNC_ENERGY( ply, id, client, icon )
 
 	if icon then return "icon16/cup.png" end
-	if client then return "Drink" end
+	if client then return translate.Get( "rd_ui_shop_drink" ) end
 	
 	ply:RemoveFromInventory( id )
 	ply:EmitSound( table.Random{ "npc/barnacle/barnacle_gulp1.wav", "npc/barnacle/barnacle_gulp2.wav" }, 100, math.random( 90, 110 ) )
 	ply:AddStamina( 50 )
-	ply:Notice( "+50 Stamina", GAMEMODE.Colors.Green )
+	ply:Notice( translate.ClientGet( ply, "rd_notices_plus50_stamina" ), GAMEMODE.Colors.Green )
 
 end
 
 function FUNC_HEAL( ply, id, client, icon )
 
 	if icon then return "icon16/heart.png" end
-	if client then return "Use" end
+	if client then return translate.Get( "rd_ui_shop_use" ) end
 	
 	ply:RemoveFromInventory( id )
 	ply:EmitSound( "HealthVial.Touch" )
 	ply:AddHealth( 75 )
-	ply:Notice( "+75 Health", GAMEMODE.Colors.Green )
+	ply:Notice( translate.ClientGet( ply, "rd_notices_plus75_health" ), GAMEMODE.Colors.Green )
 
 end
 
 function FUNC_SUPERHEAL( ply, id, client, icon )
 
 	if icon then return "icon16/heart.png" end
-	if client then return "Use" end
+	if client then return translate.Get( "rd_ui_shop_use" ) end
 	
 	ply:RemoveFromInventory( id )
 	ply:EmitSound( "HealthVial.Touch" )
 	ply:AddHealth( 150 )
-	ply:Notice( "+150 Health", GAMEMODE.Colors.Green )
+	ply:Notice( translate.ClientGet( ply, "rd_notices_plus150_health" ), GAMEMODE.Colors.Green )
 
 end
 
 function FUNC_BANDAGE( ply, id, client, icon )
 
 	if icon then return "icon16/heart.png" end
-	if client then return "Use" end
+	if client then return translate.Get( "rd_ui_shop_use" ) end
 	
 	ply:RemoveFromInventory( id )
 	ply:EmitSound( "Cardboard.Strain" )
 	ply:SetBleeding( false )
 	ply:AddHealth( 20 )
-	ply:Notice( "+20 Health", GAMEMODE.Colors.Green )
-	ply:Notice( "Stopped bleeding", GAMEMODE.Colors.Green )
+	ply:Notice( translate.ClientGet( ply, "rd_notices_plus20_health" ), GAMEMODE.Colors.Green )
+	ply:Notice( translate.ClientGet( ply, "rd_notices_stopped_bleeding" ), GAMEMODE.Colors.Green )
 
 end
 
 function FUNC_MUTAGEN( ply, id, client, icon )
 
 	if icon then return "icon16/pill.png" end
-	if client then return "Inject" end
+	if client then return translate.Get( "rd_ui_shop_inject" ) end
 	
 	ply:RemoveFromInventory( id )
 	ply:EmitSound( "Weapon_SMG1.Special1" )
 	
 	if ply:IsInfected() then
 		
-		ply:Notice( "Your infection has been cured", GAMEMODE.Colors.Green, 5, 0 )
+		ply:Notice( translate.ClientGet( ply, "rd_notices_your_infection_has_been_cured" ), GAMEMODE.Colors.Green, 5, 0 )
 		ply:SetInfected( false )
 					
 	end
@@ -84,7 +84,7 @@ function FUNC_MUTAGEN( ply, id, client, icon )
 		
 		if rand == 1 then
 		
-			ply:Notice( "You feel extremely nauseous", GAMEMODE.Colors.Red, 5, inc * 2 )
+			ply:Notice( translate.ClientGet( ply, "rd_notices_you_feel_extremely_nauseous" ), GAMEMODE.Colors.Red, 5, inc * 2 )
 		
 			umsg.Start( "Drunk", ply )
 			umsg.Short( math.random( 10, 20 ) )
@@ -96,19 +96,19 @@ function FUNC_MUTAGEN( ply, id, client, icon )
 		
 			if math.random(1,2) == 1 and ply:GetRadiation() < 1 then
 		
-				ply:Notice( "+" .. rad .. " Radiation", GAMEMODE.Colors.Red, 5, inc * 2 )
+				ply:Notice( translate.ClientFormat( ply, "rd_notices_plus_x_radiation", rad ), GAMEMODE.Colors.Red, 5, inc * 2 )
 				ply:AddRadiation( rad )
 				
 			else
 			
-				ply:Notice( "-" .. rad .. " Radiation", GAMEMODE.Colors.Green, 5, inc * 2 )
+				ply:Notice( translate.ClientFormat( ply, "rd_notices_minus_x_radiation", rad ), GAMEMODE.Colors.Green, 5, inc * 2 )
 				ply:AddRadiation( -rad )
 			
 			end
 		
 		elseif rand == 3 then
 		
-			ply:Notice( "Your whole body aches", GAMEMODE.Colors.Red, 5, inc * 2 )
+			ply:Notice( translate.ClientGet( ply, "rd_notices_your_whole_body_aches" ), GAMEMODE.Colors.Red, 5, inc * 2 )
 			
 			local dmg = math.random(2,5)
 			
@@ -118,25 +118,25 @@ function FUNC_MUTAGEN( ply, id, client, icon )
 		
 			if math.random(1,2) == 1 then
 		
-				ply:Notice( "You feel exhausted", GAMEMODE.Colors.Red, 5, inc * 2 )
+				ply:Notice( translate.ClientGet( ply, "rd_notices_you_feel_exhausted" ), GAMEMODE.Colors.Red, 5, inc * 2 )
 				ply:AddStamina( -50 )
 				
 			else
 			
-				ply:Notice( "+20 Stamina", GAMEMODE.Colors.Green, 5, inc * 2 )
+				ply:Notice( translate.ClientGet( ply, "rd_notices_plus20_stamina" ), GAMEMODE.Colors.Green, 5, inc * 2 )
 				ply:AddStamina( 20 )
 			
 			end
 		
 		elseif rand == 5 then
 		
-			ply:Notice( "Your legs begin to feel weak", GAMEMODE.Colors.Red, 5, inc * 2 )
+			ply:Notice( translate.ClientGet( ply, "rd_notices_your_legs_begin_to_feel_weak" ), GAMEMODE.Colors.Red, 5, inc * 2 )
 			ply:SetWalkSpeed( GAMEMODE.WalkSpeed - 80 )
 			ply:SetRunSpeed( GAMEMODE.RunSpeed - 80 )
 			
 			local legtime = math.random( 20, 40 )
 			
-			timer.Simple( legtime - 5, function() if IsValid( ply ) and ply:Team() == TEAM_ARMY then ply:Notice( "Your legs start to feel better", GAMEMODE.Colors.Green, 5 ) end end )
+			timer.Simple( legtime - 5, function() if IsValid( ply ) and ply:Team() == TEAM_ARMY then ply:Notice( translate.ClientGet( ply, "rd_notices_your_legs_start_to_feel_better" ), GAMEMODE.Colors.Green, 5 ) end end )
 			timer.Simple( legtime, function() if IsValid( ply ) and ply:Team() == TEAM_ARMY then ply:SetWalkSpeed( GAMEMODE.WalkSpeed ) ply:SetRunSpeed( GAMEMODE.RunSpeed ) end end )
 		
 		end
@@ -148,8 +148,8 @@ function FUNC_MUTAGEN( ply, id, client, icon )
 end
 
 item.Register( { 
-	Name = "Energy Drink", 
-	Description = "Restores 50 stamina.",
+	Name = "rd_items_energy_drink_name", 
+	Description = "rd_items_energy_drink_desc",
 	Stackable = true, 
 	Type = ITEM_SUPPLY,
 	Weight = 0.25, 
@@ -162,8 +162,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Basic Medikit", 
-	Description = "Restores 50% of your health.",
+	Name = "rd_items_basic_medkit_name", 
+	Description = "rd_items_basic_medkit_desc",
 	Stackable = true, 
 	Type = ITEM_SUPPLY,
 	Weight = 1.25, 
@@ -176,8 +176,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Advanced Medikit", 
-	Description = "Restores 100% of your health.",
+	Name = "rd_items_advanced_medkit_name", 
+	Description = "rd_items_advanced_medkit_desc",
 	Stackable = true, 
 	Type = ITEM_SUPPLY,
 	Weight = 1.25, 
@@ -190,8 +190,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Alpha Mutagen", 
-	Description = "Prototype drug which cures the infection.",
+	Name = "rd_items_alpha_mutagen_name", 
+	Description = "rd_items_alpha_mutagen_desc",
 	Stackable = true, 
 	Type = ITEM_SUPPLY,
 	Weight = 1.25, 
@@ -204,8 +204,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Bandage", 
-	Description = "Stops all bleeding.",
+	Name = "rd_items_bandage_name", 
+	Description = "rd_items_bandage_desc",
 	Stackable = true, 
 	Type = ITEM_SUPPLY,
 	Weight = 0.35, 

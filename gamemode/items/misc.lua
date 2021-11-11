@@ -8,43 +8,43 @@ ITEM_QUEST_ZOMBIE = 421 // obsolete?
 function FUNC_DRINK( ply, id, client, icon )
 
 	if icon then return "icon16/cup.png" end
-	if client then return "Drink" end
+	if client then return translate.Get( "rd_ui_shop_drink" ) end
 
 	ply:RemoveFromInventory( id )
 	ply:EmitSound( table.Random{ "npc/barnacle/barnacle_gulp1.wav", "npc/barnacle/barnacle_gulp2.wav" }, 100, math.random( 90, 110 ) )
 	ply:AddHealth( 15 )
 	ply:AddStamina( 25 )
-	ply:Notice( "+15 Health", GAMEMODE.Colors.Green )
-	ply:Notice( "+25 Stamina", GAMEMODE.Colors.Green )
+	ply:Notice( translate.ClientGet( ply, "rd_notices_plus15_health" ), GAMEMODE.Colors.Green )
+	ply:Notice( translate.ClientGet( ply, "rd_notices_plus25_stamina" ), GAMEMODE.Colors.Green )
 
 end
 
 function FUNC_EAT( ply, id, client, icon )
 
 	if icon then return "icon16/cake.png" end
-	if client then return "Eat" end
+	if client then return translate.Get( "rd_ui_shop_eat" ) end
 	
 	ply:RemoveFromInventory( id )
 	ply:EmitSound( "npc/barnacle/barnacle_crunch2.wav", 100, math.random( 90, 110 ) )
 	ply:AddHealth( 25 )
 	ply:AddStamina( 15 )
-	ply:Notice( "+25 Health", GAMEMODE.Colors.Green )
-	ply:Notice( "+15 Stamina", GAMEMODE.Colors.Green )
+	ply:Notice( translate.ClientGet( ply, "rd_notices_plus25_health" ), GAMEMODE.Colors.Green )
+	ply:Notice( translate.ClientGet( ply, "rd_notices_plus15_stamina" ), GAMEMODE.Colors.Green )
 
 end
 
 function FUNC_BOOZE( ply, id, client, icon )
 
 	if icon then return "icon16/drink.png" end
-	if client then return "Drink" end
+	if client then return translate.Get( "rd_ui_shop_drink" ) end
 	
 	ply:RemoveFromInventory( id )
 	ply:EmitSound( table.Random{ "npc/barnacle/barnacle_gulp1.wav", "npc/barnacle/barnacle_gulp2.wav" }, 100, math.random( 90, 110 ) )
 	ply:AddRadiation( -2 )
 	ply:AddStamina( 20 )
-	ply:Notice( "+20 Stamina", GAMEMODE.Colors.Green )
-	ply:Notice( "-2 Radiation", GAMEMODE.Colors.Green )
-	ply:Notice( "+4 Intoxication", GAMEMODE.Colors.Red )
+	ply:Notice( translate.ClientGet( ply, "rd_notices_plus20_stamina" ), GAMEMODE.Colors.Green )
+	ply:Notice( translate.ClientGet( ply, "rd_notices_minus2_radiation" ), GAMEMODE.Colors.Green )
+	ply:Notice( translate.ClientGet( ply, "rd_notices_plus4_intoxication" ), GAMEMODE.Colors.Red )
 	
 	umsg.Start( "Drunk", ply )
     umsg.Short( 4 )
@@ -55,13 +55,13 @@ end
 function FUNC_MOONSHINE( ply, id, client, icon )
 
 	if icon then return "icon16/drink.png" end
-	if client then return "Drink" end
+	if client then return translate.Get( "rd_ui_shop_drink" ) end
 	
 	ply:RemoveFromInventory( id )
 	ply:EmitSound( table.Random{ "npc/barnacle/barnacle_gulp1.wav", "npc/barnacle/barnacle_gulp2.wav" }, 100, math.random( 90, 110 ) )
 	ply:AddRadiation( -1 )
-	ply:Notice( "-1 Radiation", GAMEMODE.Colors.Green )
-	ply:Notice( "+6 Intoxication", GAMEMODE.Colors.Red )
+	ply:Notice( translate.ClientGet( ply, "rd_notices_minus1_radiation" ), GAMEMODE.Colors.Green )
+	ply:Notice( translate.ClientGet( ply, "rd_notices_plus6_intoxication" ), GAMEMODE.Colors.Red )
 	
 	umsg.Start( "Drunk", ply )
     umsg.Short( 6 )
@@ -72,13 +72,13 @@ end
 function FUNC_BEER( ply, id, client, icon )
 
 	if icon then return "icon16/drink.png" end
-	if client then return "Drink" end
+	if client then return translate.Get( "rd_ui_shop_drink" ) end
 	
 	ply:RemoveFromInventory( id )
 	ply:EmitSound( table.Random{ "npc/barnacle/barnacle_gulp1.wav", "npc/barnacle/barnacle_gulp2.wav" }, 100, math.random( 90, 110 ) )
 	ply:AddStamina( 15 )
-	ply:Notice( "+15 Stamina", GAMEMODE.Colors.Green )
-	ply:Notice( "+2 Intoxication", GAMEMODE.Colors.Red )
+	ply:Notice( translate.ClientGet( ply, "rd_notices_plus15_stamina" ), GAMEMODE.Colors.Green )
+	ply:Notice( translate.ClientGet( ply, "rd_notices_plus2_intoxication" ), GAMEMODE.Colors.Red )
 	
 	umsg.Start( "Drunk", ply )
     umsg.Short( 2 )
@@ -89,11 +89,11 @@ end
 function FUNC_SPACEBEER( ply, id, client, icon )
 
 	if icon then return "icon16/drink.png" end
-	if client then return "Drink" end
+	if client then return translate.Get( "rd_ui_shop_drink" ) end
 	
 	ply:RemoveFromInventory( id )
 	ply:EmitSound( table.Random{ "npc/barnacle/barnacle_gulp1.wav", "npc/barnacle/barnacle_gulp2.wav" }, 100, math.random( 90, 110 ) )
-	ply:Notice( "+15 Intoxication", GAMEMODE.Colors.Red )
+	ply:Notice( translate.ClientGet( ply, "rd_notices_plus15_intoxication" ), GAMEMODE.Colors.Red )
 	
 	umsg.Start( "Drunk", ply )
     umsg.Short( 15 )
@@ -104,7 +104,7 @@ end
 function FUNC_UNMUTAGEN( ply, id, client, icon )
 
 	if icon then return "icon16/pill.png" end
-	if client then return "Inject" end
+	if client then return translate.Get( "rd_ui_shop_inject" ) end
 	
 	ply:RemoveFromInventory( id )
 	ply:EmitSound( "Weapon_SMG1.Special1" )
@@ -126,7 +126,7 @@ function FUNC_UNMUTAGEN( ply, id, client, icon )
 		
 		if rand == 1 then
 		
-			ply:Notice( "You feel extremely nauseous", GAMEMODE.Colors.Red, 5, inc * 2 )
+			ply:Notice( translate.ClientGet( ply, "rd_notices_you_feel_extremely_nauseous" ), GAMEMODE.Colors.Red, 5, inc * 2 )
 		
 			umsg.Start( "Drunk", ply )
 			umsg.Short( 20 )
@@ -138,12 +138,12 @@ function FUNC_UNMUTAGEN( ply, id, client, icon )
 		
 			if math.random(1,2) == 1 then
 		
-				ply:Notice( "+" .. rad .. " Radiation", GAMEMODE.Colors.Red, 5, inc * 2 )
+				ply:Notice( translate.ClientFormat( ply, "rd_notices_plus_x_radiation", rad ), GAMEMODE.Colors.Red, 5, inc * 2 )
 				ply:AddRadiation( rad )
 				
 			else
 			
-				ply:Notice( "-" .. rad .. " Radiation", GAMEMODE.Colors.Green, 5, inc * 2 )
+				ply:Notice( translate.ClientFormat( ply, "rd_notices_minus_x_radiation", rad ), GAMEMODE.Colors.Green, 5, inc * 2 )
 				ply:AddRadiation( -rad )
 			
 			end
@@ -152,12 +152,12 @@ function FUNC_UNMUTAGEN( ply, id, client, icon )
 		
 			if ply:IsInfected() then
 		
-				ply:Notice( "Your infection has been cured", GAMEMODE.Colors.Green, 5, inc * 2 )
+				ply:Notice( translate.ClientGet( ply, "rd_notices_your_infection_has_been_cured" ), GAMEMODE.Colors.Green, 5, inc * 2 )
 				ply:SetInfected( false )
 				
 			else
 			
-				ply:Notice( "You were infected by the drug", GAMEMODE.Colors.Red, 5, inc * 2 )
+				ply:Notice( translate.ClientGet( ply, "rd_notices_you_were_infected_by_the_drug" ), GAMEMODE.Colors.Red, 5, inc * 2 )
 				ply:SetInfected( true )
 			
 			end
@@ -166,19 +166,19 @@ function FUNC_UNMUTAGEN( ply, id, client, icon )
 		
 			if math.random(1,2) == 1 then
 		
-				ply:Notice( "You feel exhausted", GAMEMODE.Colors.Red, 5, inc * 2 )
+				ply:Notice( translate.ClientGet( ply, "rd_notices_you_feel_exhausted" ), GAMEMODE.Colors.Red, 5, inc * 2 )
 				ply:AddStamina( -50 )
 				
 			else
 			
-				ply:Notice( "+20 Stamina", GAMEMODE.Colors.Green, 5, inc * 2 )
+				ply:Notice( translate.ClientGet( ply, "rd_notices_plus20_stamina" ), GAMEMODE.Colors.Green, 5, inc * 2 )
 				ply:AddStamina( 20 )
 			
 			end
 		
 		elseif rand == 5 then
 		
-			ply:Notice( "Your whole body aches", GAMEMODE.Colors.Red, 5, inc * 2 )
+			ply:Notice( translate.ClientGet( ply, "rd_notices_your_whole_body_aches" ), GAMEMODE.Colors.Red, 5, inc * 2 )
 			
 			local dmg = math.random(1,5)
 			
@@ -188,20 +188,20 @@ function FUNC_UNMUTAGEN( ply, id, client, icon )
 			
 				local dietime = math.random( 30, 120 )
 			
-				timer.Simple( dietime - 5, function() ply:Notice( "You feel a sharp pain in your chest", GAMEMODE.Colors.Red, 5 ) end )
+				timer.Simple( dietime - 5, function() ply:Notice( translate.ClientGet( ply, "rd_notices_you_feel_a_sharp_pain_in_your_chest" ), GAMEMODE.Colors.Red, 5 ) end )
 				timer.Simple( dietime, function() ply:Kill() end )
 			
 			end
 		
 		elseif rand == 6 then
 		
-			ply:Notice( "Your legs begin to feel weak", GAMEMODE.Colors.Red, 5, inc * 2 )
+			ply:Notice( translate.ClientGet( ply, "rd_notices_your_legs_begin_to_feel_weak" ), GAMEMODE.Colors.Red, 5, inc * 2 )
 			ply:SetWalkSpeed( GAMEMODE.WalkSpeed - 80 )
 			ply:SetRunSpeed( GAMEMODE.RunSpeed - 80 )
 			
 			local legtime = math.random( 20, 60 )
 			
-			timer.Simple( legtime - 5, function() if IsValid( ply ) and ply:Team() == TEAM_ARMY then ply:Notice( "Your legs start to feel better", GAMEMODE.Colors.Green, 5 ) end end )
+			timer.Simple( legtime - 5, function() if IsValid( ply ) and ply:Team() == TEAM_ARMY then ply:Notice( translate.ClientGet( ply, "rd_notices_your_legs_start_to_feel_better" ), GAMEMODE.Colors.Green, 5 ) end end )
 			timer.Simple( legtime, function() if IsValid( ply ) and ply:Team() == TEAM_ARMY then ply:SetWalkSpeed( GAMEMODE.WalkSpeed ) ply:SetRunSpeed( GAMEMODE.RunSpeed ) end end )
 		
 		end
@@ -215,20 +215,20 @@ end
 function FUNC_WRENCH( ply, id, client, icon )
 
 	if icon then return "icon16/cake.png" end
-	if client then return "Eat" end
+	if client then return translate.Get( "rd_ui_shop_eat" ) end
 	
 	ply:RemoveFromInventory( id )
 	ply:EmitSound( "npc/barnacle/barnacle_crunch2.wav", 100, math.random( 90, 110 ) )
 	ply:EmitSound( "weapons/crowbar/crowbar_impact2.wav", 100, math.random( 90, 110 ) )
 	ply:TakeDamage( 20 )
-	ply:Notice( "-20 Health", GAMEMODE.Colors.Red )
-	ply:Notice( "You just ate a fucking wrench", GAMEMODE.Colors.Red )
+	ply:Notice( translate.ClientGet( ply, "rd_notices_minus20_health" ), GAMEMODE.Colors.Red )
+	ply:Notice( translate.ClientGet( ply, "rd_notices_you_just_ate_a_fucking_wrench" ), GAMEMODE.Colors.Red )
 
 end
 
 function FUNC_OPENSUITCASE( ply, id )
 	
-	ply:Notice( "You found some " .. GAMEMODE.CurrencyName .. "s", GAMEMODE.Colors.Green )
+	ply:Notice( translate.ClientGet( ply, "rd_notices_you_found_some_bones" ), GAMEMODE.Colors.Green )
 	ply:EmitSound( Sound( "Chain.ImpactSoft" ) )
 	
 	if math.random(1,10) == 1 then
@@ -270,7 +270,7 @@ function FUNC_OPENBOX( ply, id )
 end
 
 item.Register( { 
-	Name = "Cardboard Box", 
+	Name = "rd_items_cardboard_box_name", 
 	CollisionOverride = true,
 	Type = ITEM_LOOT,
 	Rarity = 0.95,
@@ -280,7 +280,7 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Cardboard Box", 
+	Name = "rd_items_cardboard_box_name", 
 	CollisionOverride = true,
 	Type = ITEM_LOOT,
 	Rarity = 0.95,
@@ -290,7 +290,7 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Cardboard Box", 
+	Name = "rd_items_cardboard_box_name", 
 	CollisionOverride = true,
 	Type = ITEM_LOOT,
 	Rarity = 0.95,
@@ -300,7 +300,7 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Cardboard Box", 
+	Name = "rd_items_cardboard_box_name", 
 	CollisionOverride = true,
 	Type = ITEM_LOOT,
 	Rarity = 0.95,
@@ -310,7 +310,7 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Cardboard Box", 
+	Name = "rd_items_cardboard_box_name", 
 	CollisionOverride = true,
 	Type = ITEM_LOOT,
 	Rarity = 0.95,
@@ -320,7 +320,7 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Cardboard Box", 
+	Name = "rd_items_cardboard_box_name", 
 	CollisionOverride = true,
 	Type = ITEM_LOOT,
 	Rarity = 0.95,
@@ -330,7 +330,7 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Suitcase", 
+	Name = "rd_items_suitcase_name", 
 	CollisionOverride = true,
 	Type = ITEM_LOOT,
 	Rarity = 0.50,
@@ -340,7 +340,7 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Briefcase", 
+	Name = "rd_items_briefcase_name", 
 	CollisionOverride = true,
 	Type = ITEM_LOOT,
 	Rarity = 0.50,
@@ -350,8 +350,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Wood", 
-	Description = "Used in building barricades.",
+	Name = "rd_items_wood_name", 
+	Description = "rd_items_wood_desc",
 	Stackable = true, 
 	Type = ITEM_MISC,
 	Weight = 1.50, 
@@ -364,8 +364,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Water", 
-	Description = "Restores 25 stamina and 10 health.",
+	Name = "rd_items_water_name", 
+	Description = "rd_items_water_desc",
 	Stackable = true, 
 	Type = ITEM_MISC,
 	Weight = 0.15, 
@@ -378,8 +378,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Canned Food", 
-	Description = "Restores 25 health and 10 stamina.",
+	Name = "rd_items_canned_food_name", 
+	Description = "rd_items_canned_food_desc",
 	Stackable = true, 
 	Type = ITEM_MISC,
 	Weight = 0.15, 
@@ -392,8 +392,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Wrench", 
-	Description = "Why would you eat this?",
+	Name = "rd_items_wrench_name", 
+	Description = "rd_items_wrench_desc",
 	Stackable = true, 
 	Type = ITEM_LOOT,
 	Weight = 0.15, 
@@ -406,8 +406,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Unstable Mutagen", 
-	Description = "Prototype drug which may cure the infection.",
+	Name = "rd_items_unstable_name", 
+	Description = "rd_items_unstable_desc",
 	Stackable = true, 
 	Type = ITEM_LOOT,
 	Weight = 0.30, 
@@ -420,8 +420,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Beer", 
-	Description = "Restores 15 stamina.",
+	Name = "rd_items_beer_name", 
+	Description = "rd_items_beer_desc",
 	Stackable = true, 
 	Type = ITEM_LOOT,
 	Weight = 0.30, 
@@ -434,8 +434,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Tequila", 
-	Description = "Don't drink this shit.",
+	Name = "rd_items_tequila_name", 
+	Description = "rd_items_tequila_desc",
 	Stackable = true, 
 	Type = ITEM_LOOT,
 	Weight = 0.30, 
@@ -448,8 +448,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Vodka", 
-	Description = "Releives radiation poisoning.",
+	Name = "rd_items_vodka_name", 
+	Description = "rd_items_vodka_desc",
 	Stackable = true, 
 	Type = ITEM_MISC,
 	Weight = 0.30, 
@@ -462,8 +462,8 @@ item.Register( {
 } )
 
 item.Register( { 
-	Name = "Moonshine Vodka", 
-	Description = "Weaker homebrewed vodka.",
+	Name = "rd_items_moonshine_vodka_name", 
+	Description = "rd_items_moonshine_vodka_desc",
 	Stackable = true, 
 	Type = ITEM_BUYABLE,
 	Weight = 0.30, 

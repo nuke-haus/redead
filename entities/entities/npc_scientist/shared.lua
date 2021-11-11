@@ -83,7 +83,7 @@ function ENT:Heal( ply )
 
 	ply:EmitSound( "HealthVial.Touch", 50, 120 )
 	ply:AddHealth( 20 )
-	ply:Notice( "+20 Health", GAMEMODE.Colors.Green )
+	ply:Notice( translate.ClientGet( ply, "rd_notices_plus20_health" ), GAMEMODE.Colors.Green )
 
 end
 
